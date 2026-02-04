@@ -1,0 +1,197 @@
+name: Build Owlia Bootstrap
+
+on:
+  # Manual trigger with customizable options
+  workflow_dispatch:
+    inputs:
+      arch:
+        description: 'Architecture to build'
+        required: true
+        default: 'aarch64'
+        type: choice
+        options:
+          - aarch64
+          - arm
+          - i686
+          - x86_64
+          - all
+      android10:
+        description: 'Build for Android 10+ (uses proot instead of apt)'
+        required: false
+        default: false
+        type: boolean
+      force_rebuild:
+        description: 'Force rebuild all packages'
+        required: false
+        default: false
+        type: boolean
+
+  # Trigger on push to specific paths
+  push:
+    branches:
+      - master
+      - main
+    paths:
+      - 'scripts/build-owlia-bootstrap.sh'
+      - '.github/workflows/build-bootstrap.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: owlia-bootstrap-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build Bootstrap
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Git clone
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Free up disk space
+        run: |
+          # Remove unnecessary large directories to free up space
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc || true
+          df -h
+
+      - name: Determine architectures
+        id: arch
+        run: |
+          ARCH="${{ inputs.arch || 'aarch64' }}"
+          if [ "$ARCH" = "all" ]; then
+            ARCH="aarch64,arm,i686,x86_64"
+          fi
+          echo "architectures=$ARCH" >> $GITHUB_OUTPUT
+          echo "Building for architectures: $ARCH"
+
+      - name: Build bootstrap archive
+        run: |
+          # Build options
+          BUILD_OPTS="--architectures ${{ steps.arch.outputs.architectures }}"
+          
+          if [ "${{ inputs.android10 }}" = "true" ]; then
+            BUILD_OPTS="$BUILD_OPTS --android10"
+          fi
+          
+          if [ "${{ inputs.force_rebuild }}" = "true" ]; then
+            BUILD_OPTS="$BUILD_OPTS -f"
+          fi
+          
+          echo "Build options: $BUILD_OPTS"
+          
+          # Run the build in Docker
+          ./scripts/run-docker.sh ./scripts/build-owlia-bootstrap.sh $BUILD_OPTS 2>&1 | tee build.log
+          
+          # Show build result
+          ls -lh *.zip 2>/dev/null || echo "No zip files found"
+
+      - name: Upload bootstrap archive
+        uses: actions/upload-artifact@v4
+        with:
+          name: owlia-bootstrap-${{ steps.arch.outputs.architectures }}
+          path: "*.zip"
+          retention-days: 30
+          if-no-files-found: error
+
+      - name: Upload build log
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: build-log
+          path: "build.log"
+          retention-days: 7
+
+  release:
+    name: Create Release
+    needs: build
+    runs-on: ubuntu-24.04
+    if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Git clone
+        uses: actions/checkout@v4
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: owlia-bootstrap-*
+          merge-multiple: true
+          path: ./bootstraps
+
+      - name: List downloaded files
+        run: |
+          echo "Downloaded bootstrap files:"
+          ls -lhR ./bootstraps/
+
+      - name: Generate release tag
+        id: tag
+        run: |
+          DATE_TAG="bootstrap-$(date '+%Y.%m.%d')"
+          
+          # Check for existing tags with same date
+          git fetch --tags
+          EXISTING=$(git tag -l "${DATE_TAG}-r*" | sort -V | tail -1 || true)
+          
+          if [ -n "$EXISTING" ]; then
+            REV=$(echo "$EXISTING" | grep -oP 'r\K\d+' || echo "0")
+            NEW_REV=$((REV + 1))
+          else
+            NEW_REV=1
+          fi
+          
+          TAG_NAME="${DATE_TAG}-r${NEW_REV}+owlia"
+          echo "tag_name=$TAG_NAME" >> $GITHUB_OUTPUT
+          echo "Generated tag: $TAG_NAME"
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG_NAME="${{ steps.tag.outputs.tag_name }}"
+          
+          # Create release notes
+          cat > release_notes.md << 'EOF'
+          ## Owlia Bootstrap Archives
+          
+          Custom bootstrap archives for Owlia Android app with pre-installed packages:
+          
+          - **nodejs-lts** - Node.js LTS runtime
+          - **git** - Git version control
+          - **openssh** - SSH client and server
+          - **openssl** - OpenSSL tools
+          - **termux-api** - Termux:API interface
+          
+          ### Usage
+          
+          Download the appropriate bootstrap archive for your device architecture and extract to the Owlia app data directory.
+          
+          ### Architectures
+          
+          - `aarch64` - 64-bit ARM (most modern Android devices)
+          - `arm` - 32-bit ARM
+          - `x86_64` - 64-bit x86 (emulators, Chromebooks)
+          - `i686` - 32-bit x86
+          EOF
+          
+          # Create release
+          gh release create "$TAG_NAME" \
+            --title "Owlia Bootstrap $TAG_NAME" \
+            --notes-file release_notes.md \
+            ./bootstraps/*.zip
+
+      - name: Summary
+        run: |
+          echo "## Bootstrap Build Complete! :rocket:" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Release Tag:** ${{ steps.tag.outputs.tag_name }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Artifacts" >> $GITHUB_STEP_SUMMARY
+          for f in ./bootstraps/*.zip; do
+            SIZE=$(du -h "$f" | cut -f1)
+            echo "- \`$(basename $f)\` ($SIZE)" >> $GITHUB_STEP_SUMMARY
+          done
