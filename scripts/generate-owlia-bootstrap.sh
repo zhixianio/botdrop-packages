@@ -14,7 +14,8 @@ SCRIPT_DIR="$(dirname "$(realpath "$0")")"
 
 # Owlia additional packages to include in the bootstrap
 OWLIA_PACKAGES=(
-    "nodejs-lts"      # Node.js LTS runtime + npm
+    "nodejs-lts"      # Node.js LTS runtime
+    "npm"             # npm package manager (separate package in Termux)
     "git"             # Git version control
     "openssh"         # SSH client and server
     "openssl"         # OpenSSL tools

@@ -19,7 +19,8 @@ REPO_ROOT="$(realpath "${SCRIPT_DIR}/..")"
 # Owlia additional packages to include in the bootstrap
 # These packages will be pre-installed in the bootstrap archive
 OWLIA_PACKAGES=(
-    "nodejs-lts"      # Node.js LTS runtime + npm (~50MB)
+    "nodejs-lts"      # Node.js LTS runtime (~50MB)
+    "npm"             # npm package manager (separate in Termux)
     "git"             # Git version control (~15MB)
     "openssh"         # SSH client and server (~5MB)
     "openssl"         # OpenSSL tools (~5MB)
