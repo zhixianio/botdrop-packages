@@ -19,11 +19,12 @@ REPO_ROOT="$(realpath "${SCRIPT_DIR}/..")"
 # Owlia additional packages to include in the bootstrap
 # These packages will be pre-installed in the bootstrap archive
 OWLIA_PACKAGES=(
-    "nodejs-lts"      # Node.js LTS runtime (~50MB)
+    "nodejs-lts"      # Node.js LTS runtime + npm (~50MB)
     "git"             # Git version control (~15MB)
     "openssh"         # SSH client and server (~5MB)
     "openssl"         # OpenSSL tools (~5MB)
     "termux-api"      # Termux:API interface (~1MB)
+    "proot"           # proot for /tmp support via termux-chroot (~2MB)
 )
 
 # Convert array to comma-separated list
