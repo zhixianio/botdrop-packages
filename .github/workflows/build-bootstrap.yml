@@ -1,7 +1,6 @@
 name: Build Owlia Bootstrap
 
 on:
-  # Manual trigger with customizable options
   workflow_dispatch:
     inputs:
       arch:
@@ -15,24 +14,14 @@ on:
           - i686
           - x86_64
           - all
-      android10:
-        description: 'Build for Android 10+ (uses proot instead of apt)'
-        required: false
-        default: false
-        type: boolean
-      force_rebuild:
-        description: 'Force rebuild all packages'
-        required: false
-        default: false
-        type: boolean
 
-  # Trigger on push to specific paths
   push:
     branches:
       - master
       - main
     paths:
-      - 'scripts/build-owlia-bootstrap.sh'
+      - 'scripts/generate-owlia-bootstrap.sh'
+      - 'scripts/generate-bootstraps.sh'
       - '.github/workflows/build-bootstrap.yml'
 
 permissions:
@@ -53,12 +42,6 @@ jobs:
         with:
           fetch-depth: 1
 
-      - name: Free up disk space
-        run: |
-          # Remove unnecessary large directories to free up space
-          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc || true
-          df -h
-
       - name: Determine architectures
         id: arch
         run: |
@@ -69,25 +52,15 @@ jobs:
           echo "architectures=$ARCH" >> $GITHUB_OUTPUT
           echo "Building for architectures: $ARCH"
 
-      - name: Build bootstrap archive
+      - name: Generate bootstrap archive
         run: |
-          # Build options
-          BUILD_OPTS="--architectures ${{ steps.arch.outputs.architectures }}"
-          
-          if [ "${{ inputs.android10 }}" = "true" ]; then
-            BUILD_OPTS="$BUILD_OPTS --android10"
-          fi
-          
-          if [ "${{ inputs.force_rebuild }}" = "true" ]; then
-            BUILD_OPTS="$BUILD_OPTS -f"
-          fi
-          
-          echo "Build options: $BUILD_OPTS"
-          
-          # Run the build in Docker
-          ./scripts/run-docker.sh ./scripts/build-owlia-bootstrap.sh $BUILD_OPTS 2>&1 | tee build.log
-          
-          # Show build result
+          echo "Using fast mode: downloading pre-built packages from Termux apt repo"
+          ./scripts/generate-owlia-bootstrap.sh \
+            --architectures ${{ steps.arch.outputs.architectures }} \
+            2>&1 | tee build.log
+
+          echo ""
+          echo "=== Generated files ==="
           ls -lh *.zip 2>/dev/null || echo "No zip files found"
 
       - name: Upload bootstrap archive
@@ -132,18 +105,17 @@ jobs:
         id: tag
         run: |
           DATE_TAG="bootstrap-$(date '+%Y.%m.%d')"
-          
-          # Check for existing tags with same date
+
           git fetch --tags
           EXISTING=$(git tag -l "${DATE_TAG}-r*" | sort -V | tail -1 || true)
-          
+
           if [ -n "$EXISTING" ]; then
             REV=$(echo "$EXISTING" | grep -oP 'r\K\d+' || echo "0")
             NEW_REV=$((REV + 1))
           else
             NEW_REV=1
           fi
-          
+
           TAG_NAME="${DATE_TAG}-r${NEW_REV}+owlia"
           echo "tag_name=$TAG_NAME" >> $GITHUB_OUTPUT
           echo "Generated tag: $TAG_NAME"
@@ -153,32 +125,20 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           TAG_NAME="${{ steps.tag.outputs.tag_name }}"
-          
-          # Create release notes
+
           cat > release_notes.md << 'EOF'
           ## Owlia Bootstrap Archives
-          
-          Custom bootstrap archives for Owlia Android app with pre-installed packages:
-          
-          - **nodejs-lts** - Node.js LTS runtime
+
+          Custom bootstrap archives with pre-installed packages:
+
+          - **nodejs-lts** - Node.js LTS runtime + npm
           - **git** - Git version control
           - **openssh** - SSH client and server
           - **openssl** - OpenSSL tools
           - **termux-api** - Termux:API interface
-          
-          ### Usage
-          
-          Download the appropriate bootstrap archive for your device architecture and extract to the Owlia app data directory.
-          
-          ### Architectures
-          
-          - `aarch64` - 64-bit ARM (most modern Android devices)
-          - `arm` - 32-bit ARM
-          - `x86_64` - 64-bit x86 (emulators, Chromebooks)
-          - `i686` - 32-bit x86
+          - **proot** - proot for /tmp support
           EOF
-          
-          # Create release
+
           gh release create "$TAG_NAME" \
             --title "Owlia Bootstrap $TAG_NAME" \
             --notes-file release_notes.md \
