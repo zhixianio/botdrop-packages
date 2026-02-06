@@ -21,6 +21,7 @@ OWLIA_PACKAGES=(
     "openssl"         # OpenSSL tools
     "termux-api"      # Termux:API interface
     "proot"           # proot for /tmp support via termux-chroot
+    "expect"          # expect for automated password setup
 )
 
 # Convert array to comma-separated list
