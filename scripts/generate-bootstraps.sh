@@ -42,7 +42,7 @@ declare -a ADDITIONAL_PACKAGES
 
 # Check for some important utilities that may not be available for
 # some reason.
-for cmd in ar awk curl grep gzip find sed tar xargs xz zip jq; do
+for cmd in ar awk curl file grep gzip find sed tar xargs xz zip jq; do
 	if [ -z "$(command -v $cmd)" ]; then
 		echo "[!] Utility '$cmd' is not available in PATH."
 		exit 1
@@ -275,6 +275,68 @@ add_termux_bootstrap_second_stage_files() {
 
 }
 
+# Slim down the bootstrap rootfs by stripping binaries and removing
+# non-essential files (docs, man pages, locale, headers, static libs).
+slim_bootstrap() {
+	local package_arch="$1"
+	local strip_tool=""
+
+	# Find appropriate strip tool for target architecture.
+	# We need cross-strip since host (x86_64) != target (aarch64/arm).
+	if command -v llvm-strip &>/dev/null; then
+		strip_tool="llvm-strip"
+	else
+		# Try architecture-specific binutils strip
+		case "$package_arch" in
+			aarch64) strip_tool="aarch64-linux-gnu-strip" ;;
+			arm)     strip_tool="arm-linux-gnueabihf-strip" ;;
+			i686)    strip_tool="i686-linux-gnu-strip" ;;
+			x86_64)  strip_tool="x86_64-linux-gnu-strip" ;;
+		esac
+		if [ -n "$strip_tool" ] && ! command -v "$strip_tool" &>/dev/null; then
+			# Last resort: try host strip (works if host == target)
+			if command -v strip &>/dev/null; then
+				strip_tool="strip"
+			else
+				strip_tool=""
+			fi
+		fi
+	fi
+
+	# Step 1: Strip ELF binaries
+	if [ -n "$strip_tool" ]; then
+		echo "[*] Stripping binaries with ${strip_tool}..."
+		local count=0
+		find "${BOOTSTRAP_ROOTFS}/${TERMUX_PREFIX}" -type f \( -name "*.so" -o -name "*.so.*" -o -executable \) | while read -r f; do
+			if file "$f" | grep -q "ELF"; then
+				$strip_tool --strip-unneeded "$f" 2>/dev/null || true
+				count=$((count + 1))
+			fi
+		done
+		echo "[*] Stripped binaries."
+	else
+		echo "[!] No suitable strip tool found, skipping binary stripping."
+	fi
+
+	# Step 2: Remove non-essential files
+	echo "[*] Cleaning up non-essential files..."
+	rm -rf "${BOOTSTRAP_ROOTFS}/${TERMUX_PREFIX}/share/man"
+	rm -rf "${BOOTSTRAP_ROOTFS}/${TERMUX_PREFIX}/share/doc"
+	rm -rf "${BOOTSTRAP_ROOTFS}/${TERMUX_PREFIX}/share/info"
+	rm -rf "${BOOTSTRAP_ROOTFS}/${TERMUX_PREFIX}/share/gtk-doc"
+	rm -rf "${BOOTSTRAP_ROOTFS}/${TERMUX_PREFIX}/share/locale"
+	rm -rf "${BOOTSTRAP_ROOTFS}/${TERMUX_PREFIX}/include"
+
+	# Remove static libraries
+	find "${BOOTSTRAP_ROOTFS}/${TERMUX_PREFIX}/lib" -name "*.a" -delete 2>/dev/null || true
+
+	# Remove pkg-config files
+	rm -rf "${BOOTSTRAP_ROOTFS}/${TERMUX_PREFIX}/lib/pkgconfig"
+	rm -rf "${BOOTSTRAP_ROOTFS}/${TERMUX_PREFIX}/share/pkgconfig"
+
+	echo "[*] Bootstrap slimming complete."
+}
+
 # Final stage: generate bootstrap archive and place it to current
 # working directory.
 # Information about symlinks is stored in file SYMLINKS.txt.
@@ -498,6 +560,9 @@ for package_arch in "${TERMUX_ARCHITECTURES[@]}"; do
 
 	# Add termux bootstrap second stage files
 	add_termux_bootstrap_second_stage_files "$package_arch"
+
+	# Slim down bootstrap (strip binaries, remove docs/headers/etc).
+	slim_bootstrap "$package_arch"
 
 	# Create bootstrap archive.
 	create_bootstrap_archive "$package_arch"
