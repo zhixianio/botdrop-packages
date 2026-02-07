@@ -14,6 +14,19 @@ on:
           - i686
           - x86_64
           - all
+      force_rebuild:
+        description: 'Force rebuild all packages (ignore cache)'
+        required: false
+        default: false
+        type: boolean
+
+  push:
+    branches:
+      - feature/app-botdrop-prefix
+    paths:
+      - 'scripts/build-owlia-bootstrap.sh'
+      - 'scripts/build-bootstraps.sh'
+      - '.github/workflows/build-bootstrap.yml'
 
 permissions:
   contents: write
@@ -26,7 +39,7 @@ jobs:
   build:
     name: Build Bootstrap from Source
     runs-on: ubuntu-24.04
-    timeout-minutes: 240
+    timeout-minutes: 480
 
     steps:
       - name: Git clone
@@ -67,28 +80,72 @@ jobs:
             exit 1
           fi
 
+      - name: Restore build cache
+        if: ${{ inputs.force_rebuild != 'true' }}
+        uses: actions/cache@v4
+        with:
+          path: ./build-cache
+          key: termux-build-${{ steps.arch.outputs.architectures }}-${{ github.sha }}
+          restore-keys: |
+            termux-build-${{ steps.arch.outputs.architectures }}-
+
+      - name: Prepare build cache directory
+        run: |
+          mkdir -p ./build-cache/.termux-build
+          mkdir -p ./build-cache/output
+          echo "=== Build cache contents ==="
+          du -sh ./build-cache/.termux-build 2>/dev/null || echo "Empty cache"
+          ls ./build-cache/.termux-build 2>/dev/null | head -20 || true
+
+      - name: Pull Docker image
+        run: docker pull ghcr.io/termux/package-builder
+
       - name: Build bootstrap from source
         run: |
           echo "=== Building from SOURCE (not pre-built packages) ==="
           echo "This compiles all packages from scratch so app.botdrop prefix takes effect"
+          echo "Timeout: 8 hours"
           echo ""
 
-          # The build-owlia-bootstrap.sh wraps build-bootstraps.sh which
-          # uses Docker via run-docker.sh. For CI, we run it directly.
-          ./scripts/run-docker.sh ./scripts/build-owlia-bootstrap.sh \
-            --architectures ${{ steps.arch.outputs.architectures }} \
-            2>&1 | tee build.log
+          # Run Docker with explicit cache volume mounts
+          # - Mount repo into container
+          # - Mount build cache so compiled packages survive between CI runs
+          # - Mount output cache for built debs
+          docker run --rm \
+            --init \
+            -v "$PWD:/home/builder/termux-packages" \
+            -v "$PWD/build-cache/.termux-build:/home/builder/.termux-build" \
+            -v "$PWD/build-cache/output:/home/builder/termux-packages/output" \
+            --env CI=true \
+            ghcr.io/termux/package-builder \
+            bash -c '
+              echo "=== Inside Docker container ==="
+              echo "TERMUX_TOPDIR will be: $HOME/.termux-build"
+              ls -la $HOME/.termux-build/ 2>/dev/null | head -5 || echo "No existing build cache"
+
+              # Install llvm-strip and file inside the container for slim_bootstrap
+              apt-get update -q && apt-get install -yq llvm file 2>/dev/null || true
+
+              cd /home/builder/termux-packages
+
+              ./scripts/build-owlia-bootstrap.sh \
+                --architectures '"${{ steps.arch.outputs.architectures }}"'
+            ' 2>&1 | tee build.log
 
           echo ""
           echo "=== Generated files ==="
           ls -lh *.zip 2>/dev/null || echo "No zip files found in root"
           ls -lh output/*.zip 2>/dev/null || echo "No zip files found in output/"
 
+          echo ""
+          echo "=== Build cache size after build ==="
+          du -sh ./build-cache/.termux-build 2>/dev/null || echo "No build cache"
+
       - name: Find bootstrap archives
         id: find
         run: |
           # Find the generated zip files (may be in root or output dir)
-          ZIPS=$(find . -maxdepth 2 -name "*.zip" -type f | head -20)
+          ZIPS=$(find . -maxdepth 2 -name "bootstrap-*.zip" -type f | head -20)
           if [ -z "$ZIPS" ]; then
             echo "ERROR: No bootstrap zip files found!"
             find . -name "bootstrap*" -type f 2>/dev/null || true
@@ -167,12 +224,10 @@ jobs:
           TAG_NAME="${{ steps.tag.outputs.tag_name }}"
 
           cat > release_notes.md << 'NOTES'
-          ## BotDrop Bootstrap Archives (Source Build)
+          ## BotDrop Bootstrap Archives (Source Build + Slim)
 
           Custom bootstrap archives built **from source** with `app.botdrop` package prefix.
-
-          These archives have all packages compiled with the correct package name,
-          unlike the fast-mode builds which use pre-built `com.termux` packages.
+          Optimized with binary stripping and non-essential file removal.
 
           ### Included packages:
           - **nodejs-lts** - Node.js LTS runtime + npm
@@ -181,12 +236,13 @@ jobs:
           - **openssl** - OpenSSL tools
           - **termux-api** - Termux:API interface
           - **proot** - proot for /tmp support
+          - **expect** - expect for automated password setup
 
           ### Package prefix: `app.botdrop`
           NOTES
 
           gh release create "$TAG_NAME" \
-            --title "BotDrop Bootstrap (Source) $TAG_NAME" \
+            --title "BotDrop Bootstrap $TAG_NAME" \
             --notes-file release_notes.md \
             --target feature/app-botdrop-prefix \
             ./bootstraps/*.zip
@@ -197,7 +253,7 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**Release Tag:** ${{ steps.tag.outputs.tag_name }}" >> $GITHUB_STEP_SUMMARY
           echo "**Package Prefix:** app.botdrop" >> $GITHUB_STEP_SUMMARY
-          echo "**Build Type:** Source (compiled from scratch)" >> $GITHUB_STEP_SUMMARY
+          echo "**Build Type:** Source (compiled + slimmed)" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "### Artifacts" >> $GITHUB_STEP_SUMMARY
           for f in ./bootstraps/*.zip; do

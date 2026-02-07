@@ -26,6 +26,7 @@ OWLIA_PACKAGES=(
     "openssl"         # OpenSSL tools (~5MB)
     "termux-api"      # Termux:API interface (~1MB)
     "proot"           # proot for /tmp support via termux-chroot (~2MB)
+    "expect"          # expect for automated password setup (~1MB)
 )
 
 # Convert array to comma-separated list
