@@ -124,7 +124,11 @@ jobs:
               ls -la $HOME/.termux-build/ 2>/dev/null | head -5 || echo "No existing build cache"
 
               # Install llvm-strip and file inside the container for slim_bootstrap
-              apt-get update -q && apt-get install -yq llvm file 2>/dev/null || true
+              # The container runs as builder user, use sudo for apt
+              sudo apt-get update -q
+              sudo apt-get install -yq llvm file
+              echo "llvm-strip location: $(which llvm-strip 2>/dev/null || echo NOT FOUND)"
+              echo "file location: $(which file 2>/dev/null || echo NOT FOUND)"
 
               cd /home/builder/termux-packages
 

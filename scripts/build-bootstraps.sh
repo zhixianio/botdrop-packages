@@ -274,21 +274,94 @@ slim_bootstrap() {
 
 	# Step 2: Remove non-essential files
 	echo "[*] Cleaning up non-essential files..."
-	rm -rf "${BOOTSTRAP_ROOTFS}/${TERMUX_PREFIX}/share/man"
-	rm -rf "${BOOTSTRAP_ROOTFS}/${TERMUX_PREFIX}/share/doc"
-	rm -rf "${BOOTSTRAP_ROOTFS}/${TERMUX_PREFIX}/share/info"
-	rm -rf "${BOOTSTRAP_ROOTFS}/${TERMUX_PREFIX}/share/gtk-doc"
-	rm -rf "${BOOTSTRAP_ROOTFS}/${TERMUX_PREFIX}/share/locale"
-	rm -rf "${BOOTSTRAP_ROOTFS}/${TERMUX_PREFIX}/include"
+	local PREFIX="${BOOTSTRAP_ROOTFS}/${TERMUX_PREFIX}"
+	local before_size=$(du -sm "$PREFIX" 2>/dev/null | cut -f1)
 
-	# Remove static libraries
-	find "${BOOTSTRAP_ROOTFS}/${TERMUX_PREFIX}/lib" -name "*.a" -delete 2>/dev/null || true
+	# Documentation and info
+	rm -rf "$PREFIX"/share/man
+	rm -rf "$PREFIX"/share/doc
+	rm -rf "$PREFIX"/share/info
+	rm -rf "$PREFIX"/share/gtk-doc
+	rm -rf "$PREFIX"/share/locale
 
-	# Remove pkg-config files
-	rm -rf "${BOOTSTRAP_ROOTFS}/${TERMUX_PREFIX}/lib/pkgconfig"
-	rm -rf "${BOOTSTRAP_ROOTFS}/${TERMUX_PREFIX}/share/pkgconfig"
+	# Development headers and build tools
+	rm -rf "$PREFIX"/include
+	rm -rf "$PREFIX"/share/aclocal
+	rm -rf "$PREFIX"/share/cmake
+	rm -rf "$PREFIX"/share/pkgconfig
+	rm -rf "$PREFIX"/lib/pkgconfig
+	rm -rf "$PREFIX"/lib/cmake
+	find "$PREFIX"/lib -name "*.a" -delete 2>/dev/null || true
 
-	echo "[*] Bootstrap slimming complete."
+	# Perl (large, only needed as git build dep, not at runtime)
+	rm -rf "$PREFIX"/lib/perl5
+	rm -rf "$PREFIX"/share/perl5
+	rm -rf "$PREFIX"/bin/perl
+	rm -rf "$PREFIX"/bin/perl5*
+	rm -rf "$PREFIX"/bin/cpan
+	rm -rf "$PREFIX"/bin/enc2xs
+	rm -rf "$PREFIX"/bin/encguess
+	rm -rf "$PREFIX"/bin/h2ph
+	rm -rf "$PREFIX"/bin/h2xs
+	rm -rf "$PREFIX"/bin/instmodsh
+	rm -rf "$PREFIX"/bin/json_pp
+	rm -rf "$PREFIX"/bin/libnetcfg
+	rm -rf "$PREFIX"/bin/piconv
+	rm -rf "$PREFIX"/bin/pl2pm
+	rm -rf "$PREFIX"/bin/pod2*
+	rm -rf "$PREFIX"/bin/prove
+	rm -rf "$PREFIX"/bin/ptar*
+	rm -rf "$PREFIX"/bin/shasum
+	rm -rf "$PREFIX"/bin/splain
+	rm -rf "$PREFIX"/bin/streamzip
+	rm -rf "$PREFIX"/bin/xsubpp
+	rm -rf "$PREFIX"/bin/zipdetails
+	rm -rf "$PREFIX"/bin/corelist
+
+	# XML/docbook schemas (35MB, not needed for CLI usage)
+	rm -rf "$PREFIX"/share/xml/docbook
+	rm -rf "$PREFIX"/share/xml/xsl
+
+	# Tor data files (not a requested package, pulled as dep)
+	rm -rf "$PREFIX"/share/tor
+
+	# Fonts (not needed for CLI)
+	rm -rf "$PREFIX"/share/fonts
+	rm -rf "$PREFIX"/share/fontconfig
+
+	# SWIG interface files
+	rm -rf "$PREFIX"/share/swig
+
+	# X11/XCB data (not needed on Android)
+	rm -rf "$PREFIX"/share/X11
+	rm -rf "$PREFIX"/share/xcb
+
+	# Test infrastructure
+	rm -rf "$PREFIX"/libexec/installed-tests
+
+	# Python: keep only essential modules (needed by some tools)
+	rm -rf "$PREFIX"/lib/python3.*/test
+	rm -rf "$PREFIX"/lib/python3.*/idlelib
+	rm -rf "$PREFIX"/lib/python3.*/tkinter
+	rm -rf "$PREFIX"/lib/python3.*/ensurepip
+	rm -rf "$PREFIX"/lib/python3.*/lib2to3
+	rm -rf "$PREFIX"/lib/python3.*/pydoc_data
+	rm -rf "$PREFIX"/lib/python3.*/config-*
+	rm -rf "$PREFIX"/lib/python3.*/unittest
+	find "$PREFIX"/lib/python3.* -name "__pycache__" -type d -exec rm -rf {} + 2>/dev/null || true
+	find "$PREFIX"/lib/python3.* -name "*.pyc" -delete 2>/dev/null || true
+
+	# Tcl/Tk (pulled as expect dependency, runtime data not needed)
+	rm -rf "$PREFIX"/lib/tcl8.6/tzdata
+	rm -rf "$PREFIX"/lib/tcl8.6/msgs
+	rm -rf "$PREFIX"/lib/tk8.6/demos
+	rm -rf "$PREFIX"/lib/tk8.6/msgs
+
+	# LICENSES directory
+	rm -rf "$PREFIX"/share/LICENSES
+
+	local after_size=$(du -sm "$PREFIX" 2>/dev/null | cut -f1)
+	echo "[*] Bootstrap slimming complete. Size: ${before_size}MB -> ${after_size}MB (saved $((before_size - after_size))MB)"
 }
 
 # Final stage: generate bootstrap archive and place it to current
