@@ -1,45 +1,46 @@
 #!/usr/bin/env bash
 ##
-##  Generate Owlia bootstrap archives using pre-built packages from
-##  the Termux apt repository. Much faster than build-owlia-bootstrap.sh
+##  Generate BotDrop bootstrap archives using pre-built packages from
+##  the Termux apt repository. Much faster than build-botdrop-bootstrap.sh
 ##  which compiles everything from source (~3h vs ~5min).
 ##
 ##  Usage:
-##    ./scripts/generate-owlia-bootstrap.sh [--architectures aarch64]
+##    ./scripts/generate-botdrop-bootstrap.sh [--architectures aarch64]
 ##
 
 set -e
 
 SCRIPT_DIR="$(dirname "$(realpath "$0")")"
 
-# Owlia additional packages to include in the bootstrap
-OWLIA_PACKAGES=(
+# BotDrop additional packages to include in the bootstrap.
+BOTDROP_PACKAGES=(
     "nodejs-lts"      # Node.js LTS runtime
-    "npm"             # npm package manager (separate package in Termux)
+    "npm"             # npm package manager
     "git"             # Git version control
     "openssh"         # SSH client and server
     "openssl"         # OpenSSL tools
     "termux-api"      # Termux:API interface
     "proot"           # proot for /tmp support via termux-chroot
     "expect"          # expect for automated password setup
+    "android-tools"   # adb/fastboot for wireless ADB fallback
 )
 
 # Convert array to comma-separated list
-OWLIA_PACKAGES_CSV=$(IFS=,; echo "${OWLIA_PACKAGES[*]}")
+BOTDROP_PACKAGES_CSV=$(IFS=,; echo "${BOTDROP_PACKAGES[*]}")
 
 echo "========================================"
-echo "  Owlia Bootstrap Generator (fast mode)"
+echo "  BotDrop Bootstrap Generator (fast mode)"
 echo "========================================"
 echo ""
 echo "Additional packages to include:"
-for pkg in "${OWLIA_PACKAGES[@]}"; do
+for pkg in "${BOTDROP_PACKAGES[@]}"; do
     echo "  - ${pkg}"
 done
 echo ""
 echo "Using pre-built packages from Termux apt repo"
 echo "========================================"
 
-# Run the generate-bootstraps.sh with Owlia packages
+# Run generate-bootstraps.sh with BotDrop packages.
 exec "${SCRIPT_DIR}/generate-bootstraps.sh" \
-    --add "${OWLIA_PACKAGES_CSV}" \
+    --add "${BOTDROP_PACKAGES_CSV}" \
     "$@"

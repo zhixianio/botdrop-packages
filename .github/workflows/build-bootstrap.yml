@@ -22,10 +22,15 @@ on:
 
   push:
     branches:
+      - main
+      - master
       - feature/app-botdrop-prefix
     paths:
-      - 'scripts/build-owlia-bootstrap.sh'
+      - 'scripts/build-botdrop-bootstrap.sh'
+      - 'scripts/generate-botdrop-bootstrap.sh'
       - 'scripts/build-bootstraps.sh'
+      - 'scripts/generate-bootstraps.sh'
+      - 'scripts/audit-bootstrap-archive.sh'
       - '.github/workflows/build-bootstrap.yml'
 
 permissions:
@@ -132,7 +137,7 @@ jobs:
 
               cd /home/builder/termux-packages
 
-              ./scripts/build-owlia-bootstrap.sh \
+              ./scripts/build-botdrop-bootstrap.sh \
                 --architectures '"${{ steps.arch.outputs.architectures }}"'
             ' 2>&1 | tee build.log
 
@@ -164,6 +169,14 @@ jobs:
             cp "$z" ./dist/
           done
           ls -lh ./dist/
+
+      - name: Audit bootstrap archives
+        run: |
+          set -e
+          for z in dist/*.zip; do
+            echo "Auditing $z"
+            ./scripts/audit-bootstrap-archive.sh "$z"
+          done
 
       - name: Upload bootstrap archive
         uses: actions/upload-artifact@v4
@@ -241,6 +254,7 @@ jobs:
           - **termux-api** - Termux:API interface
           - **proot** - proot for /tmp support
           - **expect** - expect for automated password setup
+- **android-tools** - adb/fastboot for wireless ADB fallback
 
           ### Package prefix: `app.botdrop`
           NOTES
