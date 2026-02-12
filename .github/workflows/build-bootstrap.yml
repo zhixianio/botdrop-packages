@@ -32,6 +32,7 @@ on:
       - 'scripts/generate-bootstraps.sh'
       - 'scripts/audit-bootstrap-archive.sh'
       - 'packages/termux-tools/**'
+      - 'packages/libgmp/**'
       - '.github/workflows/build-bootstrap.yml'
 
 permissions:
@@ -94,9 +95,11 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ./build-cache
-          key: termux-build-${{ env.CACHE_VERSION }}-${{ runner.os }}-${{ steps.arch.outputs.architectures }}-${{ hashFiles('scripts/build-botdrop-bootstrap.sh', 'scripts/build-bootstraps.sh', 'scripts/properties.sh', '.github/workflows/build-bootstrap.yml') }}
+          key: termux-build-${{ env.CACHE_VERSION }}-${{ runner.os }}-${{ steps.arch.outputs.architectures }}-${{ hashFiles('scripts/build-botdrop-bootstrap.sh', 'scripts/build-bootstraps.sh', 'scripts/properties.sh', 'packages/termux-tools/build.sh', 'packages/libgmp/build.sh') }}
           restore-keys: |
             termux-build-${{ env.CACHE_VERSION }}-${{ runner.os }}-${{ steps.arch.outputs.architectures }}-
+            termux-build-${{ steps.arch.outputs.architectures }}-
+          save-always: true
 
       - name: Prepare build cache directory
         run: |
