@@ -254,7 +254,7 @@ jobs:
           - **termux-api** - Termux:API interface
           - **proot** - proot for /tmp support
           - **expect** - expect for automated password setup
-- **android-tools** - adb/fastboot for wireless ADB fallback
+          - **android-tools** - adb/fastboot for wireless ADB fallback
 
           ### Package prefix: `app.botdrop`
           NOTES
