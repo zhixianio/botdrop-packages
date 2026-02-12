@@ -13,9 +13,27 @@ fi
 
 entries="$(unzip -Z1 "$ZIP_PATH")"
 
+has_line() {
+  local pattern="$1"
+  if command -v rg >/dev/null 2>&1; then
+    rg -qx "$pattern" <<<"$entries"
+  else
+    grep -Fxq "$pattern" <<<"$entries"
+  fi
+}
+
+has_legacy_termux_path() {
+  local content="$1"
+  if command -v rg >/dev/null 2>&1; then
+    rg -q '/data/data/com\.termux' <<<"$content"
+  else
+    grep -Eq '/data/data/com\.termux' <<<"$content"
+  fi
+}
+
 need_entry() {
   local e="$1"
-  if ! rg -qx "$e" <<<"$entries"; then
+  if ! has_line "$e"; then
     echo "ERROR: missing entry: $e" >&2
     return 1
   fi
@@ -29,7 +47,7 @@ need_entry "bin/pkg"
 need_entry "etc/apt/sources.list"
 need_entry "etc/profile"
 
-if ! rg -qx "bin/adb" <<<"$entries"; then
+if ! has_line "bin/adb"; then
   echo "ERROR: missing bin/adb" >&2
   exit 1
 fi
@@ -48,11 +66,11 @@ declare -a files=(
 
 legacy_hits=0
 for f in "${files[@]}"; do
-  if ! rg -qx "$f" <<<"$entries"; then
+  if ! has_line "$f"; then
     continue
   fi
   content="$(unzip -p "$ZIP_PATH" "$f" 2>/dev/null || true)"
-  if echo "$content" | rg -q '/data/data/com\.termux'; then
+  if has_legacy_termux_path "$content"; then
     echo "ERROR: legacy com.termux path found in $f" >&2
     legacy_hits=$((legacy_hits + 1))
   fi
