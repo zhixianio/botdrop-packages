@@ -21,6 +21,17 @@ TERMUX_PKG_DEPENDS="bzip2, coreutils, curl, dash, diffutils, findutils, gawk, gr
 # Optional packages that are distributed as part of bootstrap archives.
 TERMUX_PKG_RECOMMENDS="ed, dos2unix, inetutils, net-tools, patch, unzip"
 
+termux_step_configure() {
+	TERMUX_APP_PACKAGE="$TERMUX_APP_PACKAGE" \
+	TERMUX_BASE_DIR="$TERMUX_BASE_DIR" \
+	TERMUX_CACHE_DIR="$TERMUX_CACHE_DIR" \
+	TERMUX_PREFIX="$TERMUX_PREFIX" \
+	TERMUX_ANDROID_HOME="$TERMUX_ANDROID_HOME" \
+	TERMUX_PACKAGE_FORMAT="$TERMUX_PACKAGE_FORMAT" \
+	TERMUX_PACKAGE_MANAGER="$TERMUX_PACKAGE_MANAGER" \
+	termux_step_configure_autotools
+}
+
 termux_step_pre_configure() {
 	autoreconf -vfi
 }

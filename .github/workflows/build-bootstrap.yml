@@ -31,6 +31,7 @@ on:
       - 'scripts/build-bootstraps.sh'
       - 'scripts/generate-bootstraps.sh'
       - 'scripts/audit-bootstrap-archive.sh'
+      - 'packages/termux-tools/**'
       - '.github/workflows/build-bootstrap.yml'
 
 permissions:
@@ -39,6 +40,9 @@ permissions:
 concurrency:
   group: botdrop-bootstrap-src-${{ github.ref }}
   cancel-in-progress: true
+
+env:
+  CACHE_VERSION: v2
 
 jobs:
   build:
@@ -90,9 +94,9 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ./build-cache
-          key: termux-build-${{ steps.arch.outputs.architectures }}-${{ github.sha }}
+          key: termux-build-${{ env.CACHE_VERSION }}-${{ runner.os }}-${{ steps.arch.outputs.architectures }}-${{ hashFiles('scripts/build-botdrop-bootstrap.sh', 'scripts/build-bootstraps.sh', 'scripts/properties.sh', '.github/workflows/build-bootstrap.yml') }}
           restore-keys: |
-            termux-build-${{ steps.arch.outputs.architectures }}-
+            termux-build-${{ env.CACHE_VERSION }}-${{ runner.os }}-${{ steps.arch.outputs.architectures }}-
 
       - name: Prepare build cache directory
         run: |
