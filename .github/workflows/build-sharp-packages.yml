@@ -1,0 +1,203 @@
+name: Build Sharp Packages
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: 'Release tag (leave empty for auto-generated)'
+        required: false
+        default: ''
+  push:
+    branches:
+      - master
+    paths:
+      - 'scripts/build-sharp-packages.sh'
+      - 'scripts/create-botdrop-repo.sh'
+      - '.github/workflows/build-sharp-packages.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build-packages:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1000
+
+      - name: Free up disk space
+        run: |
+          echo "Disk space before cleanup:"
+          df -h
+
+          # Remove unnecessary packages
+          sudo apt-get remove -y '^dotnet-.*' '^llvm-.*' 'php.*' '^mongodb-.*' '^mysql-.*' azure-cli google-cloud-sdk hhvm google-chrome-stable firefox powershell mono-devel || true
+          sudo apt-get autoremove -y
+          sudo apt-get clean
+
+          # Remove large directories
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL || true
+
+          echo "Disk space after cleanup:"
+          df -h
+
+      - name: Build sharp packages in Docker
+        run: |
+          echo "Starting package build..."
+          ./scripts/run-docker.sh ./scripts/build-sharp-packages.sh aarch64 ./debs-output
+
+      - name: Verify build output
+        run: |
+          echo "Checking build output..."
+          ls -lh ./debs-output/*.deb 2>/dev/null || {
+            echo "❌ No .deb files found in debs-output/"
+            exit 1
+          }
+
+          echo "✅ Found $(ls -1 ./debs-output/*.deb | wc -l) .deb files"
+
+      - name: Create APT repository
+        run: |
+          echo "Creating APT repository..."
+          chmod +x ./scripts/create-botdrop-repo.sh
+          ./scripts/create-botdrop-repo.sh ./debs-output ./botdrop-repo aarch64
+
+      - name: Upload repository artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: botdrop-repo-aarch64
+          path: botdrop-repo-aarch64.zip
+          retention-days: 30
+          compression-level: 0  # Already compressed
+
+  publish:
+    needs: build-packages
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master' || github.event_name == 'workflow_dispatch'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download repository artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: botdrop-repo-aarch64
+          path: ./
+
+      - name: Generate release tag
+        id: tag
+        run: |
+          if [ -n "${{ github.event.inputs.release_tag }}" ]; then
+            TAG="${{ github.event.inputs.release_tag }}"
+          else
+            # Auto-generate tag: packages-YYYY.MM.DD-rN
+            BASE_TAG="packages-$(date '+%Y.%m.%d')"
+
+            # Find existing tags with same date
+            EXISTING=$(git tag -l "${BASE_TAG}*" | sort -V | tail -1 || echo "")
+
+            if [ -n "$EXISTING" ]; then
+              # Extract revision number and increment
+              REV=$(echo "$EXISTING" | grep -oE 'r[0-9]+$' | sed 's/r//' || echo "0")
+              REV=$((REV + 1))
+              TAG="${BASE_TAG}-r${REV}"
+            else
+              TAG="${BASE_TAG}-r1"
+            fi
+          fi
+
+          echo "tag=$TAG" >> $GITHUB_OUTPUT
+          echo "Generated release tag: $TAG"
+
+      - name: Check if release exists
+        id: check_release
+        run: |
+          if gh release view "${{ steps.tag.outputs.tag }}" >/dev/null 2>&1; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+            echo "⚠️  Release ${{ steps.tag.outputs.tag }} already exists"
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+            echo "✅ Release ${{ steps.tag.outputs.tag }} does not exist, will create"
+          fi
+        env:
+          GH_TOKEN: ${{ github.token }}
+
+      - name: Create GitHub Release
+        if: steps.check_release.outputs.exists == 'false'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # Get package count from repository
+          REPO_ZIP="botdrop-repo-aarch64.zip"
+          PKG_COUNT=$(unzip -l "$REPO_ZIP" | grep -c '\.deb$' || echo "unknown")
+
+          # Get archive size
+          ARCHIVE_SIZE=$(du -h "$REPO_ZIP" | cut -f1)
+
+          gh release create "${{ steps.tag.outputs.tag }}" \
+            --title "BotDrop Packages - ${{ steps.tag.outputs.tag }}" \
+            --notes "## BotDrop Package Repository
+
+          This release contains a custom APT repository for BotDrop with sharp/libvips support.
+
+          ### 📦 Contents
+          - **Packages:** $PKG_COUNT .deb files
+          - **Architecture:** aarch64
+          - **Archive size:** $ARCHIVE_SIZE
+
+          ### 🎯 Included Software
+          - \`libvips\` - Image processing library (core of sharp)
+          - 26 image format dependencies (JPEG, PNG, WebP, HEIF, etc.)
+          - 6 build tools (needed when npm builds sharp from source)
+
+          ### 📱 Usage (Automatic)
+          BotDrop app automatically configures this repository on first launch.
+          Users can then install packages with:
+          \`\`\`bash
+          pkg update
+          pkg install libvips
+          npm install sharp
+          \`\`\`
+
+          ### 🔧 Manual Configuration (Advanced)
+          If you need to manually configure the repository:
+          \`\`\`bash
+          echo 'deb https://github.com/${{ github.repository }}/releases/download/${{ steps.tag.outputs.tag }}/ stable main' > \$PREFIX/etc/apt/sources.list.d/botdrop-packages.list
+          pkg update
+          \`\`\`
+
+          ### 🏗️ Build Information
+          - **Built:** $(date -u +'%Y-%m-%d %H:%M:%S UTC')
+          - **Commit:** ${{ github.sha }}
+          - **Workflow:** ${{ github.run_id }}
+
+          ---
+          *Built with BotDrop package build system*" \
+            "$REPO_ZIP"
+
+          echo "✅ Release created successfully: ${{ steps.tag.outputs.tag }}"
+
+      - name: Update packages-latest tag
+        if: steps.check_release.outputs.exists == 'false'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # Delete existing packages-latest tag if it exists
+          git tag -d packages-latest 2>/dev/null || true
+          git push origin :refs/tags/packages-latest 2>/dev/null || true
+
+          # Create new packages-latest tag pointing to this release
+          git tag packages-latest
+          git push origin packages-latest
+
+          # Update the release to be named packages-latest as well
+          gh release view packages-latest --json assets -q '.assets[].name' | \
+            xargs -I {} gh release delete-asset packages-latest {} -y 2>/dev/null || true
+
+          gh release upload packages-latest "botdrop-repo-aarch64.zip" --clobber
+
+          echo "✅ Updated packages-latest tag to point to ${{ steps.tag.outputs.tag }}"
