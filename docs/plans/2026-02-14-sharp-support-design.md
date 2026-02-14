@@ -289,11 +289,17 @@ jobs:
 **需要修改的文件：** `termux-shared/src/main/java/com/termux/shared/termux/TermuxBootstrap.java`
 或相关的 bootstrap 初始化代码。
 
+**仓库 URL（已发布）：**
+```
+https://github.com/zhixianio/botdrop-packages/releases/download/packages-latest/
+```
+
 **添加常量（TermuxConstants.java）：**
 
 ```java
 /**
  * BotDrop custom packages repository URL
+ * Provides libvips and dependencies for sharp image processing
  */
 public static final String BOTDROP_PACKAGES_REPO_URL =
     "https://github.com/zhixianio/botdrop-packages/releases/download/packages-latest/";
@@ -490,8 +496,13 @@ botdrop-packages/
 ```
 
 ### GitHub Release 产物
+
+**Release URL:** https://github.com/zhixianio/botdrop-packages/releases/tag/packages-latest
+
+**Latest Release:** packages-2026.02.14-r1 (33 packages, 32 MB)
+
 ```
-Release: packages-2026.02.14-r1
+Release: packages-2026.02.14-r1 / packages-latest
 └── botdrop-repo-aarch64.zip
     └── botdrop-repo/
         ├── pool/main/
