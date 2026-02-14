@@ -190,23 +190,25 @@ jobs:
 
           echo "✅ Release created successfully: ${{ steps.tag.outputs.tag }}"
 
-      - name: Update packages-latest tag
+      - name: Update packages-latest release
         if: steps.check_release.outputs.exists == 'false'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          # Delete existing packages-latest tag if it exists
-          git tag -d packages-latest 2>/dev/null || true
+          # Delete existing packages-latest release and tag if they exist
+          gh release delete packages-latest -y 2>/dev/null || true
           git push origin :refs/tags/packages-latest 2>/dev/null || true
 
-          # Create new packages-latest tag pointing to this release
-          git tag packages-latest
-          git push origin packages-latest
+          # Create new packages-latest release
+          gh release create packages-latest \
+            --title "BotDrop Packages - Latest" \
+            --notes "Latest stable package repository for BotDrop.
 
-          # Update the release to be named packages-latest as well
-          gh release view packages-latest --json assets -q '.assets[].name' | \
-            xargs -I {} gh release delete-asset packages-latest {} -y 2>/dev/null || true
+          This is an alias that always points to the most recent successful build.
 
-          gh release upload packages-latest "botdrop-repo-aarch64.zip" --clobber
+          **Current version:** ${{ steps.tag.outputs.tag }}
 
-          echo "✅ Updated packages-latest tag to point to ${{ steps.tag.outputs.tag }}"
+          For detailed release notes, see: https://github.com/${{ github.repository }}/releases/tag/${{ steps.tag.outputs.tag }}" \
+            "botdrop-repo-aarch64.zip"
+
+          echo "✅ Updated packages-latest release to point to ${{ steps.tag.outputs.tag }}"
