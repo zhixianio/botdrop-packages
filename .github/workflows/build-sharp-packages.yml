@@ -7,6 +7,18 @@ on:
         description: 'Release tag (leave empty for auto-generated)'
         required: false
         default: ''
+      sharp_addon_deb:
+        description: 'Optional sharp-node-addon .deb (file path or URL)'
+        required: false
+        default: ''
+      require_sharp_addon:
+        description: 'Fail if sharp-node-addon is not available'
+        required: false
+        type: choice
+        default: 'false'
+        options:
+          - 'false'
+          - 'true'
   push:
     branches:
       - master
@@ -49,6 +61,49 @@ jobs:
           echo "Starting package build..."
           ./scripts/run-docker.sh ./scripts/build-sharp-packages.sh aarch64 ./debs-output
 
+      - name: Resolve sharp-node-addon source
+        id: sharp_addon
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SHARP_ADDON_INPUT: ${{ github.event.inputs.sharp_addon_deb }}
+        run: |
+          addon_source=""
+          addon_file=""
+
+          if [ -n "$SHARP_ADDON_INPUT" ]; then
+            addon_source="$SHARP_ADDON_INPUT"
+          else
+            tmp_dir="$RUNNER_TEMP/sharp-addon"
+            mkdir -p "$tmp_dir"
+            if gh release download packages-latest -p "sharp-node-addon_*_aarch64.deb" -D "$tmp_dir" --clobber; then
+              addon_file="$(find "$tmp_dir" -maxdepth 1 -name 'sharp-node-addon_*_aarch64.deb' -print -quit)"
+              if [ -n "$addon_file" ]; then
+                addon_source="$addon_file"
+              fi
+            fi
+          fi
+
+          echo "source=${addon_source}" >> "$GITHUB_OUTPUT"
+          if [ -n "$addon_source" ]; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Import sharp-node-addon (.deb)
+        if: steps.sharp_addon.outputs.enabled == 'true'
+        run: |
+          ./scripts/import-sharp-addon.sh "${{ steps.sharp_addon.outputs.source }}" ./debs-output
+
+      - name: Handle missing sharp-node-addon
+        if: steps.sharp_addon.outputs.enabled != 'true'
+        run: |
+          if [ "${{ github.event.inputs.require_sharp_addon }}" = "true" ]; then
+            echo "sharp-node-addon not found but require_sharp_addon=true"
+            exit 1
+          fi
+          echo "No sharp-node-addon imported (optional)."
+
       - name: Verify build output
         run: |
           echo "Checking build output..."
@@ -87,6 +142,19 @@ jobs:
         with:
           name: botdrop-repo-aarch64
           path: ./
+
+      - name: Validate repository manifest
+        run: |
+          unzip -q -d /tmp/botdrop-repo-validate botdrop-repo-aarch64.zip
+          if [ "${{ github.event.inputs.require_sharp_addon }}" = "true" ]; then
+            if ! grep -q '^Package: sharp-node-addon$' /tmp/botdrop-repo-validate/dists/stable/main/binary-aarch64/Packages; then
+              echo "sharp-node-addon missing from repository manifest"
+              exit 1
+            fi
+            echo "✅ sharp-node-addon found in repository manifest"
+          else
+            echo "Optional package validation skipped for sharp-node-addon."
+          fi
 
       - name: Generate release tag
         id: tag
