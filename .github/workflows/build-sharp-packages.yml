@@ -19,6 +19,22 @@ on:
         options:
           - 'false'
           - 'true'
+      update_latest:
+        description: 'Update packages-latest alias on manual dispatch'
+        required: false
+        type: choice
+        default: 'false'
+        options:
+          - 'false'
+          - 'true'
+      force_push_latest:
+        description: 'Force update packages-latest tag (useful for tests and retries)'
+        required: false
+        type: choice
+        default: 'true'
+        options:
+          - 'false'
+          - 'true'
   push:
     branches:
       - master
@@ -250,22 +266,54 @@ jobs:
           echo "✅ Release created successfully: ${{ steps.tag.outputs.tag }}"
 
       - name: Update packages-latest tag
-        if: steps.check_release.outputs.exists == 'false'
+        if: steps.check_release.outputs.exists == 'false' && (github.ref == 'refs/heads/master' || github.event.inputs.update_latest == 'true')
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          # Delete existing packages-latest tag if it exists
-          git tag -d packages-latest 2>/dev/null || true
-          git push origin :refs/tags/packages-latest 2>/dev/null || true
+          set -euo pipefail
 
-          # Create new packages-latest tag pointing to this release
-          git tag packages-latest
-          git push origin packages-latest
+          START_TS=$(date +%s)
+          REPO_ZIP="botdrop-repo-aarch64.zip"
+          CURRENT_TAG="${{ steps.tag.outputs.tag }}"
+          FORCE_PUSH="${{ github.event.inputs.force_push_latest }}"
+          UPDATED_LATEST="false"
 
-          # Update the release to be named packages-latest as well
-          gh release view packages-latest --json assets -q '.assets[].name' | \
-            xargs -I {} gh release delete-asset packages-latest {} -y 2>/dev/null || true
+          echo "Starting packages-latest update workflow"
+          echo "- Current branch/ref: ${GITHUB_REF}"
+          echo "- Current commit: ${GITHUB_SHA}"
+          echo "- Release tag: ${CURRENT_TAG}"
+          echo "- force_push_latest: ${FORCE_PUSH}"
 
-          gh release upload packages-latest "botdrop-repo-aarch64.zip" --clobber
+          # Keep local and remote tags in sync before forcing the alias update
+          git fetch --tags origin
 
-          echo "✅ Updated packages-latest tag to point to ${{ steps.tag.outputs.tag }}"
+          # Create/overwrite packages-latest to point to current commit
+          git tag -f packages-latest "${GITHUB_SHA}"
+
+          if [ "${FORCE_PUSH}" = "true" ]; then
+            git push --force origin packages-latest
+          else
+            git push origin packages-latest
+          fi
+
+          # Keep packages-latest release in sync with alias content
+          if gh release view packages-latest >/dev/null 2>&1; then
+            gh release view packages-latest --json assets -q '.assets[].name' |
+              xargs -r -I {} gh release delete-asset packages-latest {} -y || true
+            gh release upload packages-latest "$REPO_ZIP" --clobber
+          else
+            gh release create packages-latest \
+              --title "BotDrop Packages - Latest" \
+              --notes "Stable alias for the latest packaged repository (aarch64)." \
+              "$REPO_ZIP"
+          fi
+
+          UPDATED_LATEST="true"
+
+          END_TS=$(date +%s)
+          DURATION=$(( END_TS - START_TS ))
+
+          echo "✅ Updated packages-latest to commit ${GITHUB_SHA}"
+          echo "Latest alias tag now points to: $CURRENT_TAG"
+          echo "Update elapsed: ${DURATION}s"
+          echo "Updated packages-latest: ${UPDATED_LATEST}"
