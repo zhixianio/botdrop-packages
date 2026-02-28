@@ -11,6 +11,22 @@ on:
         description: 'Optional sharp-node-addon .deb (file path or URL)'
         required: false
         default: ''
+      sharp_addon_channel_tag:
+        description: 'Release tag that carries sharp-node-addon (e.g. sharp-node-addon-latest)'
+        required: false
+        default: 'sharp-node-addon-latest'
+      sharp_addon_channel_prefix:
+        description: 'Fallback release prefix when channel tag is missing'
+        required: false
+        default: 'sharp-node-addon-'
+      publish_sharp_addon:
+        description: 'Sync found sharp-node-addon into sharp_addon_channel_tag as prerelease'
+        required: false
+        type: choice
+        default: 'false'
+        options:
+          - 'false'
+          - 'true'
       require_sharp_addon:
         description: 'Fail if sharp-node-addon is not available'
         required: false
@@ -83,62 +99,114 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           SHARP_ADDON_INPUT: ${{ github.event.inputs.sharp_addon_deb }}
           RELEASE_TAG: ${{ github.event.inputs.release_tag || '' }}
+          SHARP_ADDON_CHANNEL_TAG: ${{ github.event.inputs.sharp_addon_channel_tag }}
+          SHARP_ADDON_CHANNEL_PREFIX: ${{ github.event.inputs.sharp_addon_channel_prefix }}
           REPO: ${{ github.repository }}
         run: |
           addon_source=""
+          source_is_url="false"
+          addon_found_from=""
+          tmp_dir="$RUNNER_TEMP/sharp-addon"
+          mkdir -p "$tmp_dir"
+          set -euo pipefail
+
+          download_from_release() {
+            local tag="$1"
+            local addon_file
+
+            [ -n "$tag" ] || return 1
+            rm -f "$tmp_dir"/sharp-node-addon_*_aarch64.deb
+
+            if gh release download "$tag" -R "$REPO" -p "sharp-node-addon_*_aarch64.deb" -D "$tmp_dir" --clobber; then
+              addon_file="$(find "$tmp_dir" -maxdepth 1 -name 'sharp-node-addon_*_aarch64.deb' -print -quit)"
+              if [ -n "$addon_file" ]; then
+                addon_source="$addon_file"
+                return 0
+              fi
+            fi
+            return 1
+          }
 
           if [ -n "${SHARP_ADDON_INPUT:-}" ]; then
             addon_source="$SHARP_ADDON_INPUT"
-          else
-            tmp_dir="$RUNNER_TEMP/sharp-addon"
-            mkdir -p "$tmp_dir"
-            found=0
-
-            candidate_tags=()
-            if [ -n "${RELEASE_TAG}" ]; then
-              candidate_tags+=("${RELEASE_TAG}")
+            addon_found_from="input"
+            if [[ "$addon_source" =~ ^https?:// ]]; then
+              source_is_url="true"
             fi
-            candidate_tags+=(packages-latest)
-
-            for tag in "${candidate_tags[@]}"; do
-              if [ "$found" = "1" ] || [ -z "$tag" ]; then
-                continue
-              fi
-              if gh release download "$tag" -R "$REPO" -p "sharp-node-addon_*_aarch64.deb" -D "$tmp_dir" --clobber; then
-                addon_file="$(find "$tmp_dir" -maxdepth 1 -name 'sharp-node-addon_*_aarch64.deb' -print -quit)"
-                if [ -n "$addon_file" ]; then
-                  addon_source="$addon_file"
-                  found=1
-                fi
-              fi
-            done
-
-            if [ "$found" = "0" ]; then
+          else
+            if download_from_release "$RELEASE_TAG"; then
+              addon_found_from="release:${RELEASE_TAG}"
+            elif download_from_release "$SHARP_ADDON_CHANNEL_TAG"; then
+              addon_found_from="channel:${SHARP_ADDON_CHANNEL_TAG}"
+            elif [ -n "${SHARP_ADDON_CHANNEL_PREFIX:-}" ]; then
               while IFS= read -r tag; do
-                [ -n "$tag" ] || continue
-                [ "$tag" = "packages-latest" ] && continue
-                if gh release download "$tag" -R "$REPO" -p "sharp-node-addon_*_aarch64.deb" -D "$tmp_dir" --clobber; then
-                  addon_file="$(find "$tmp_dir" -maxdepth 1 -name 'sharp-node-addon_*_aarch64.deb' -print -quit)"
-                  if [ -n "$addon_file" ]; then
-                    addon_source="$addon_file"
-                    break
-                  fi
+                case "$tag" in
+                  "${SHARP_ADDON_CHANNEL_PREFIX}"*) ;;
+                  *) continue ;;
+                esac
+
+                if download_from_release "$tag"; then
+                  addon_found_from="fallback:${tag}"
+                  break
                 fi
-              done < <(gh release list -R "$REPO" --limit 30 --json tagName,isPrerelease,isDraft --jq 'map(select((.isPrerelease == false) and (.isDraft == false)) | .tagName) | .[]')
+              done < <(gh release list -R "$REPO" --limit 200 --json tagName,isDraft --jq '[.[] | select(.isDraft == false)] | .[] | .tagName')
             fi
           fi
 
-          echo "source=${addon_source}" >> "$GITHUB_OUTPUT"
+          echo "source_file=${addon_source}" >> "$GITHUB_OUTPUT"
+          echo "source_is_url=${source_is_url}" >> "$GITHUB_OUTPUT"
+          echo "found_from=${addon_found_from}" >> "$GITHUB_OUTPUT"
           if [ -n "$addon_source" ]; then
+            echo "sharp-node-addon source resolved: ${addon_source}"
+            echo "sharp-node-addon source via: ${addon_found_from:-manual}"
             echo "enabled=true" >> "$GITHUB_OUTPUT"
           else
+            echo "sharp-node-addon source not found (input/channel empty)."
             echo "enabled=false" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Import sharp-node-addon (.deb)
         if: steps.sharp_addon.outputs.enabled == 'true'
         run: |
-          ./scripts/import-sharp-addon.sh "${{ steps.sharp_addon.outputs.source }}" ./debs-output
+          ./scripts/import-sharp-addon.sh "${{ steps.sharp_addon.outputs.source_file }}" ./debs-output
+
+      - name: Sync sharp-node-addon to dedicated prerelease channel
+        if: steps.sharp_addon.outputs.enabled == 'true' && github.event.inputs.publish_sharp_addon == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SHARP_ADDON_CHANNEL_TAG: ${{ github.event.inputs.sharp_addon_channel_tag }}
+        run: |
+          if [ -z "${SHARP_ADDON_CHANNEL_TAG:-}" ]; then
+            echo "skip: sharp_addon_channel_tag is empty"
+            exit 0
+          fi
+
+          SOURCE_FILE="${{ steps.sharp_addon.outputs.source_file }}"
+          UPLOAD_FILE="$SOURCE_FILE"
+
+          if [ "${{ steps.sharp_addon.outputs.source_is_url }}" = "true" ]; then
+            echo "source is URL, downloading to temporary file for channel sync"
+            TMP_FILE="$(mktemp)"
+            trap 'rm -f "$TMP_FILE"' EXIT
+            if ! curl -fsSL "$SOURCE_FILE" -o "$TMP_FILE"; then
+              echo "skip: failed to download source URL for channel sync: ${SOURCE_FILE}"
+              exit 0
+            fi
+            UPLOAD_FILE="$TMP_FILE"
+          elif [ ! -f "$UPLOAD_FILE" ]; then
+            echo "skip: channel sync requires local file, got: ${UPLOAD_FILE}"
+            exit 0
+          fi
+
+          if gh release view "$SHARP_ADDON_CHANNEL_TAG" >/dev/null 2>&1; then
+            gh release upload "$SHARP_ADDON_CHANNEL_TAG" "$UPLOAD_FILE" --clobber
+          else
+            gh release create "$SHARP_ADDON_CHANNEL_TAG" \
+              --title "Sharp node-addon channel - $SHARP_ADDON_CHANNEL_TAG" \
+              --notes "Automated channel for sharp-node-addon artifacts used by Deploy BotDrop APT Repo." \
+              --prerelease \
+              "$UPLOAD_FILE"
+          fi
 
       - name: Handle missing sharp-node-addon
         if: steps.sharp_addon.outputs.enabled != 'true'
