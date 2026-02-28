@@ -1,0 +1,207 @@
+name: Deploy BotDrop APT Repo
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: 'Release tag (leave empty for auto-generated)'
+        required: false
+        default: ''
+      sharp_addon_deb:
+        description: 'Optional sharp-node-addon .deb (file path or URL)'
+        required: false
+        default: ''
+      require_sharp_addon:
+        description: 'Fail if sharp-node-addon is not available'
+        required: false
+        type: choice
+        default: 'false'
+        options:
+          - 'false'
+          - 'true'
+  push:
+    branches:
+      - master
+    paths:
+      - 'scripts/build-sharp-packages.sh'
+      - 'scripts/create-botdrop-repo.sh'
+      - '.github/workflows/deploy-apt-repo.yml'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+
+    steps:
+      - name: Checkout master
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Free disk space
+        run: |
+          sudo apt-get remove -y '^dotnet-.*' '^llvm-.*' 'php.*' '^mongodb-.*' '^mysql-.*' azure-cli google-cloud-sdk hhvm google-chrome-stable firefox powershell mono-devel || true
+          sudo apt-get autoremove -y
+          sudo apt-get clean
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL || true
+          df -h
+
+      - name: Build sharp packages in Docker
+        run: ./scripts/run-docker.sh ./scripts/build-sharp-packages.sh aarch64 ./debs-output
+
+      - name: Verify build output
+        run: |
+          ls -lh ./debs-output/*.deb
+          echo "Deb count: $(ls -1 ./debs-output/*.deb | wc -l)"
+
+      - name: Resolve sharp-node-addon source
+        id: sharp_addon
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SHARP_ADDON_INPUT: ${{ github.event.inputs.sharp_addon_deb }}
+        run: |
+          addon_source=""
+          addon_file=""
+
+          if [ -n "$SHARP_ADDON_INPUT" ]; then
+            addon_source="$SHARP_ADDON_INPUT"
+          else
+            tmp_dir="$RUNNER_TEMP/sharp-addon"
+            mkdir -p "$tmp_dir"
+            if gh release download packages-latest -p "sharp-node-addon_*_aarch64.deb" -D "$tmp_dir" --clobber; then
+              addon_file="$(find "$tmp_dir" -maxdepth 1 -name 'sharp-node-addon_*_aarch64.deb' -print -quit)"
+              if [ -n "$addon_file" ]; then
+                addon_source="$addon_file"
+              fi
+            fi
+          fi
+
+          echo "source=${addon_source}" >> "$GITHUB_OUTPUT"
+          if [ -n "$addon_source" ]; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Import sharp-node-addon (.deb)
+        if: steps.sharp_addon.outputs.enabled == 'true'
+        run: |
+          ./scripts/import-sharp-addon.sh "${{ steps.sharp_addon.outputs.source }}" ./debs-output
+
+      - name: Handle missing sharp-node-addon
+        if: steps.sharp_addon.outputs.enabled != 'true'
+        run: |
+          if [ "${{ github.event.inputs.require_sharp_addon }}" = "true" ]; then
+            echo "sharp-node-addon not found but require_sharp_addon=true"
+            exit 1
+          fi
+          echo "No sharp-node-addon imported (optional)."
+
+      - name: Checkout gh-pages (existing repo state)
+        uses: actions/checkout@v4
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages-existing
+
+      - name: Ensure gh-pages dir exists
+        run: mkdir -p gh-pages-existing
+
+      - name: Create merged APT repository for Pages
+        run: |
+          chmod +x ./scripts/create-botdrop-repo.sh
+          ./scripts/create-botdrop-repo.sh \
+            ./debs-output \
+            ./site-root \
+            aarch64 \
+            --merge-existing ./gh-pages-existing \
+            --no-archive
+
+      - name: Archive repository backup
+        run: |
+          (cd . && zip -r -q botdrop-repo-aarch64.zip site-root)
+
+      - name: Generate release tag
+        id: tag
+        run: |
+          if [ -n "${{ github.event.inputs.release_tag }}" ]; then
+            TAG="${{ github.event.inputs.release_tag }}"
+          else
+            BASE_TAG="packages-$(date '+%Y.%m.%d')"
+            EXISTING=$(git tag -l "${BASE_TAG}*" | sort -V | tail -1 || echo "")
+            if [ -n "$EXISTING" ]; then
+              REV=$(echo "$EXISTING" | grep -oE 'r[0-9]+$' | sed 's/r//' || echo "0")
+              REV=$((REV + 1))
+              TAG="${BASE_TAG}-r${REV}"
+            else
+              TAG="${BASE_TAG}-r1"
+            fi
+          fi
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+
+      - name: Create or update backup release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="${{ steps.tag.outputs.tag }}"
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" botdrop-repo-aarch64.zip --clobber
+          else
+            gh release create "$TAG" \
+              --title "BotDrop Packages - $TAG" \
+              --notes "Automated backup archive for BotDrop APT repo." \
+              botdrop-repo-aarch64.zip
+          fi
+
+      - name: Update packages-latest tag and asset
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git tag -d packages-latest 2>/dev/null || true
+          git push origin :refs/tags/packages-latest 2>/dev/null || true
+          git tag packages-latest
+          git push origin packages-latest
+
+          if gh release view packages-latest >/dev/null 2>&1; then
+            gh release upload packages-latest botdrop-repo-aarch64.zip --clobber
+          else
+            gh release create packages-latest \
+              --title "BotDrop Packages - latest" \
+              --notes "Rolling latest backup archive for BotDrop APT repo." \
+              botdrop-repo-aarch64.zip
+          fi
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site-root
+
+      - name: Deploy to GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v4
+
+      - name: Validate repository manifest
+        run: |
+          pkg_file="./site-root/dists/stable/main/binary-aarch64/Packages"
+          if [ "${{ github.event.inputs.require_sharp_addon }}" = "true" ]; then
+            if ! grep -q '^Package: sharp-node-addon$' "$pkg_file"; then
+              echo "sharp-node-addon missing from repository manifest"
+              exit 1
+            fi
+          else
+            echo "Optional package validation skipped for sharp-node-addon."
+          fi
+
+      - name: Verify Release URL path
+        run: |
+          echo "Expected URL: https://zhixianio.github.io/botdrop-packages/dists/stable/Release"
