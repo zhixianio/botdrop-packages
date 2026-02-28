@@ -19,9 +19,18 @@ on:
         options:
           - 'false'
           - 'true'
+      update_latest:
+        description: 'Update packages-latest tag/release (recommended only on master)'
+        required: false
+        type: choice
+        default: 'false'
+        options:
+          - 'false'
+          - 'true'
   push:
     branches:
       - master
+      - 'ralph/botdrop-apt-repo'
     paths:
       - 'scripts/build-sharp-packages.sh'
       - 'scripts/create-botdrop-repo.sh'
@@ -35,6 +44,8 @@ permissions:
 jobs:
   build-and-publish:
     runs-on: ubuntu-latest
+    env:
+      TARGET_ARCH: aarch64
     environment:
       name: github-pages
       url: ${{ steps.deploy.outputs.page_url }}
@@ -53,8 +64,13 @@ jobs:
           sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL || true
           df -h
 
+      - name: Prepare workspace
+        run: |
+          rm -rf ./debs-output ./site-root
+          mkdir -p ./debs-output ./site-root
+
       - name: Build sharp packages in Docker
-        run: ./scripts/run-docker.sh ./scripts/build-sharp-packages.sh aarch64 ./debs-output
+        run: ./scripts/run-docker.sh ./scripts/build-sharp-packages.sh "${TARGET_ARCH}" ./debs-output
 
       - name: Verify build output
         run: |
@@ -66,20 +82,49 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           SHARP_ADDON_INPUT: ${{ github.event.inputs.sharp_addon_deb }}
+          RELEASE_TAG: ${{ github.event.inputs.release_tag || '' }}
+          REPO: ${{ github.repository }}
         run: |
           addon_source=""
-          addon_file=""
 
-          if [ -n "$SHARP_ADDON_INPUT" ]; then
+          if [ -n "${SHARP_ADDON_INPUT:-}" ]; then
             addon_source="$SHARP_ADDON_INPUT"
           else
             tmp_dir="$RUNNER_TEMP/sharp-addon"
             mkdir -p "$tmp_dir"
-            if gh release download packages-latest -p "sharp-node-addon_*_aarch64.deb" -D "$tmp_dir" --clobber; then
-              addon_file="$(find "$tmp_dir" -maxdepth 1 -name 'sharp-node-addon_*_aarch64.deb' -print -quit)"
-              if [ -n "$addon_file" ]; then
-                addon_source="$addon_file"
+            found=0
+
+            candidate_tags=()
+            if [ -n "${RELEASE_TAG}" ]; then
+              candidate_tags+=("${RELEASE_TAG}")
+            fi
+            candidate_tags+=(packages-latest)
+
+            for tag in "${candidate_tags[@]}"; do
+              if [ "$found" = "1" ] || [ -z "$tag" ]; then
+                continue
               fi
+              if gh release download "$tag" -R "$REPO" -p "sharp-node-addon_*_aarch64.deb" -D "$tmp_dir" --clobber; then
+                addon_file="$(find "$tmp_dir" -maxdepth 1 -name 'sharp-node-addon_*_aarch64.deb' -print -quit)"
+                if [ -n "$addon_file" ]; then
+                  addon_source="$addon_file"
+                  found=1
+                fi
+              fi
+            done
+
+            if [ "$found" = "0" ]; then
+              while IFS= read -r tag; do
+                [ -n "$tag" ] || continue
+                [ "$tag" = "packages-latest" ] && continue
+                if gh release download "$tag" -R "$REPO" -p "sharp-node-addon_*_aarch64.deb" -D "$tmp_dir" --clobber; then
+                  addon_file="$(find "$tmp_dir" -maxdepth 1 -name 'sharp-node-addon_*_aarch64.deb' -print -quit)"
+                  if [ -n "$addon_file" ]; then
+                    addon_source="$addon_file"
+                    break
+                  fi
+                fi
+              done < <(gh release list -R "$REPO" --limit 30 --json tagName,isPrerelease,isDraft --jq 'map(select((.isPrerelease == false) and (.isDraft == false)) | .tagName) | .[]')
             fi
           fi
 
@@ -163,11 +208,11 @@ jobs:
       - name: Update packages-latest tag and asset
         env:
           GH_TOKEN: ${{ github.token }}
+        if: github.ref == 'refs/heads/master' || github.event.inputs.update_latest == 'true'
         run: |
-          git tag -d packages-latest 2>/dev/null || true
-          git push origin :refs/tags/packages-latest 2>/dev/null || true
+          git fetch --tags origin
           git tag packages-latest
-          git push origin packages-latest
+          git push --force origin packages-latest
 
           if gh release view packages-latest >/dev/null 2>&1; then
             gh release upload packages-latest botdrop-repo-aarch64.zip --clobber
