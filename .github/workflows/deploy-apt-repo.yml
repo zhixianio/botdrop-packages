@@ -8,25 +8,9 @@ on:
         required: false
         default: ''
       sharp_addon_deb:
-        description: 'Optional sharp-node-addon .deb (file path or URL)'
+        description: 'Optional sharp-node-addon .deb override (file path or URL)'
         required: false
         default: ''
-      sharp_addon_channel_tag:
-        description: 'Release tag that carries sharp-node-addon (e.g. sharp-node-addon-latest)'
-        required: false
-        default: 'sharp-node-addon-latest'
-      sharp_addon_channel_prefix:
-        description: 'Fallback release prefix when channel tag is missing'
-        required: false
-        default: 'sharp-node-addon-'
-      publish_sharp_addon:
-        description: 'Sync found sharp-node-addon into sharp_addon_channel_tag as prerelease'
-        required: false
-        type: choice
-        default: 'false'
-        options:
-          - 'false'
-          - 'true'
       require_sharp_addon:
         description: 'Fail if sharp-node-addon is not available'
         required: false
@@ -36,7 +20,7 @@ on:
           - 'false'
           - 'true'
       update_latest:
-        description: 'Update packages-latest tag/release (recommended only on master)'
+        description: 'Update apt-repo-latest tag/release (recommended only on master)'
         required: false
         type: choice
         default: 'false'
@@ -57,17 +41,21 @@ permissions:
   pages: write
   id-token: write
 
+concurrency:
+  group: deploy-apt-repo
+  cancel-in-progress: false
+
 jobs:
-  build-and-publish:
+  # ─── Job 1: Build, validate, and publish staging APT source ───
+  build:
     runs-on: ubuntu-latest
     env:
       TARGET_ARCH: aarch64
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
+    outputs:
+      tag: ${{ steps.tag.outputs.tag }}
 
     steps:
-      - name: Checkout master
+      - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
@@ -93,129 +81,44 @@ jobs:
           ls -lh ./debs-output/*.deb
           echo "Deb count: $(ls -1 ./debs-output/*.deb | wc -l)"
 
-      - name: Resolve sharp-node-addon source
+      - name: Import sharp-node-addon
         id: sharp_addon
         env:
           GH_TOKEN: ${{ github.token }}
           SHARP_ADDON_INPUT: ${{ github.event.inputs.sharp_addon_deb }}
-          RELEASE_TAG: ${{ github.event.inputs.release_tag || '' }}
-          SHARP_ADDON_CHANNEL_TAG: ${{ github.event.inputs.sharp_addon_channel_tag }}
-          SHARP_ADDON_CHANNEL_PREFIX: ${{ github.event.inputs.sharp_addon_channel_prefix }}
+          REQUIRE_SHARP_ADDON: ${{ github.event.inputs.require_sharp_addon }}
           REPO: ${{ github.repository }}
         run: |
-          addon_source=""
-          source_is_url="false"
-          addon_found_from=""
+          set -euo pipefail
           tmp_dir="$RUNNER_TEMP/sharp-addon"
           mkdir -p "$tmp_dir"
-          set -euo pipefail
+          addon_file=""
 
-          download_from_release() {
-            local tag="$1"
-            local addon_file
-
-            [ -n "$tag" ] || return 1
-            rm -f "$tmp_dir"/sharp-node-addon_*_aarch64.deb
-
-            if gh release download "$tag" -R "$REPO" -p "sharp-node-addon_*_aarch64.deb" -D "$tmp_dir" --clobber; then
-              addon_file="$(find "$tmp_dir" -maxdepth 1 -name 'sharp-node-addon_*_aarch64.deb' -print -quit)"
-              if [ -n "$addon_file" ]; then
-                addon_source="$addon_file"
-                return 0
-              fi
-            fi
-            return 1
-          }
-
+          # 1. User override
           if [ -n "${SHARP_ADDON_INPUT:-}" ]; then
-            addon_source="$SHARP_ADDON_INPUT"
-            addon_found_from="input"
-            if [[ "$addon_source" =~ ^https?:// ]]; then
-              source_is_url="true"
-            fi
-          else
-            if download_from_release "$RELEASE_TAG"; then
-              addon_found_from="release:${RELEASE_TAG}"
-            elif download_from_release "$SHARP_ADDON_CHANNEL_TAG"; then
-              addon_found_from="channel:${SHARP_ADDON_CHANNEL_TAG}"
-            elif [ -n "${SHARP_ADDON_CHANNEL_PREFIX:-}" ]; then
-              while IFS= read -r tag; do
-                case "$tag" in
-                  "${SHARP_ADDON_CHANNEL_PREFIX}"*) ;;
-                  *) continue ;;
-                esac
+            addon_file="$SHARP_ADDON_INPUT"
+            echo "sharp-node-addon: using input override"
 
-                if download_from_release "$tag"; then
-                  addon_found_from="fallback:${tag}"
-                  break
-                fi
-              done < <(gh release list -R "$REPO" --limit 200 --json tagName,isDraft --jq '[.[] | select(.isDraft == false)] | .[] | .tagName')
+          # 2. Download from sharp-node-addon-latest release
+          elif gh release download "sharp-node-addon-latest" -R "$REPO" \
+                 -p "sharp-node-addon_*_aarch64.deb" -D "$tmp_dir" --clobber 2>/dev/null; then
+            addon_file="$(find "$tmp_dir" -maxdepth 1 -name 'sharp-node-addon_*_aarch64.deb' -print -quit)"
+            if [ -n "$addon_file" ]; then
+              echo "sharp-node-addon: downloaded from sharp-node-addon-latest release"
             fi
           fi
 
-          echo "source_file=${addon_source}" >> "$GITHUB_OUTPUT"
-          echo "source_is_url=${source_is_url}" >> "$GITHUB_OUTPUT"
-          echo "found_from=${addon_found_from}" >> "$GITHUB_OUTPUT"
-          if [ -n "$addon_source" ]; then
-            echo "sharp-node-addon source resolved: ${addon_source}"
-            echo "sharp-node-addon source via: ${addon_found_from:-manual}"
+          if [ -n "$addon_file" ]; then
+            ./scripts/import-sharp-addon.sh "$addon_file" ./debs-output
             echo "enabled=true" >> "$GITHUB_OUTPUT"
           else
-            echo "sharp-node-addon source not found (input/channel empty)."
+            echo "sharp-node-addon not found (optional)"
             echo "enabled=false" >> "$GITHUB_OUTPUT"
-          fi
-
-      - name: Import sharp-node-addon (.deb)
-        if: steps.sharp_addon.outputs.enabled == 'true'
-        run: |
-          ./scripts/import-sharp-addon.sh "${{ steps.sharp_addon.outputs.source_file }}" ./debs-output
-
-      - name: Sync sharp-node-addon to dedicated prerelease channel
-        if: steps.sharp_addon.outputs.enabled == 'true' && github.event.inputs.publish_sharp_addon == 'true'
-        env:
-          GH_TOKEN: ${{ github.token }}
-          SHARP_ADDON_CHANNEL_TAG: ${{ github.event.inputs.sharp_addon_channel_tag }}
-        run: |
-          if [ -z "${SHARP_ADDON_CHANNEL_TAG:-}" ]; then
-            echo "skip: sharp_addon_channel_tag is empty"
-            exit 0
-          fi
-
-          SOURCE_FILE="${{ steps.sharp_addon.outputs.source_file }}"
-          UPLOAD_FILE="$SOURCE_FILE"
-
-          if [ "${{ steps.sharp_addon.outputs.source_is_url }}" = "true" ]; then
-            echo "source is URL, downloading to temporary file for channel sync"
-            TMP_FILE="$(mktemp)"
-            trap 'rm -f "$TMP_FILE"' EXIT
-            if ! curl -fsSL "$SOURCE_FILE" -o "$TMP_FILE"; then
-              echo "skip: failed to download source URL for channel sync: ${SOURCE_FILE}"
-              exit 0
+            if [ "$REQUIRE_SHARP_ADDON" = "true" ]; then
+              echo "::error::sharp-node-addon not found but require_sharp_addon=true"
+              exit 1
             fi
-            UPLOAD_FILE="$TMP_FILE"
-          elif [ ! -f "$UPLOAD_FILE" ]; then
-            echo "skip: channel sync requires local file, got: ${UPLOAD_FILE}"
-            exit 0
           fi
-
-          if gh release view "$SHARP_ADDON_CHANNEL_TAG" >/dev/null 2>&1; then
-            gh release upload "$SHARP_ADDON_CHANNEL_TAG" "$UPLOAD_FILE" --clobber
-          else
-            gh release create "$SHARP_ADDON_CHANNEL_TAG" \
-              --title "Sharp node-addon channel - $SHARP_ADDON_CHANNEL_TAG" \
-              --notes "Automated channel for sharp-node-addon artifacts used by Deploy BotDrop APT Repo." \
-              --prerelease \
-              "$UPLOAD_FILE"
-          fi
-
-      - name: Handle missing sharp-node-addon
-        if: steps.sharp_addon.outputs.enabled != 'true'
-        run: |
-          if [ "${{ github.event.inputs.require_sharp_addon }}" = "true" ]; then
-            echo "sharp-node-addon not found but require_sharp_addon=true"
-            exit 1
-          fi
-          echo "No sharp-node-addon imported (optional)."
 
       - name: Checkout gh-pages (existing repo state)
         uses: actions/checkout@v4
@@ -227,7 +130,7 @@ jobs:
       - name: Ensure gh-pages dir exists
         run: mkdir -p gh-pages-existing
 
-      - name: Create merged APT repository for Pages
+      - name: Create merged APT repository
         run: |
           chmod +x ./scripts/create-botdrop-repo.sh
           ./scripts/create-botdrop-repo.sh \
@@ -237,15 +140,42 @@ jobs:
             --merge-existing ./gh-pages-existing \
             --no-archive
 
+      - name: Validate repository manifest
+        env:
+          REQUIRE_SHARP_ADDON: ${{ github.event.inputs.require_sharp_addon }}
+        run: |
+          pkg_file="./site-root/dists/stable/main/binary-aarch64/Packages"
+          if [ "$REQUIRE_SHARP_ADDON" = "true" ]; then
+            if ! grep -q '^Package: sharp-node-addon$' "$pkg_file"; then
+              echo "sharp-node-addon missing from repository manifest"
+              exit 1
+            fi
+          else
+            echo "Optional package validation skipped for sharp-node-addon."
+          fi
+
+      - name: Push to apt-staging branch
+        run: |
+          cd site-root
+          git init
+          git checkout -b apt-staging
+          git add -A
+          git -c user.name="github-actions" -c user.email="github-actions@github.com" \
+            commit -m "staging: $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+          git push --force "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" apt-staging
+          echo "::notice::Staging APT source ready: deb [trusted=yes] https://raw.githubusercontent.com/${{ github.repository }}/apt-staging/ stable main"
+
       - name: Archive repository backup
         run: |
           (cd . && zip -r -q botdrop-repo-aarch64.zip site-root)
 
       - name: Generate release tag
         id: tag
+        env:
+          INPUT_RELEASE_TAG: ${{ github.event.inputs.release_tag }}
         run: |
-          if [ -n "${{ github.event.inputs.release_tag }}" ]; then
-            TAG="${{ github.event.inputs.release_tag }}"
+          if [ -n "$INPUT_RELEASE_TAG" ]; then
+            TAG="$INPUT_RELEASE_TAG"
           else
             BASE_TAG="packages-$(date '+%Y.%m.%d')"
             EXISTING=$(git tag -l "${BASE_TAG}*" | sort -V | tail -1 || echo "")
@@ -262,8 +192,8 @@ jobs:
       - name: Create or update backup release
         env:
           GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.tag.outputs.tag }}
         run: |
-          TAG="${{ steps.tag.outputs.tag }}"
           if gh release view "$TAG" >/dev/null 2>&1; then
             gh release upload "$TAG" botdrop-repo-aarch64.zip --clobber
           else
@@ -273,48 +203,38 @@ jobs:
               botdrop-repo-aarch64.zip
           fi
 
-      - name: Update packages-latest tag and asset
+      - name: Update apt-repo-latest tag and asset
         env:
           GH_TOKEN: ${{ github.token }}
         if: github.ref == 'refs/heads/master' || github.event.inputs.update_latest == 'true'
         run: |
           git fetch --tags origin
-          git tag packages-latest
-          git push --force origin packages-latest
+          git tag -f apt-repo-latest
+          git push --force origin apt-repo-latest
 
-          if gh release view packages-latest >/dev/null 2>&1; then
-            gh release upload packages-latest botdrop-repo-aarch64.zip --clobber
+          if gh release view apt-repo-latest >/dev/null 2>&1; then
+            gh release upload apt-repo-latest botdrop-repo-aarch64.zip --clobber
           else
-            gh release create packages-latest \
-              --title "BotDrop Packages - latest" \
+            gh release create apt-repo-latest \
+              --title "BotDrop APT Repo - latest" \
               --notes "Rolling latest backup archive for BotDrop APT repo." \
               botdrop-repo-aarch64.zip
           fi
-
-      - name: Setup GitHub Pages
-        uses: actions/configure-pages@v5
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: site-root
 
+  # ─── Job 2: Deploy to GitHub Pages (requires environment approval) ───
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+
+    steps:
       - name: Deploy to GitHub Pages
         id: deploy
         uses: actions/deploy-pages@v4
-
-      - name: Validate repository manifest
-        run: |
-          pkg_file="./site-root/dists/stable/main/binary-aarch64/Packages"
-          if [ "${{ github.event.inputs.require_sharp_addon }}" = "true" ]; then
-            if ! grep -q '^Package: sharp-node-addon$' "$pkg_file"; then
-              echo "sharp-node-addon missing from repository manifest"
-              exit 1
-            fi
-          else
-            echo "Optional package validation skipped for sharp-node-addon."
-          fi
-
-      - name: Verify Release URL path
-        run: |
-          echo "Expected URL: https://zhixianio.github.io/botdrop-packages/dists/stable/Release"

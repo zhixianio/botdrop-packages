@@ -15,7 +15,7 @@
 ##   output-dir  Directory to collect built .deb files (default: ./debs-output)
 ##
 
-set -e
+set -eo pipefail
 
 SCRIPT_DIR="$(dirname "$(realpath "$0")")"
 REPO_ROOT="$(dirname "$SCRIPT_DIR")"

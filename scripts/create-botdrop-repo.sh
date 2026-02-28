@@ -255,7 +255,12 @@ mkdir -p "$REPO_DIR/dists/stable/main/binary-${ARCH}"
 if [[ -n "$MERGE_EXISTING" ]]; then
     if [[ -d "$MERGE_EXISTING/pool/main" ]]; then
         echo "Merging existing packages from $MERGE_EXISTING/pool/main ..."
-        cp -f "$MERGE_EXISTING"/pool/main/*.deb "$REPO_DIR/pool/main/" 2>/dev/null || true
+        existing_debs=("$MERGE_EXISTING"/pool/main/*.deb)
+        if [[ -e "${existing_debs[0]}" ]]; then
+            cp -f "${existing_debs[@]}" "$REPO_DIR/pool/main/"
+        else
+            echo "  (no existing .deb files to merge)"
+        fi
     else
         echo "⚠️  Warning: merge source missing pool/main: $MERGE_EXISTING"
     fi
