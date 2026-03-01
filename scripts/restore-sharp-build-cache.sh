@@ -45,9 +45,9 @@ for deb in "$DEBS_DIR"/*.deb; do
     fi
 
     # Extract package files into prefix.
-    # Use --exclude './' to avoid "Cannot change mode" error on root directory.
-    # Try data.tar.xz first, fall back to data.tar.gz / data.tar.zst.
-    if ar p "$deb" data.tar.xz 2>/dev/null | tar xJ -C / --exclude './' 2>/dev/null; then
+    # Use --exclude='.' to skip the root directory entry and avoid
+    # "Cannot utime/change mode" errors on /.
+    if ar p "$deb" data.tar.xz 2>/dev/null | tar xJ -C / --exclude='.' 2>/dev/null; then
         echo "$pkg_version" > "$BUILT_PACKAGES_DIR/$pkg_name"
         restored=$((restored + 1))
     else
