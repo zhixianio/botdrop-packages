@@ -1,0 +1,340 @@
+Filename: pool/main/aom-tools_3.13.1-1_aarch64.deb
+Size: 202196
+SHA256: b3c099c6928bfd6c2135dfb421bd953757179edad3f14f4f0c3280ce0c4f0438
+
+Filename: pool/main/binutils-is-llvm_0.3-3_aarch64.deb
+Size: 1820
+SHA256: 7da2973b6731a39ea4ca6acf9e7d235d7f6e3b632ed7ab1298238cd389775e38
+
+Filename: pool/main/bsdtar_3.8.5_aarch64.deb
+Size: 347048
+SHA256: b11bd2c992c21b10747af313ec31897c11e6ede175f5fcd3887b85a01e45e35f
+
+Filename: pool/main/cgif_0.5.1_aarch64.deb
+Size: 8904
+SHA256: 6b8e2e0e311693d60ebb239412892d66045e51462d1fda335653d3ecbc1a5c6f
+
+Filename: pool/main/djvulibre_3.5.29-1_aarch64.deb
+Size: 881660
+SHA256: d1bb2fa703c718677fa921903d37153eb31b9625eca8192ee79d596b5b369d02
+
+Filename: pool/main/fftw_3.3.10-4_aarch64.deb
+Size: 1003588
+SHA256: a8e87360f21dce7dbedad1b66317bb2307d07321948506608358cb480fbc650e
+
+Filename: pool/main/fontconfig-utils_2.17.1-1_aarch64.deb
+Size: 14356
+SHA256: cc7b4b4583176b70332e328bce9074512d1b804072a4cadad759f117b108a9ea
+
+Filename: pool/main/fontconfig_2.17.1-1_aarch64.deb
+Size: 123000
+SHA256: 8e2f722e177ac86291fe098cc9ac3ead8e0e90ccce85ee0a231228f3ae66087c
+
+Filename: pool/main/fribidi_1.0.16-1_aarch64.deb
+Size: 64380
+SHA256: 8670fd73a2a5f3955c34c136614cdddf56e46a20b26c03fc62e085d78e232116
+
+Filename: pool/main/gdk-pixbuf_2.44.5_aarch64.deb
+Size: 153160
+SHA256: 01f6521597dd2f6baa885848566008ac04c10bdc98805ffe07449260ccce9726
+
+Filename: pool/main/ghostscript_10.05.1-2_aarch64.deb
+Size: 21439020
+SHA256: c8ba49b09d3009ac902ee01bc4c182a464cf2c3afecab067d9d31bd078f88526
+
+Filename: pool/main/giflib-utils_5.2.2-1_aarch64.deb
+Size: 50564
+SHA256: 8bc293204d44fb9614932e9e0adb9e8fe550bc38f0ba827e3c5de1e0dddc0f21
+
+Filename: pool/main/giflib_5.2.2-1_aarch64.deb
+Size: 18200
+SHA256: d198724ed813ff824f3bb7abb59f68c04d2f27103a349e7a36d60ca68af31db7
+
+Filename: pool/main/glib-cross_2.86.3-1_all.deb
+Size: 12123244
+SHA256: bdc0492fdc0e5e3b1131c4824a0e55a4f92f265e096d78cfc8a32973cc5add47
+
+Filename: pool/main/glib_2.86.3-1_aarch64.deb
+Size: 2504292
+SHA256: 709b9d1b250474b8fccd769e196e6edb3c43dfd2019710b183438107b00cad5c
+
+Filename: pool/main/gpgme_2.0.1_aarch64.deb
+Size: 263048
+SHA256: 8fad6fbc18f4362e9c0e57999f7df0a1630108326c0592e3249437dc9de3c176
+
+Filename: pool/main/gpgmepp_2.0.0_aarch64.deb
+Size: 125796
+SHA256: 3e7aaed3139932796beb9978ca60b5314bfa9ee6cff2f584ea2c0cb33cecb6fd
+
+Filename: pool/main/graphviz_14.1.2_aarch64.deb
+Size: 2999428
+SHA256: c9de4c872614ce2cd1953039d82157a27b556f81edb504621410d8ecac6c42d5
+
+Filename: pool/main/harfbuzz-icu_12.3.2_aarch64.deb
+Size: 5260
+SHA256: 865f8336d91c9e6cb2afb2af167a485fceebfc24522b795e9e51c6492e88c7b9
+
+Filename: pool/main/harfbuzz-utils_12.3.2_aarch64.deb
+Size: 56088
+SHA256: 0f2f9995d515472c7779e23f9a6b3cd430ec468a086ee39de8af1d6a1d29b4b1
+
+Filename: pool/main/harfbuzz_12.3.2_aarch64.deb
+Size: 606200
+SHA256: 999165a763e27ce0b800ab13e8fe5a2f9dac099dcd90e85ad325425f7c593618
+
+Filename: pool/main/imagemagick_7.1.2.13_aarch64.deb
+Size: 7857568
+SHA256: 0fe42c16390d7759c2bd1f00bab8571dc7c32a382c893b41162b100bb0eb3e31
+
+Filename: pool/main/imath_3.2.2_aarch64.deb
+Size: 114184
+SHA256: 7cc74f558f6521e3589172a86efd4da6cf96f19524a37feff298e24e77bd0221
+
+Filename: pool/main/jbig2dec_0.20-1_aarch64.deb
+Size: 48928
+SHA256: 0774e924048bad59bccc722e31ac31a2e57822c8d0160a9fa75e03c037c66032
+
+Filename: pool/main/leptonica_1.87.0_aarch64.deb
+Size: 939296
+SHA256: 941f28c0545fed56d558158dd15db5c2057bdb6e4fb7168eff428bd29b1554f1
+
+Filename: pool/main/libandroid-execinfo_0.1-3_aarch64.deb
+Size: 15196
+SHA256: 4f5bbd8d493c63e1b931e475159337effa58d88224538d0047d736db4e3cd4ea
+
+Filename: pool/main/libandroid-shmem_0.7_aarch64.deb
+Size: 7208
+SHA256: 2f3d3919df6909a2833c216fe44a82d8c03a6fcae9b65423861a65c4dfb98032
+
+Filename: pool/main/libaom_3.13.1-1_aarch64.deb
+Size: 2026656
+SHA256: edcb5f11e462303a8f439e32c13dc84bad2b6c1e12e735aa0603204e7b58e970
+
+Filename: pool/main/libarchive_3.8.5_aarch64.deb
+Size: 390544
+SHA256: 31580fb284531e807186e21796c147597f5e017c7ffb04777fb635cf1f1c0e33
+
+Filename: pool/main/libcairo_1.18.4-2_aarch64.deb
+Size: 485372
+SHA256: 1faca4e7cb9bbf3fbfb5b8a9d2eb2fedff97a4061669e1d7e32f7951f6e7663b
+
+Filename: pool/main/libdav1d_1.5.3_aarch64.deb
+Size: 289836
+SHA256: 86482bca151e69648ba00317c93d825bdedba946c24fd238d169146edc182b9f
+
+Filename: pool/main/libde265_1.0.16-1_aarch64.deb
+Size: 149764
+SHA256: 65f12105798f247fe91fed2caf77d2a65bbb08c03d9a2020f2a2b9a12475fa2f
+
+Filename: pool/main/libexif_0.6.25-1_aarch64.deb
+Size: 101884
+SHA256: a663cc07161195b5778b7f4ee7adbf00730a1cb154e1c6bb6ba160df2e981f17
+
+Filename: pool/main/libexpat_2.7.4_aarch64.deb
+Size: 92020
+SHA256: 0ca6a6888a207287dffc3beaa53c73ba999837f5430456aa37fd68636c8513e9
+
+Filename: pool/main/libgd_1:2.3.3-5_aarch64.deb
+Size: 125024
+SHA256: 1e803e83fa8677670671e32613e765b88e38e1f3ec62e949cbf62e8463f3c470
+
+Filename: pool/main/libgraphite_1.3.14-3_aarch64.deb
+Size: 82252
+SHA256: 70aad4ec30e9a99ed395cb90420fe2b9ce4f878f6e8326e01962f0c1aaa69297
+
+Filename: pool/main/libgts_0.7.6-3_aarch64.deb
+Size: 146208
+SHA256: 7ea01ac50e9ef7232496367cf14426d042709315bac0f171adebb843427250b2
+
+Filename: pool/main/libheif-progs_1.21.2_aarch64.deb
+Size: 131608
+SHA256: a555a114e51fd9630507bc4b9311c05f944292457c4fe853a7caf62ec82c79ef
+
+Filename: pool/main/libheif_1.21.2_aarch64.deb
+Size: 493008
+SHA256: 416181754021a4e1391109d2433320d90864b8d1163f004b63b45d08659b145a
+
+Filename: pool/main/libidn_1.43-1_aarch64.deb
+Size: 174832
+SHA256: 33798dd7ddae8a2882ecb75d957fd04effb2e2960f43039be2c0969f34f1e92d
+
+Filename: pool/main/libimagequant_4.4.1_aarch64.deb
+Size: 221996
+SHA256: aa362a53ffd8e75702decc6c8545269e49461763114bc9c5deba045e89da51f0
+
+Filename: pool/main/libjasper-utils_4.2.8_aarch64.deb
+Size: 14740
+SHA256: 943b6725bef92005152def7b39238e573259f9cbf7d842a65064d264d1a540e1
+
+Filename: pool/main/libjasper_4.2.8_aarch64.deb
+Size: 409268
+SHA256: 137111bf0054a84ceb3ce9d026b59b15cb87066eebc30169a8b11ee07c7077da
+
+Filename: pool/main/libjpeg-turbo-progs_3.1.3_aarch64.deb
+Size: 97868
+SHA256: 0295ec235d11ea399dbabbd2d7892c13724543a9b35a086d9d26d723ab2158b7
+
+Filename: pool/main/libjpeg-turbo_3.1.3_aarch64.deb
+Size: 383412
+SHA256: 35d3d8181caaa76038ab51f4cc1ee85de127e204c5abfcd9ef296d844904fd91
+
+Filename: pool/main/libjxl_0.11.1-6_aarch64.deb
+Size: 1203404
+SHA256: 141305543b54cd5b62126aec4f610e576f88a36f899e5a130b2bfb1987516863
+
+Filename: pool/main/liblqr_0.4.3-1_aarch64.deb
+Size: 23512
+SHA256: 30f0eff44f11cdb08aa3f871b10d1ab98e1350a0210ca8d25754d507f64ff4b8
+
+Filename: pool/main/libltdl_2.5.4-2_aarch64.deb
+Size: 17928
+SHA256: 1e4e5653ee2f33ab5f4e76d6c1b7932348d906be43f8b829b4f0ee5902a26d75
+
+Filename: pool/main/liblzo_2.10-4_aarch64.deb
+Size: 69536
+SHA256: db84ffd76d4ddd24c6e418718f9aabece8c2b3212dae0de7728bc1aaacaf636c
+
+Filename: pool/main/libnspr_4.38.2_aarch64.deb
+Size: 181100
+SHA256: 8eb75715241d9e6c44dfcf69a0e7524e7b6b0b651dff72758383cd4267d471b1
+
+Filename: pool/main/libnss_3.120_aarch64.deb
+Size: 1906100
+SHA256: 9352043becb3ecc28c3f2fb393a353ce96287254249dd66d8dae62dfe20547cc
+
+Filename: pool/main/libpixman_0.46.4-1_aarch64.deb
+Size: 158864
+SHA256: 676f1ea085f64318fe6b5cc9608a94624450193c2d266768b5472e4c3ec3f3f7
+
+Filename: pool/main/libpng_1.6.54_aarch64.deb
+Size: 195508
+SHA256: 9bdf12a28fedba9f9817812fb52a068dca8d18b74c48e0c0808c4821710f36b2
+
+Filename: pool/main/libraqm_0.10.3_aarch64.deb
+Size: 11100
+SHA256: a771be47f29b6270f7a5d854173cb62e12fbe5d978ae8075e1f7674d4973e83a
+
+Filename: pool/main/librav1e_0.8.1_aarch64.deb
+Size: 686652
+SHA256: 78a520152ed7cb543d0dac1651421b4ff72b334e43f759254521abaaae94b3d1
+
+Filename: pool/main/libraw_0.22.0_aarch64.deb
+Size: 418572
+SHA256: 9daf63eaf82bb5333f6a032d6e160b306bc827d7195156e48ea58ec4df8348f7
+
+Filename: pool/main/librsvg_2.61.3_aarch64.deb
+Size: 5327628
+SHA256: bb282a7a9d998ac96b86d15b54d0837940b7e3f994fe622aa3fec6702403a58f
+
+Filename: pool/main/libtiff-utils_4.7.1_aarch64.deb
+Size: 257312
+SHA256: c287f3e55b767bdbf818db99be50539d82219e12fa71dccdec358f190305a4e1
+
+Filename: pool/main/libtiff_4.7.1_aarch64.deb
+Size: 849736
+SHA256: c36e6a9265c200a9bb6590865c38351ed0c95b8415a1064c99fcb4f84bb2e02e
+
+Filename: pool/main/libtool_2.5.4-2_aarch64.deb
+Size: 391900
+SHA256: 2168c40d43b4df41c0e646ec2871d59896908f45d9e76612810601661809cd53
+
+Filename: pool/main/libvips_8.18.0-1_aarch64.deb
+Size: 1109284
+SHA256: 3d91481d00612ad6b8ea88e37c0234af4cf2b73dbb4ff5c6e847ee6f9b77d2e0
+
+Filename: pool/main/libwebp_1.6.0-1_aarch64.deb
+Size: 328020
+SHA256: 124a8eac4c777aa547a77e01112b756c67c71b4a5ea2685f5b5822a54b51cdd9
+
+Filename: pool/main/libx265_4.1-3_aarch64.deb
+Size: 1183504
+SHA256: 9f04685734a334692c17e5430cb00a2300383a3e217a7fc9cc0755f6699f26e8
+
+Filename: pool/main/libxrender_0.9.12-1_aarch64.deb
+Size: 24668
+SHA256: d8912bc23aa86f1532c58657acb483e15159693cff279eec50025fd90cca041f
+
+Filename: pool/main/libzip_1.11.4-1_aarch64.deb
+Size: 242136
+SHA256: 38aa42956ecce861bce797aeecdf21f7162f4469e8cd104c189571ae860839f6
+
+Filename: pool/main/littlecms-utils_2.18_aarch64.deb
+Size: 35120
+SHA256: 1b605a3f8615c8e173a24f3763d16d920e843fd054ed9c643f72b11f21add969
+
+Filename: pool/main/littlecms_2.18_aarch64.deb
+Size: 142676
+SHA256: 6111e0b7cd6eff088beafb93c85412cb4f08510a1168c348e5457c8128f14eca
+
+Filename: pool/main/make_4.4.1-1_aarch64.deb
+Size: 240476
+SHA256: 5acfdf66b30fd19e98ca5720a541a983161481dc7186082e838d6470e93cc8c0
+
+Filename: pool/main/ndk-sysroot_29-2_aarch64.deb
+Size: 1952288
+SHA256: 5d9239187a4305d6bfbccd28b6f236d118a51702c88e099d95090bbba5f8c919
+
+Filename: pool/main/nss-utils_3.120_aarch64.deb
+Size: 1362544
+SHA256: 24bb6c75cf45ae9d8030bbe4c633dc7ac565ab1b147f8d5eef67fe5c6c67884c
+
+Filename: pool/main/openexr_3.4.0-1_aarch64.deb
+Size: 844240
+SHA256: 8fd128086b37d9d9caebd68b73ee19a1fd6b58ff59c05db71f3b7fd391c5baf7
+
+Filename: pool/main/openjpeg-tools_2.5.4_aarch64.deb
+Size: 71704
+SHA256: 3eb123e79bfd9ac7e5261aa7eacfebd46b413305670cd4b644797eae7bb8ef3f
+
+Filename: pool/main/openjpeg_2.5.4_aarch64.deb
+Size: 150352
+SHA256: 9b237eceea69507f599d716f6bac2d07733bf2c7d82fc42905425edf46a4819c
+
+Filename: pool/main/openjph_0.21.2_aarch64.deb
+Size: 111692
+SHA256: 63ea03630e942eb5cdf222ed1594744ef7aa069039c91219fa225d7c2f351506
+
+Filename: pool/main/pango_1.57.0_aarch64.deb
+Size: 241740
+SHA256: 64e9bb4e03c1ad80b9a6ef9986e24c9fc44be2e03ef5fd7b34cb4237816c2113
+
+Filename: pool/main/pkg-config_0.29.2-3_aarch64.deb
+Size: 32740
+SHA256: 7d8f44f8876ebb0cdea101d56ca146d75737b7b3590dab2f5155ceafc554d844
+
+Filename: pool/main/poppler_24.05.0-5_aarch64.deb
+Size: 1178580
+SHA256: f1b375e605216a34c571e13bb37cbce58cb854bdb06d1f6401e8bbfe0f4cec2d
+
+Filename: pool/main/python-ensurepip-wheels_3.12.12-1_all.deb
+Size: 1801592
+SHA256: c445d961c215900e2e3830792e57bb5d9d8daf46d5e2e4694dc2068502b29c33
+
+Filename: pool/main/python-tkinter_3.12.12-1_aarch64.deb
+Size: 518260
+SHA256: d66d2ba7d7c66739c3cf0ee61f089ad7dd9e5558bdf4212480025226b048b09d
+
+Filename: pool/main/python_3.12.12-1_aarch64.deb
+Size: 4476812
+SHA256: bc9aa1c7ba7d3b79a03660c24f2970a0cd8fb4c18169f35ff60fb4575d240d96
+
+Filename: pool/main/rav1e_0.8.1_aarch64.deb
+Size: 988656
+SHA256: 1b62ca75b6ef9a7a2aa5e976bbb15fccc9335de9df88b95195ce52511ab97395
+
+Filename: pool/main/which_2.23-1_aarch64.deb
+Size: 12556
+SHA256: 81845c41a5a656e49ded99af9753af2e0d1ca8ac352b0b6de1a627efe96ea2b3
+
+Filename: pool/main/x265_4.1-3_aarch64.deb
+Size: 42132
+SHA256: e3224ea9adfa6e7e5ff7bdc18fb2efff3c9cb6a1b6b3a9782906aa830a543463
+
+Filename: pool/main/xorgproto_2025.1_all.deb
+Size: 249700
+SHA256: 0a503472e76cc25274708cfc590b5779362d33a2172ee0cfd8a71c0a92e52b03
+
+Filename: pool/main/zlib_1.3.1-1_aarch64.deb
+Size: 60324
+SHA256: 586fa6ef76b10741fd82ecd4dde6848b17e76b9f14e3f7cfad2526e497bf1c2a
+
