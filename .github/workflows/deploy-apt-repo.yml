@@ -81,6 +81,19 @@ jobs:
           restore-keys: |
             sharp-build-${{ env.TARGET_ARCH }}-
 
+      - name: Seed cache from gh-pages
+        continue-on-error: true
+        run: |
+          if [ -z "$(ls output/*.deb 2>/dev/null)" ]; then
+            echo "No cached .debs found, seeding from gh-pages..."
+            git fetch origin gh-pages --depth=1 2>/dev/null || exit 0
+            mkdir -p output
+            git archive origin/gh-pages -- pool/main/ | tar x --strip-components=2 -C output/ 2>/dev/null || true
+            echo "Seeded $(ls output/*.deb 2>/dev/null | wc -l | tr -d ' ') packages from gh-pages"
+          else
+            echo "Cache already has $(ls output/*.deb | wc -l | tr -d ' ') packages"
+          fi
+
       - name: Build sharp packages in Docker
         run: |
           ./scripts/run-docker.sh bash -c "
