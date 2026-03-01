@@ -139,7 +139,7 @@ for pkg in "${SHARP_PACKAGES[@]}"; do
 
     cd "$REPO_ROOT"
 
-    if ./build-package.sh -s -a "$ARCH" "$pkg" 2>&1 | tee "/tmp/build-${pkg}.log"; then
+    if ./build-package.sh -a "$ARCH" "$pkg" 2>&1 | tee "/tmp/build-${pkg}.log"; then
         echo "  ✅ Build succeeded: $pkg"
 
         # Copy generated .deb files to output directory
