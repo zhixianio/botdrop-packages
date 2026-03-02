@@ -291,7 +291,7 @@ if command -v dpkg-scanpackages >/dev/null 2>&1; then
     # Fast path: dpkg-scanpackages generates a correct Packages file directly
     echo "  Using dpkg-scanpackages..."
     local_packages_file="dists/stable/main/binary-${ARCH}/Packages"
-    (cd "$REPO_DIR" && dpkg-scanpackages pool/main /dev/null > "$local_packages_file" 2>&1) || true
+    (cd "$REPO_DIR" && dpkg-scanpackages pool/main /dev/null 2>/dev/null > "$local_packages_file") || true
     pkg_count=$(grep -c "^Package:" "$packages_file" || echo 0)
 else
     # Fallback: parse each .deb individually
