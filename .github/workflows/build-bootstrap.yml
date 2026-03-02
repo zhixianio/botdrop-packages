@@ -1,4 +1,4 @@
-name: Build Owlia Bootstrap
+name: Build BotDrop Bootstrap
 
 on:
   workflow_dispatch:
@@ -20,7 +20,7 @@ on:
       - master
       - main
     paths:
-      - 'scripts/generate-owlia-bootstrap.sh'
+      - 'scripts/generate-botdrop-bootstrap.sh'
       - 'scripts/generate-bootstraps.sh'
       - '.github/workflows/build-bootstrap.yml'
 
@@ -28,7 +28,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: owlia-bootstrap-${{ github.ref }}
+  group: botdrop-bootstrap-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -60,7 +60,7 @@ jobs:
       - name: Generate bootstrap archive
         run: |
           echo "Using fast mode: downloading pre-built packages from Termux apt repo"
-          ./scripts/generate-owlia-bootstrap.sh \
+          ./scripts/generate-botdrop-bootstrap.sh \
             --architectures ${{ steps.arch.outputs.architectures }} \
             2>&1 | tee build.log
 
@@ -71,7 +71,7 @@ jobs:
       - name: Upload bootstrap archive
         uses: actions/upload-artifact@v4
         with:
-          name: owlia-bootstrap-${{ steps.arch.outputs.architectures }}
+          name: botdrop-bootstrap-${{ steps.arch.outputs.architectures }}
           path: "*.zip"
           retention-days: 30
           if-no-files-found: error
@@ -97,7 +97,7 @@ jobs:
       - name: Download all artifacts
         uses: actions/download-artifact@v4
         with:
-          pattern: owlia-bootstrap-*
+          pattern: botdrop-bootstrap-*
           merge-multiple: true
           path: ./bootstraps
 
@@ -121,7 +121,7 @@ jobs:
             NEW_REV=1
           fi
 
-          TAG_NAME="${DATE_TAG}-r${NEW_REV}+owlia"
+          TAG_NAME="${DATE_TAG}-r${NEW_REV}+botdrop"
           echo "tag_name=$TAG_NAME" >> $GITHUB_OUTPUT
           echo "Generated tag: $TAG_NAME"
 
@@ -132,7 +132,7 @@ jobs:
           TAG_NAME="${{ steps.tag.outputs.tag_name }}"
 
           cat > release_notes.md << 'EOF'
-          ## Owlia Bootstrap Archives
+          ## BotDrop Bootstrap Archives
 
           Custom bootstrap archives with pre-installed packages:
 
@@ -145,7 +145,7 @@ jobs:
           EOF
 
           gh release create "$TAG_NAME" \
-            --title "Owlia Bootstrap $TAG_NAME" \
+            --title "BotDrop Bootstrap $TAG_NAME" \
             --notes-file release_notes.md \
             ./bootstraps/*.zip
 
