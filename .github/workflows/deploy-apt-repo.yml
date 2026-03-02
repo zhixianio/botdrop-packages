@@ -168,13 +168,34 @@ jobs:
           REQUIRE_SHARP_ADDON: ${{ github.event.inputs.require_sharp_addon }}
         run: |
           pkg_file="./site-root/dists/stable/main/binary-aarch64/Packages"
+
+          # Verify APT can parse the Packages file without errors
+          tmpdir=$(mktemp -d)
+          trap 'rm -rf "$tmpdir"' EXIT
+          mkdir -p "$tmpdir/etc/apt" "$tmpdir/var/lib/apt/lists" \
+                   "$tmpdir/var/lib/dpkg" "$tmpdir/var/cache/apt/archives/partial"
+          touch "$tmpdir/var/lib/dpkg/status"
+          echo "deb [trusted=yes] copy:$(cd site-root && pwd)/ stable main" \
+            > "$tmpdir/etc/apt/sources.list"
+
+          if ! apt-get update \
+               -o Dir="$tmpdir" \
+               -o Dir::Etc::sourcelist="$tmpdir/etc/apt/sources.list" \
+               -o Dir::Etc::sourceparts=/dev/null \
+               -o Dir::State="$tmpdir/var/lib/apt" \
+               -o Dir::Cache="$tmpdir/var/cache/apt" \
+               -o Dir::State::status="$tmpdir/var/lib/dpkg/status" \
+               2>&1; then
+            echo "::error::APT failed to parse the generated repository"
+            exit 1
+          fi
+          echo "APT validation passed"
+
           if [ "$REQUIRE_SHARP_ADDON" = "true" ]; then
             if ! grep -q '^Package: sharp-node-addon$' "$pkg_file"; then
               echo "sharp-node-addon missing from repository manifest"
               exit 1
             fi
-          else
-            echo "Optional package validation skipped for sharp-node-addon."
           fi
 
       - name: Archive repository backup
