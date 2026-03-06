@@ -3925,6 +3925,22 @@ SHA256: c445d961c215900e2e3830792e57bb5d9d8daf46d5e2e4694dc2068502b29c33
 Homepage: https://python.org/
 Description: Wheels for Python ensurepip
 
+Package: python-pip
+Version: 26.0-1
+Architecture: all
+Maintainer: @termux
+Installed-Size: 7232
+Depends: python (>= 3.11.1-1)
+Recommends: clang, make, pkg-config
+Breaks: python (<< 3.11.1-1)
+Filename: pool/main/python-pip_26.0-1_all.deb
+Size: 1170984
+MD5sum: bc576c91e24d836230f9041b5f310ff6
+SHA1: c81ae29028aebd914759a2d0c614d455b953f89a
+SHA256: fe49909884a6fa88888aa562c6cf63bd6013c882b8d257f9bfd57d8c62a1f785
+Homepage: https://pip.pypa.io/
+Description: The PyPA recommended tool for installing Python packages
+
 Package: python-static
 Version: 3.12.12-1
 Architecture: aarch64
