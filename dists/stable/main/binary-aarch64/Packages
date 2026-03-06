@@ -3941,6 +3941,20 @@ SHA256: 8105660ae00b6dfa409aba1c1332cb817e29b1e6816c25e92e35e1b8b25b37c2
 Homepage: https://python.org/
 Description: Wheels for Python ensurepip
 
+Package: python-lxml
+Version: 6.0.2
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 4552
+Depends: libxml2, libxslt, python, python-pip
+Filename: pool/main/python-lxml_6.0.2_aarch64.deb
+Size: 992924
+MD5sum: 156cc168ea99fb348242a52cbdf14ebb
+SHA1: 35d5e3764ed2f9cfcb072eb7d53a4b82995c1451
+SHA256: a1559048b40ae51778420f00f7ea114e4c4105687d3a90c00d525601fc64c2dd
+Homepage: https://github.com/lxml/lxml
+Description: Python binding for the libxml2 and libxslt libraries
+
 Package: python-pillow
 Version: 12.1.0-1
 Architecture: aarch64
