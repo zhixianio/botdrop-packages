@@ -3941,6 +3941,20 @@ SHA256: 8105660ae00b6dfa409aba1c1332cb817e29b1e6816c25e92e35e1b8b25b37c2
 Homepage: https://python.org/
 Description: Wheels for Python ensurepip
 
+Package: python-pillow
+Version: 12.1.0-1
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 1992
+Depends: freetype, libimagequant, libjpeg-turbo, libraqm, libtiff, libwebp, libxcb, littlecms, openjpeg, python, python-pip, zlib
+Filename: pool/main/python-pillow_12.1.0-1_aarch64.deb
+Size: 397772
+MD5sum: cdf6ff9d2246e39cdfddf62ada2b776b
+SHA1: c2b96803ec0b6792217af256713c7f6f38065396
+SHA256: 1b2eb70615bcaec560c80cbf748ca524f5d320a6d8bdd4243e106a829da4f2b8
+Homepage: https://python-pillow.org/
+Description: Python Imaging Library
+
 Package: python-pip
 Version: 26.0-1
 Architecture: all
@@ -4497,6 +4511,20 @@ SHA1: 57160b90712f8411289a727bfd68d7e18b559b1d
 SHA256: 0a503472e76cc25274708cfc590b5779362d33a2172ee0cfd8a71c0a92e52b03
 Homepage: https://xorg.freedesktop.org/
 Description: X.Org X11 Protocol headers
+
+Package: xsltproc
+Version: 1.1.45
+Architecture: aarch64
+Maintainer: @termux
+Installed-Size: 68
+Depends: libxslt (= 1.1.45)
+Filename: pool/main/xsltproc_1.1.45_aarch64.deb
+Size: 11968
+MD5sum: ebc2d6f571c6b85b4ec4322cc63040c8
+SHA1: 325360238a922a172b398672866efc902b9eef8e
+SHA256: 1a475874f1a97a5df71d5fcc38bbc881e7f684aac44ee67ae53a24cadd3ac4f1
+Homepage: http://xmlsoft.org/libxslt/
+Description: XSLT command line processor
 
 Package: xtrans
 Version: 1.6.0
