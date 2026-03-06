@@ -3956,16 +3956,16 @@ Homepage: https://github.com/lxml/lxml
 Description: Python binding for the libxml2 and libxslt libraries
 
 Package: python-pillow
-Version: 12.1.0-1
+Version: 12.1.1-1
 Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 1992
 Depends: freetype, libimagequant, libjpeg-turbo, libraqm, libtiff, libwebp, libxcb, littlecms, openjpeg, python, python-pip, zlib
-Filename: pool/main/python-pillow_12.1.0-1_aarch64.deb
-Size: 397772
-MD5sum: cdf6ff9d2246e39cdfddf62ada2b776b
-SHA1: c2b96803ec0b6792217af256713c7f6f38065396
-SHA256: 1b2eb70615bcaec560c80cbf748ca524f5d320a6d8bdd4243e106a829da4f2b8
+Filename: pool/main/python-pillow_12.1.1-1_aarch64.deb
+Size: 398008
+MD5sum: 5fe7421fa25e2fdc1bf778030b77db16
+SHA1: d041e92b879cbcbc9dd5925e7ca6d1cb4b6a5c16
+SHA256: 1162f52f1d6a067d46d24a55e997b8bbca3e1928e04a8886389a70cdff8e3cc0
 Homepage: https://python-pillow.org/
 Description: Python Imaging Library
 
