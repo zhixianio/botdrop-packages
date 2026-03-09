@@ -4147,6 +4147,21 @@ SHA256: 7e5b9fbc84024cba924b7d5d50276736d5e18b1341966d77fd93adf90ecc33c6
 Homepage: https://www.gnu.org/software/sed/
 Description: GNU stream editor for filtering/transforming text
 
+Package: sharp-node-addon
+Version: 0.34.5
+Architecture: aarch64
+Maintainer: BotDrop <support@botdrop.app>
+Installed-Size: 428
+Depends: libvips, glib, libarchive
+Filename: pool/main/sharp-node-addon_0.34.5_aarch64.deb
+Size: 111272
+MD5sum: 6fe76e83542250c0d13876f931934884
+SHA1: c0125cc14e8df7c3172ec225646a7386aa6f7414
+SHA256: bcbb82204b0ceb97998c5f6666390464c13f0d7a7dac74c98ed7e8807af5abdf
+Description: Pre-built sharp native addon for Node.js on Android/aarch64
+ Provides @img/sharp-android-arm64 so that 'npm install sharp --ignore-scripts'
+ works without compiling from source. Requires libvips and its dependencies.
+
 Package: sqlite
 Version: 3.51.2
 Architecture: aarch64
