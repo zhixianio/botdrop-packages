@@ -275,6 +275,18 @@ if [[ -n "$MERGE_EXISTING" ]]; then
     fi
 fi
 
+# Copy protected packages (non-Termux packages that must always be included)
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROTECTED_DIR="${SCRIPT_DIR}/../protected-packages"
+if [[ -d "$PROTECTED_DIR" ]]; then
+    protected_debs=("$PROTECTED_DIR"/*.deb)
+    if [[ -e "${protected_debs[0]}" ]]; then
+        echo "Copying protected packages from $PROTECTED_DIR ..."
+        cp -f "${protected_debs[@]}" "$REPO_DIR/pool/main/"
+        echo "  Included $(echo "${protected_debs[@]}" | wc -w | tr -d ' ') protected package(s)"
+    fi
+fi
+
 # Copy newly built .deb files to pool (overwrite existing versions)
 echo "Copying new .deb files to pool..."
 cp -f "$DEBS_DIR"/*.deb "$REPO_DIR/pool/main/" 2>/dev/null || {
