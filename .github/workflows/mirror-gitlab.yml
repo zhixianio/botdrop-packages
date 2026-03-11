@@ -13,7 +13,12 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Push mirror to GitLab
+      - name: Push to GitLab
         run: |
           git remote add gitlab https://oauth2:${{ secrets.GITLAB_TOKEN }}@gitlab.com/lay2dev/botdrop-packages.git
-          git push gitlab --mirror --force
+          # Track all remote branches locally
+          for branch in $(git branch -r | grep -v HEAD | sed 's|origin/||'); do
+            git branch --track "$branch" "origin/$branch" 2>/dev/null || true
+          done
+          git push gitlab --all --force
+          git push gitlab --tags --force
