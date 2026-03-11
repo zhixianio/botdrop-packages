@@ -13,12 +13,25 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Push to GitLab
+      - name: Track all remote branches
         run: |
-          git remote add gitlab https://oauth2:${{ secrets.GITLAB_TOKEN }}@gitlab.com/lay2dev/botdrop-packages.git
-          # Track all remote branches locally
           for branch in $(git branch -r | grep -v HEAD | sed 's|origin/||'); do
             git branch --track "$branch" "origin/$branch" 2>/dev/null || true
           done
+
+      - name: Push to GitLab
+        run: |
+          git remote add gitlab https://oauth2:${{ secrets.GITLAB_TOKEN }}@gitlab.com/lay2dev/botdrop-packages.git
           git push gitlab --all --force
           git push gitlab --tags --force
+
+      - name: Deploy GitLab Pages
+        if: contains(github.ref, 'gh-pages')
+        run: |
+          git checkout gh-pages
+          tar -czf pages.tar.gz --exclude=.git --exclude=.gitlab-ci.yml .
+          curl -s --fail \
+            --header "PRIVATE-TOKEN: ${{ secrets.GITLAB_TOKEN }}" \
+            --form "file=@pages.tar.gz" \
+            "https://gitlab.com/api/v4/projects/lay2dev%2Fbotdrop-packages/pages" \
+            || echo "Pages API deploy failed"
