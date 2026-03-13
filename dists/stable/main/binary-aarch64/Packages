@@ -4,7 +4,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 860
 Depends: libc++, libaom (= 3.13.1-1)
-Filename: ./aom-tools_3.13.1-1_aarch64.deb
+Filename: pool/main/aom-tools_3.13.1-1_aarch64.deb
 Size: 202196
 MD5sum: 93180473641014e766c67cb128deefb6
 SHA1: a4aca914db368ac18b3d053028c6c6b467c63775
@@ -19,7 +19,7 @@ Maintainer: @termux
 Installed-Size: 256
 Breaks: attr-dev
 Replaces: attr-dev
-Filename: ./attr_2.5.2-1_aarch64.deb
+Filename: pool/main/attr_2.5.2-1_aarch64.deb
 Size: 52584
 MD5sum: 54624dc937259a0a4dbf130d09ce9fc9
 SHA1: ca9b5873e35b52a82ae70c940c5b253894cd9a29
@@ -33,7 +33,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 60
 Depends: attr (= 2.5.2-1)
-Filename: ./attr-static_2.5.2-1_aarch64.deb
+Filename: pool/main/attr-static_2.5.2-1_aarch64.deb
 Size: 7016
 MD5sum: e522d2adf7c658ca77b06924b3ba9a59
 SHA1: 585b0b767dfbee948d2680a7656fd0fc1f6740b3
@@ -51,7 +51,7 @@ Depends: libandroid-support, libiconv, readline (>= 8.3), termux-tools
 Recommends: command-not-found, bash-completion
 Breaks: bash-dev
 Replaces: bash-dev
-Filename: ./bash_5.3.9_aarch64.deb
+Filename: pool/main/bash_5.3.9_aarch64.deb
 Size: 954784
 MD5sum: 4910f1315cfa17f392fc2a515a197d2d
 SHA1: 227d0b77b090ba54e5b97826cd926a02c502d182
@@ -66,7 +66,7 @@ Maintainer: @termux
 Installed-Size: 36
 Depends: binutils-bin
 Conflicts: binutils-is-llvm
-Filename: ./binutils_2.45.1_aarch64.deb
+Filename: pool/main/binutils_2.45.1_aarch64.deb
 Size: 1108
 MD5sum: 79af7db4669422aa8f70f62c2724b79f
 SHA1: d771538f9087b4a66561577e90a018b13ec4f23e
@@ -82,7 +82,7 @@ Installed-Size: 6784
 Depends: libc++, zlib, zstd, binutils-libs (= 2.45.1)
 Breaks: binutils (<< 2.39-3)
 Replaces: binutils (<< 2.39-3)
-Filename: ./binutils-bin_2.45.1_aarch64.deb
+Filename: pool/main/binutils-bin_2.45.1_aarch64.deb
 Size: 1308984
 MD5sum: a2dabb88316c717dd0c17944ec334506
 SHA1: c980d822e0b0af759742526e1bcc419eaaff7bce
@@ -95,7 +95,7 @@ Version: 2.45.1
 Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 17656
-Filename: ./binutils-cross_2.45.1_aarch64.deb
+Filename: pool/main/binutils-cross_2.45.1_aarch64.deb
 Size: 2267844
 MD5sum: a0eb380ed42b87118442e7999420ae29
 SHA1: 27bd65e23a8f4606718327639500dd7e364c68dd
@@ -110,7 +110,7 @@ Maintainer: @termux
 Installed-Size: 48
 Depends: lld, llvm
 Conflicts: binutils
-Filename: ./binutils-is-llvm_0.3-3_aarch64.deb
+Filename: pool/main/binutils-is-llvm_0.3-3_aarch64.deb
 Size: 1820
 MD5sum: 153058bc81d9d6857843249b7e1d7efe
 SHA1: 485fbb75f50d22c20af6fd301923024d8cfbae83
@@ -126,7 +126,7 @@ Installed-Size: 12732
 Depends: zlib, zstd
 Breaks: binutils (<< 2.39), binutils-dev
 Replaces: binutils (<< 2.39), binutils-dev
-Filename: ./binutils-libs_2.45.1_aarch64.deb
+Filename: pool/main/binutils-libs_2.45.1_aarch64.deb
 Size: 1150448
 MD5sum: da5a3534cdb3114d381ded1781d15df7
 SHA1: 206d4eb871646076aa19c459def8135f02ea435b
@@ -142,7 +142,7 @@ Installed-Size: 896
 Depends: libblkid, libmount, libsmartcols, libuuid
 Breaks: util-linux (<< 2.38.1-1)
 Replaces: util-linux (<< 2.38.1-1)
-Filename: ./blk-utils_2.41.2-1_aarch64.deb
+Filename: pool/main/blk-utils_2.41.2-1_aarch64.deb
 Size: 180208
 MD5sum: 64561e4cb46b7f1d5aeaef0c8e92eb83
 SHA1: 374dedcb0907d82325568bd52c167af50dcfdb65
@@ -158,7 +158,7 @@ Installed-Size: 8432
 Depends: libc++, libbz2, libiconv, liblzma, zlib, libandroid-wordexp
 Breaks: libboost-python (<= 1.65.1-2), boost-dev
 Replaces: libboost-python (<= 1.65.1-2), boost-dev
-Filename: ./boost_1:1.90.0_aarch64.deb
+Filename: pool/main/boost_1:1.90.0_aarch64.deb
 Size: 1448172
 MD5sum: f2f9ad1ec1d195c4ff7d06de1f49f8a5
 SHA1: c787e33f481b133bd31e888827a5a2a447e31012
@@ -172,7 +172,7 @@ Architecture: all
 Maintainer: @termux
 Installed-Size: 189108
 Depends: boost (= 1:1.90.0)
-Filename: ./boost-headers_1:1.90.0_all.deb
+Filename: pool/main/boost-headers_1:1.90.0_all.deb
 Size: 10644308
 MD5sum: e38d61b2a80c009a7f3cb804087e9d3c
 SHA1: c24b3f559fb7626d9ca100a7cf35f74111d80a42
@@ -186,7 +186,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 41364
 Depends: boost (= 1:1.90.0)
-Filename: ./boost-static_1:1.90.0_aarch64.deb
+Filename: pool/main/boost-static_1:1.90.0_aarch64.deb
 Size: 2985860
 MD5sum: d65b334e241cd27bd12b69fcd3f14058
 SHA1: be60a0eed229121b9dd185b766f091dbbdb55755
@@ -201,7 +201,7 @@ Maintainer: @termux
 Installed-Size: 1052
 Breaks: brotli-dev
 Replaces: brotli-dev
-Filename: ./brotli_1.2.0_aarch64.deb
+Filename: pool/main/brotli_1.2.0_aarch64.deb
 Size: 340572
 MD5sum: bea42962b2f2eed401d6de30c937f253
 SHA1: e55dcfe459433d1d97178d70876b3f02d9fea6c1
@@ -215,7 +215,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 1500
 Depends: libarchive (= 3.8.5)
-Filename: ./bsdtar_3.8.5_aarch64.deb
+Filename: pool/main/bsdtar_3.8.5_aarch64.deb
 Size: 347048
 MD5sum: bd70ef4dddf5c6182eb79c66c56bc4f3
 SHA1: 3b323a95c2e6ca50e81ea385840ec093397ff00c
@@ -230,7 +230,7 @@ Essential: yes
 Maintainer: @termux
 Installed-Size: 120
 Depends: libbz2 (= 1.0.8-8)
-Filename: ./bzip2_1.0.8-8_aarch64.deb
+Filename: pool/main/bzip2_1.0.8-8_aarch64.deb
 Size: 26264
 MD5sum: f0f310cf78bd2141652e6fd7c5180658
 SHA1: 62a6578376bc11bbe3d022f3e8d2cc5c60103f52
@@ -243,7 +243,7 @@ Version: 1:2025.12.02
 Architecture: all
 Maintainer: @termux
 Installed-Size: 264
-Filename: ./ca-certificates_1:2025.12.02_all.deb
+Filename: pool/main/ca-certificates_1:2025.12.02_all.deb
 Size: 124216
 MD5sum: 414507fbd01a76d5cd03ade561a6a162
 SHA1: f39f386b44ac752ae8f42ad8544178d1eca13c8a
@@ -257,7 +257,7 @@ Architecture: all
 Maintainer: @termux
 Installed-Size: 208
 Depends: ca-certificates (= 1:2025.12.02)
-Filename: ./ca-certificates-java_1:2025.12.02_all.deb
+Filename: pool/main/ca-certificates-java_1:2025.12.02_all.deb
 Size: 113760
 MD5sum: 5e4c896cc161b51461c5a04f2969acee
 SHA1: ecbd4f1bc67b2b8ca7325fc29052a8590dc75762
@@ -270,7 +270,7 @@ Version: 0.5.1
 Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 76
-Filename: ./cgif_0.5.1_aarch64.deb
+Filename: pool/main/cgif_0.5.1_aarch64.deb
 Size: 8904
 MD5sum: f435439f79b38e8b7275ba03e3d1debf
 SHA1: cd4998720ee36cb5c7275508cd05b7a04f9f777f
@@ -286,7 +286,7 @@ Installed-Size: 186804
 Depends: libcompiler-rt, lld, llvm, ndk-sysroot, libllvm (= 21.1.8)
 Breaks: libllvm (<< 16.0.0), clangd
 Replaces: libllvm (<< 16.0.0), clangd
-Filename: ./clang_21.1.8_aarch64.deb
+Filename: pool/main/clang_21.1.8_aarch64.deb
 Size: 30417548
 MD5sum: 53b18e67a0f05f1c5f37a85043c1084a
 SHA1: 34a37d09f1067cfff19ea6e92245178ff0712653
@@ -303,7 +303,7 @@ Installed-Size: 2668
 Depends: libandroid-selinux, libandroid-support, libgmp, libiconv, openssl (>= 1:3.5.0-1)
 Breaks: chroot, busybox (<< 1.30.1-4)
 Replaces: chroot, busybox (<< 1.30.1-4)
-Filename: ./coreutils_9.9_aarch64.deb
+Filename: pool/main/coreutils_9.9_aarch64.deb
 Size: 778184
 MD5sum: 14f237e8219cdf54fcee85cada93fc35
 SHA1: 909cfa8f3b2cd5df572410c854d71667cabf0ed3
@@ -318,7 +318,7 @@ Essential: yes
 Maintainer: @termux
 Installed-Size: 412
 Depends: libcurl (= 8.18.0-1)
-Filename: ./curl_8.18.0-1_aarch64.deb
+Filename: pool/main/curl_8.18.0-1_aarch64.deb
 Size: 237324
 MD5sum: e3104eddd8ffa8826457067cf30a89d1
 SHA1: a4fa10fd90cd86b3f568255eceb7cf87d377d031
@@ -332,7 +332,7 @@ Architecture: aarch64
 Essential: yes
 Maintainer: @termux
 Installed-Size: 184
-Filename: ./dash_0.5.12-2_aarch64.deb
+Filename: pool/main/dash_0.5.12-2_aarch64.deb
 Size: 65820
 MD5sum: b76a21621fe7418f3383c1d59e293c89
 SHA1: 2406ea1c7f3226fb55785c59407cdf14f383d8cc
@@ -346,7 +346,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 276
 Depends: libandroid-support, ncurses
-Filename: ./dialog_1.3-20240307-1_aarch64.deb
+Filename: pool/main/dialog_1.3-20240307-1_aarch64.deb
 Size: 100416
 MD5sum: c998d26e1c3d066f3738e4051df06c73
 SHA1: a5864f29d3f142f716ce34646154bb3ed6258788
@@ -360,7 +360,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 448
 Depends: dialog (= 1.3-20240307-1)
-Filename: ./dialog-static_1.3-20240307-1_aarch64.deb
+Filename: pool/main/dialog-static_1.3-20240307-1_aarch64.deb
 Size: 93408
 MD5sum: 174a3d348dc32711ed1221160798f206
 SHA1: c6c89fe9d52e9e7213f1a71f9f8122ead4cd22da
@@ -375,7 +375,7 @@ Essential: yes
 Maintainer: Joshua Kahn @TomJo2000
 Installed-Size: 668
 Depends: libiconv
-Filename: ./diffutils_3.12-2_aarch64.deb
+Filename: pool/main/diffutils_3.12-2_aarch64.deb
 Size: 162868
 MD5sum: 6a76f86d03d30cd753dbc9ad2f31ec42
 SHA1: dbc70695921727c67af572340ef9103ed0d7ab45
@@ -389,7 +389,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 3588
 Depends: libc++, libjpeg-turbo, libtiff
-Filename: ./djvulibre_3.5.29-1_aarch64.deb
+Filename: pool/main/djvulibre_3.5.29-1_aarch64.deb
 Size: 881660
 MD5sum: 84fc435affb2482f4514692e51dd90ab
 SHA1: 792cd6909a0235ed6cad3bdb8741572e0b9c11fe
@@ -403,7 +403,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 3776
 Depends: djvulibre (= 3.5.29-1)
-Filename: ./djvulibre-static_3.5.29-1_aarch64.deb
+Filename: pool/main/djvulibre-static_3.5.29-1_aarch64.deb
 Size: 584628
 MD5sum: aa6b5d41a4cc85870ce2601a72e7222a
 SHA1: c824debca27c226c2bf290fa4d065383336fe916
@@ -417,7 +417,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 468
 Depends: libfdisk, libmount, ncurses, readline, libsmartcols
-Filename: ./fdisk_2.41.2-1_aarch64.deb
+Filename: pool/main/fdisk_2.41.2-1_aarch64.deb
 Size: 115556
 MD5sum: 1985581a0ea05844e63adaba2d0b4052
 SHA1: f145da2a85d72cb72ed1160001cdebafc22a9950
@@ -432,7 +432,7 @@ Maintainer: @termux
 Installed-Size: 3404
 Breaks: fftw-dev
 Replaces: fftw-dev
-Filename: ./fftw_3.3.10-4_aarch64.deb
+Filename: pool/main/fftw_3.3.10-4_aarch64.deb
 Size: 1003588
 MD5sum: c326ee466129b35bec6544bc2b80a445
 SHA1: 242b7d8cb7587a0da5e33961cb74bf091174a376
@@ -446,7 +446,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 6908
 Depends: fftw (= 3.3.10-4)
-Filename: ./fftw-static_3.3.10-4_aarch64.deb
+Filename: pool/main/fftw-static_3.3.10-4_aarch64.deb
 Size: 990792
 MD5sum: fa955ca2eda0ba74660e4ee2cf18107a
 SHA1: 9657f38aa8c462c3189dba37cf442152dd043f6a
@@ -461,7 +461,7 @@ Essential: yes
 Maintainer: @termux
 Installed-Size: 884
 Depends: libandroid-support
-Filename: ./findutils_4.10.0-1_aarch64.deb
+Filename: pool/main/findutils_4.10.0-1_aarch64.deb
 Size: 251740
 MD5sum: f748f937e8cdc61bbf89a53d355d84bd
 SHA1: f5972e71c6d52d0bc3a9c86be4835b5c548569d4
@@ -477,7 +477,7 @@ Installed-Size: 712
 Depends: freetype, libexpat, ttf-dejavu
 Breaks: fontconfig-dev
 Replaces: fontconfig-dev
-Filename: ./fontconfig_2.17.1-1_aarch64.deb
+Filename: pool/main/fontconfig_2.17.1-1_aarch64.deb
 Size: 123000
 MD5sum: 14daae1dc7c42663f79d1ffbf8c0bd0e
 SHA1: 1cf5ef60330190bfb37f7a5e422d36b91577b77d
@@ -491,7 +491,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 520
 Depends: fontconfig (= 2.17.1-1)
-Filename: ./fontconfig-static_2.17.1-1_aarch64.deb
+Filename: pool/main/fontconfig-static_2.17.1-1_aarch64.deb
 Size: 117840
 MD5sum: 65a8d1b30d93b6339de58fd4ca92aea4
 SHA1: 1f6340039b58722c334f992784e16bbcf3c63699
@@ -505,7 +505,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 132
 Depends: fontconfig (= 2.17.1-1)
-Filename: ./fontconfig-utils_2.17.1-1_aarch64.deb
+Filename: pool/main/fontconfig-utils_2.17.1-1_aarch64.deb
 Size: 14356
 MD5sum: e25f097bad589ab2201b146563ab7e61
 SHA1: 09c9fe72a342d4b752bf23dcc6b445aeeb219dc6
@@ -521,7 +521,7 @@ Installed-Size: 1704
 Depends: brotli, libbz2, libpng, zlib
 Breaks: freetype-dev
 Replaces: freetype-dev
-Filename: ./freetype_2.14.1_aarch64.deb
+Filename: pool/main/freetype_2.14.1_aarch64.deb
 Size: 412244
 MD5sum: 483d3c02e0d6a80902e95af6b5e32c03
 SHA1: fcfdf6c5252a39432eb5ce98912512b8e7e4f391
@@ -535,7 +535,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 976
 Depends: freetype (= 2.14.1)
-Filename: ./freetype-static_2.14.1_aarch64.deb
+Filename: pool/main/freetype-static_2.14.1_aarch64.deb
 Size: 302268
 MD5sum: f92c290dbf7687bb61218b824cf9845d
 SHA1: b86a0e57d5843e038fda3bccf5daa22f7696a31c
@@ -551,7 +551,7 @@ Installed-Size: 444
 Depends: glib
 Breaks: fribidi-dev
 Replaces: fribidi-dev
-Filename: ./fribidi_1.0.16-1_aarch64.deb
+Filename: pool/main/fribidi_1.0.16-1_aarch64.deb
 Size: 64380
 MD5sum: 9af9dadc9cb0d3f1173d1e8d49bf8ff9
 SHA1: 101d3d6555ac30e8dfea613fb3ef0a26664e9cf2
@@ -565,7 +565,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 176
 Depends: fribidi (= 1.0.16-1)
-Filename: ./fribidi-static_1.0.16-1_aarch64.deb
+Filename: pool/main/fribidi-static_1.0.16-1_aarch64.deb
 Size: 19892
 MD5sum: 601767744113962a20f4a4e8196e2fc1
 SHA1: 137e78c6ce9d253516b76ca8ac51ac0cdabf9321
@@ -581,7 +581,7 @@ Installed-Size: 1076
 Depends: ldd, python, gobject-introspection (= 1.86.0)
 Breaks: gobject-introspection (<< 1.74.0-1)
 Replaces: gobject-introspection (<< 1.74.0-1)
-Filename: ./g-ir-scanner_1.86.0_aarch64.deb
+Filename: pool/main/g-ir-scanner_1.86.0_aarch64.deb
 Size: 130404
 MD5sum: f38fee166a7d0994bcf92ac564fada8f
 SHA1: 293acb698b09f4de63ecb84ad873fe47450b66ed
@@ -598,7 +598,7 @@ Installed-Size: 3228
 Depends: libandroid-support, libgmp, libmpfr, readline
 Breaks: gawk-dev
 Replaces: gawk-dev
-Filename: ./gawk_5.3.1-2_aarch64.deb
+Filename: pool/main/gawk_5.3.1-2_aarch64.deb
 Size: 782872
 MD5sum: 281d31247bd59b8af0bdbef36bc5d4e3
 SHA1: c8ad7e32cf7d0ec1e5a88d51821e4bf9188e95e3
@@ -612,7 +612,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 168
 Depends: gawk (= 5.3.1-2)
-Filename: ./gawk-static_5.3.1-2_aarch64.deb
+Filename: pool/main/gawk-static_5.3.1-2_aarch64.deb
 Size: 24848
 MD5sum: a7f2a71f282efa1f7f3e8c748a1d4417
 SHA1: 10b47f5e73eae193b7b4a29106071718487e309f
@@ -628,7 +628,7 @@ Installed-Size: 584
 Depends: readline
 Breaks: gdbm-dev
 Replaces: gdbm-dev
-Filename: ./gdbm_1.26-1_aarch64.deb
+Filename: pool/main/gdbm_1.26-1_aarch64.deb
 Size: 150124
 MD5sum: d196ea49a26b8fa1a5ed75dd604c2918
 SHA1: e015e7c20cc00ef082dd9f8cffc117ef814c9e86
@@ -642,7 +642,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 188
 Depends: gdbm (= 1.26-1)
-Filename: ./gdbm-static_1.26-1_aarch64.deb
+Filename: pool/main/gdbm-static_1.26-1_aarch64.deb
 Size: 31992
 MD5sum: c70c6a14153eec5fbf117589f2fa448a
 SHA1: 4ce874c3a8600a0a2ea1381cf003204b7c8be8fa
@@ -658,7 +658,7 @@ Installed-Size: 960
 Depends: glib, libpng, libtiff, libjpeg-turbo, zstd
 Breaks: gdk-pixbuf-dev
 Replaces: gdk-pixbuf-dev
-Filename: ./gdk-pixbuf_2.44.5_aarch64.deb
+Filename: pool/main/gdk-pixbuf_2.44.5_aarch64.deb
 Size: 153160
 MD5sum: c16783d4fd11e9832cc801c19dfe609b
 SHA1: 4e356d2a5c2666afe5d90a9f2da0839967e45453
@@ -672,7 +672,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 47372
 Depends: fontconfig, freetype, jbig2dec, libandroid-support, libc++, libiconv, libidn, libjpeg-turbo, libpng, libtiff, littlecms, openjpeg, zlib
-Filename: ./ghostscript_10.05.1-2_aarch64.deb
+Filename: pool/main/ghostscript_10.05.1-2_aarch64.deb
 Size: 21439020
 MD5sum: baa26c1f032a46741eeac6a7afd30273
 SHA1: 9b442ee4b7ea0aa2d841cecf01dd9b916e687dd9
@@ -687,7 +687,7 @@ Maintainer: @termux
 Installed-Size: 100
 Breaks: giflib-dev
 Replaces: giflib-dev
-Filename: ./giflib_5.2.2-1_aarch64.deb
+Filename: pool/main/giflib_5.2.2-1_aarch64.deb
 Size: 18200
 MD5sum: 723b1707b0298dab6264d3b3dc74179c
 SHA1: 0fb986c70f837cfe2c884e37e4a25a0b26c12895
@@ -701,7 +701,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 76
 Depends: giflib (= 5.2.2-1)
-Filename: ./giflib-static_5.2.2-1_aarch64.deb
+Filename: pool/main/giflib-static_5.2.2-1_aarch64.deb
 Size: 14956
 MD5sum: d899d2a88b902b6651db636e77ed6163
 SHA1: 00f1042a96cbee77e783af766d254984eba19ffc
@@ -716,7 +716,7 @@ Maintainer: @termux
 Installed-Size: 296
 Depends: giflib (= 5.2.2-1)
 Conflicts: giflib (<< 5.1.4-4)
-Filename: ./giflib-utils_5.2.2-1_aarch64.deb
+Filename: pool/main/giflib-utils_5.2.2-1_aarch64.deb
 Size: 50564
 MD5sum: 35c19dec5b08a13966a6e7e95775295c
 SHA1: 0b7cd9d8506270ff01662713fd93f99defb08050
@@ -732,7 +732,7 @@ Installed-Size: 20684
 Depends: libandroid-support, libffi, libiconv, pcre2, resolv-conf, zlib, python
 Breaks: glib-dev, glib-bin
 Replaces: glib-dev, glib-bin
-Filename: ./glib_2.86.3-1_aarch64.deb
+Filename: pool/main/glib_2.86.3-1_aarch64.deb
 Size: 2504292
 MD5sum: 97a5e8ba40dfb68e53da58e917a8fa54
 SHA1: f9f4ddf2471c14e280500357061b75e335aabe3f
@@ -746,7 +746,7 @@ Architecture: all
 Maintainer: @termux
 Installed-Size: 82120
 Depends: glib (= 2.86.3-1)
-Filename: ./glib-cross_2.86.3-1_all.deb
+Filename: pool/main/glib-cross_2.86.3-1_all.deb
 Size: 12123244
 MD5sum: c3430b3d6824afa0a6c838ee325a9a07
 SHA1: c13bcc40fd99c47fa504414fbc7b7996894abe6a
@@ -763,7 +763,7 @@ Depends: libassuan, libbz2, libgcrypt, libgnutls, libgpg-error, libksba, libnpth
 Suggests: scdaemon
 Conflicts: gnupg2 (<< 2.2.9-1), dirmngr (<< 2.2.17-1)
 Replaces: gnupg2 (<< 2.2.9-1), dirmngr (<< 2.2.17-1)
-Filename: ./gnupg_2.5.17_aarch64.deb
+Filename: pool/main/gnupg_2.5.17_aarch64.deb
 Size: 1409656
 MD5sum: 61f6b183534278eb0c8095e13d7aa841
 SHA1: 4e97e1fbc16070ae674f5c6f2b468aac9db9eb64
@@ -777,7 +777,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 904
 Depends: libgnutls (= 3.8.11)
-Filename: ./gnutls_3.8.11_aarch64.deb
+Filename: pool/main/gnutls_3.8.11_aarch64.deb
 Size: 175716
 MD5sum: c4bc923263eee27128c2e8b03ac5f0e1
 SHA1: cb389a457ee9d9e0adf57f3bb84eb1cb2528428c
@@ -792,7 +792,7 @@ Maintainer: @termux
 Installed-Size: 1456
 Depends: glib, libffi
 Suggests: g-ir-scanner
-Filename: ./gobject-introspection_1.86.0_aarch64.deb
+Filename: pool/main/gobject-introspection_1.86.0_aarch64.deb
 Size: 203656
 MD5sum: 6d3afe97491a1470fa34476ba8bdd1b7
 SHA1: 7137bbe666f0295d11e4054cc9d91bb5ec4f0ee5
@@ -808,7 +808,7 @@ Installed-Size: 1228
 Depends: gnupg (>= 2.2.9-1), libassuan, libgpg-error
 Breaks: gpgme-dev
 Replaces: gpgme-dev
-Filename: ./gpgme_2.0.1_aarch64.deb
+Filename: pool/main/gpgme_2.0.1_aarch64.deb
 Size: 263048
 MD5sum: 7912a36f5ed5516583c618c17aab031d
 SHA1: 757ec7075262bb91fbbc8cbf94ac39e7808d590a
@@ -822,7 +822,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 696
 Depends: gpgme (= 2.0.1)
-Filename: ./gpgme-static_2.0.1_aarch64.deb
+Filename: pool/main/gpgme-static_2.0.1_aarch64.deb
 Size: 127364
 MD5sum: 12a14fc102c13fde651825cd92540590
 SHA1: 4df9575f03d28a3ab1f04bd86482af42bbb4426c
@@ -836,7 +836,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 736
 Depends: gpgme, libc++, libgpg-error
-Filename: ./gpgmepp_2.0.0_aarch64.deb
+Filename: pool/main/gpgmepp_2.0.0_aarch64.deb
 Size: 125796
 MD5sum: 07dcc3a85c49da2d5a803d4c68f6d7fc
 SHA1: e5f24d1318bc5007e75c47f03a68a33ff7e78689
@@ -850,7 +850,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 508
 Depends: libassuan, libbz2, libgcrypt, libgpg-error, libnpth, zlib
-Filename: ./gpgv_2.5.17_aarch64.deb
+Filename: pool/main/gpgv_2.5.17_aarch64.deb
 Size: 188240
 MD5sum: 3b77b95274295aedc95295022f38b00d
 SHA1: 946b233cc994c7a6a56332673368b0c6b7fbd101
@@ -866,7 +866,7 @@ Installed-Size: 10616
 Depends: fontconfig, freetype, gdk-pixbuf, glib, harfbuzz, libandroid-glob, libc++, libcairo, libexpat, libgd, libgts, libltdl, librsvg, libwebp, pango, zlib, zstd
 Breaks: graphviz-dev
 Replaces: graphviz-dev
-Filename: ./graphviz_14.1.2_aarch64.deb
+Filename: pool/main/graphviz_14.1.2_aarch64.deb
 Size: 2999428
 MD5sum: e296540378f829826d0e479c6fdc45cc
 SHA1: 6c13e01382a56c058a1778d869288e844bc7cec6
@@ -880,7 +880,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 4140
 Depends: graphviz (= 14.1.2)
-Filename: ./graphviz-static_14.1.2_aarch64.deb
+Filename: pool/main/graphviz-static_14.1.2_aarch64.deb
 Size: 763240
 MD5sum: 289f380e48fbb2cdffb05a149e5d5973
 SHA1: c4c849790492dce7dcd52342f41dd3ee1f4f3dbb
@@ -895,7 +895,7 @@ Essential: yes
 Maintainer: Joshua Kahn @TomJo2000
 Installed-Size: 456
 Depends: libandroid-support, pcre2
-Filename: ./grep_3.12-2_aarch64.deb
+Filename: pool/main/grep_3.12-2_aarch64.deb
 Size: 128320
 MD5sum: 5fae5b91ecd4c0586ee152ed7a508d37
 SHA1: ec92b0144511ec6b3ffb0b4658720f60d0bd9645
@@ -909,7 +909,7 @@ Architecture: aarch64
 Essential: yes
 Maintainer: @termux
 Installed-Size: 324
-Filename: ./gzip_1.14-1_aarch64.deb
+Filename: pool/main/gzip_1.14-1_aarch64.deb
 Size: 87656
 MD5sum: 715a07d4bcb73546bea9d2f0dbc26ed2
 SHA1: ab8de339bb6d8bf9be1e3b36db3e864b206d5ec5
@@ -925,7 +925,7 @@ Installed-Size: 2832
 Depends: freetype, glib, libcairo, libgraphite, zstd
 Breaks: harfbuzz-dev
 Replaces: harfbuzz-dev
-Filename: ./harfbuzz_12.3.2_aarch64.deb
+Filename: pool/main/harfbuzz_12.3.2_aarch64.deb
 Size: 606200
 MD5sum: d5cf3ad85ff41e69321235dd5a4e3514
 SHA1: 055922b818e6b4e22c6b6fa8bc28a4edcda95b2e
@@ -941,7 +941,7 @@ Installed-Size: 60
 Depends: libicu, harfbuzz (= 12.3.2)
 Breaks: harfbuzz (<< 7.0.0)
 Replaces: harfbuzz (<< 7.0.0)
-Filename: ./harfbuzz-icu_12.3.2_aarch64.deb
+Filename: pool/main/harfbuzz-icu_12.3.2_aarch64.deb
 Size: 5260
 MD5sum: 8781013335c04802f1e0fc33ebf835b2
 SHA1: e6e99cea90a6c45f13fc71bf72a8057d20e369c6
@@ -955,7 +955,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 256
 Depends: harfbuzz (= 12.3.2)
-Filename: ./harfbuzz-utils_12.3.2_aarch64.deb
+Filename: pool/main/harfbuzz-utils_12.3.2_aarch64.deb
 Size: 56088
 MD5sum: e8191c2b67367eb80947e956785ceed9
 SHA1: b65a31d18865c549551e5369ca3ae33aa64f31f1
@@ -969,7 +969,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 56
 Depends: libiconv (= 1.18-1)
-Filename: ./iconv_1.18-1_aarch64.deb
+Filename: pool/main/iconv_1.18-1_aarch64.deb
 Size: 10116
 MD5sum: 9c7f6ca5c11410174a06f2c13fa8566c
 SHA1: af54fbef0ecb6d08f5cb959d4fd5d704eab9aded
@@ -983,7 +983,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 964
 Depends: libicu (= 78.2)
-Filename: ./icu-devtools_78.2_aarch64.deb
+Filename: pool/main/icu-devtools_78.2_aarch64.deb
 Size: 210888
 MD5sum: 01a9dd43bdb6b129c36f480b549c6fac
 SHA1: bd6fccefbb4bcace78f5df2102a1ab7c71a9ccb4
@@ -999,7 +999,7 @@ Installed-Size: 19736
 Depends: djvulibre, fftw, fontconfig, freetype, gdk-pixbuf, ghostscript, glib, graphviz, harfbuzz, imath, jbig2dec, libandroid-support, libbz2, libc++, libcairo, libheif, libjpeg-turbo, libjxl, liblqr, libltdl, liblzma, libpng, libraqm, libraw, librsvg, libtiff, libwebp, libx11, libxext, libxml2, libzip, littlecms, openexr, openjpeg, pango, zlib, zstd
 Breaks: imagemagick-dev, imagemagick-x
 Replaces: imagemagick-dev, imagemagick-x
-Filename: ./imagemagick_7.1.2.13_aarch64.deb
+Filename: pool/main/imagemagick_7.1.2.13_aarch64.deb
 Size: 7857568
 MD5sum: 52ebdceb8c54eee3b0c47db5b5b7781f
 SHA1: a649479b5752ca6b4be23dd58293ae6e18b06829
@@ -1013,7 +1013,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 9692
 Depends: imagemagick (= 7.1.2.13)
-Filename: ./imagemagick-static_7.1.2.13_aarch64.deb
+Filename: pool/main/imagemagick-static_7.1.2.13_aarch64.deb
 Size: 1899936
 MD5sum: 8118a541c2693bdc6ac90232ab058f3f
 SHA1: f87ce21d1a3b00a9bd378671aeb0152e946ea2f4
@@ -1029,7 +1029,7 @@ Installed-Size: 1028
 Depends: libc++
 Conflicts: openexr2
 Replaces: openexr2
-Filename: ./imath_3.2.2_aarch64.deb
+Filename: pool/main/imath_3.2.2_aarch64.deb
 Size: 114184
 MD5sum: a1398877c9401e110b8abeb66bf2f5b7
 SHA1: aabed8d88ce7f1372c0cd2e8b0045a0d2e1ac652
@@ -1045,7 +1045,7 @@ Installed-Size: 196
 Depends: libpng
 Breaks: jbig2dec-dev
 Replaces: jbig2dec-dev
-Filename: ./jbig2dec_0.20-1_aarch64.deb
+Filename: pool/main/jbig2dec_0.20-1_aarch64.deb
 Size: 48928
 MD5sum: d35e730f75d3c2e2eed8b5dad32f32aa
 SHA1: ecd199387bc3a39f0494b80fa5a47b7e5c765d68
@@ -1059,7 +1059,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 212
 Depends: jbig2dec (= 0.20-1)
-Filename: ./jbig2dec-static_0.20-1_aarch64.deb
+Filename: pool/main/jbig2dec-static_0.20-1_aarch64.deb
 Size: 44392
 MD5sum: 1d41d008f89b1ee85550668e3cddba9d
 SHA1: 33f1ebb20d22954df68a534f81b98bf3210534bf
@@ -1074,7 +1074,7 @@ Maintainer: @termux
 Installed-Size: 44
 Depends: bash, binutils-bin
 Conflicts: binutils (<< 2.39-1)
-Filename: ./ldd_0.3_aarch64.deb
+Filename: pool/main/ldd_0.3_aarch64.deb
 Size: 1820
 MD5sum: 91f4f7d992114f756cdfc97e5c799986
 SHA1: 26810f6b478164e110155ad2a9d0e19c6b1a22ba
@@ -1090,7 +1090,7 @@ Installed-Size: 3100
 Depends: giflib, libjpeg-turbo, libpng, libtiff, libwebp, openjpeg, zlib
 Breaks: leptonica-dev
 Replaces: leptonica-dev
-Filename: ./leptonica_1.87.0_aarch64.deb
+Filename: pool/main/leptonica_1.87.0_aarch64.deb
 Size: 939296
 MD5sum: 12c384a91e1c470f4547fa5e2029e303
 SHA1: 04d0ac70da5e97ce6377392f2610257303538903
@@ -1104,7 +1104,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 4544
 Depends: leptonica (= 1.87.0)
-Filename: ./leptonica-static_1.87.0_aarch64.deb
+Filename: pool/main/leptonica-static_1.87.0_aarch64.deb
 Size: 996836
 MD5sum: 8309786a5c778d357f34ebf7e40c5415
 SHA1: bd314488ac34dcd083b318fc55f92b776d863a0d
@@ -1120,7 +1120,7 @@ Maintainer: Joshua Kahn @TomJo2000
 Installed-Size: 532
 Depends: ncurses, pcre2
 Replaces: lazyread
-Filename: ./less_691_aarch64.deb
+Filename: pool/main/less_691_aarch64.deb
 Size: 183452
 MD5sum: e0c557476128fa9d057f24a4dcff389b
 SHA1: 6c9671d127d793e573f1a003217b2afed3ab1e58
@@ -1134,7 +1134,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 440
 Depends: attr
-Filename: ./libacl_2.3.2_aarch64.deb
+Filename: pool/main/libacl_2.3.2_aarch64.deb
 Size: 115844
 MD5sum: d166909d9c4952ee197f126949606550
 SHA1: 29073845cae7db11ae404813ddde6737c171dbda
@@ -1148,7 +1148,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 140
 Depends: libacl (= 2.3.2)
-Filename: ./libacl-static_2.3.2_aarch64.deb
+Filename: pool/main/libacl-static_2.3.2_aarch64.deb
 Size: 16544
 MD5sum: 731fad5c97f5658cedbd6c2f33242439
 SHA1: a0a1599ceb3a3e4ef2e4d47c807ae1e25650274d
@@ -1163,7 +1163,7 @@ Maintainer: @termux
 Installed-Size: 88
 Conflicts: libexecinfo
 Provides: libexecinfo
-Filename: ./libandroid-execinfo_0.1-3_aarch64.deb
+Filename: pool/main/libandroid-execinfo_0.1-3_aarch64.deb
 Size: 15196
 MD5sum: 12fae6442da961c2a7b2f86496680658
 SHA1: c736cbff2180de08f5a005d33854877aceb5944f
@@ -1177,7 +1177,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 36
 Depends: libandroid-execinfo (= 0.1-3)
-Filename: ./libandroid-execinfo-static_0.1-3_aarch64.deb
+Filename: pool/main/libandroid-execinfo-static_0.1-3_aarch64.deb
 Size: 2384
 MD5sum: 910e2ed3e9571d0f7c2640d5c715fce3
 SHA1: 826b895a482b8e30dfbf806f185502657394f35d
@@ -1192,7 +1192,7 @@ Maintainer: @termux
 Installed-Size: 64
 Breaks: libandroid-glob-dev
 Replaces: libandroid-glob-dev
-Filename: ./libandroid-glob_0.6-3_aarch64.deb
+Filename: pool/main/libandroid-glob_0.6-3_aarch64.deb
 Size: 6996
 MD5sum: f594657a97083447861d0c3418326839
 SHA1: 70bac11e5d1c5a0c38c3aed398c8becf7d4ef4fc
@@ -1206,7 +1206,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 40
 Depends: libandroid-glob (= 0.6-3)
-Filename: ./libandroid-glob-static_0.6-3_aarch64.deb
+Filename: pool/main/libandroid-glob-static_0.6-3_aarch64.deb
 Size: 4588
 MD5sum: 5e16dc8ddccf69f3f2386e787165d25f
 SHA1: 1e997baf80f28f0db60e3efb8acd2118aa8a593f
@@ -1219,7 +1219,7 @@ Version: 0.1-4
 Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 52
-Filename: ./libandroid-posix-semaphore_0.1-4_aarch64.deb
+Filename: pool/main/libandroid-posix-semaphore_0.1-4_aarch64.deb
 Size: 4076
 MD5sum: 96b88411249b69250700aabf989430a4
 SHA1: beb38531039731efea73ce11a5ebfba89d1ea6bd
@@ -1233,7 +1233,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 36
 Depends: libandroid-posix-semaphore (= 0.1-4)
-Filename: ./libandroid-posix-semaphore-static_0.1-4_aarch64.deb
+Filename: pool/main/libandroid-posix-semaphore-static_0.1-4_aarch64.deb
 Size: 2852
 MD5sum: 83abedb229997e48fcb357e650b48dfd
 SHA1: 1a0a925dd182876fc42b975d6a28f665cc597804
@@ -1247,7 +1247,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 308
 Depends: pcre2
-Filename: ./libandroid-selinux_14.0.0.11-1_aarch64.deb
+Filename: pool/main/libandroid-selinux_14.0.0.11-1_aarch64.deb
 Size: 59304
 MD5sum: fcb1dc34907090d6b70df9df046aa535
 SHA1: ca2242c5704b7c7c170642d3d989a69c998a6ea7
@@ -1262,7 +1262,7 @@ Maintainer: @termux
 Installed-Size: 72
 Breaks: libandroid-shmem-dev
 Replaces: libandroid-shmem-dev
-Filename: ./libandroid-shmem_0.7_aarch64.deb
+Filename: pool/main/libandroid-shmem_0.7_aarch64.deb
 Size: 7208
 MD5sum: b10ac0fb3705a7071c26137677e3d885
 SHA1: 8bf681830cdf66bab3b8a31c80f34ffd84a81dc2
@@ -1276,7 +1276,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 48
 Depends: libandroid-shmem (= 0.7)
-Filename: ./libandroid-shmem-static_0.7_aarch64.deb
+Filename: pool/main/libandroid-shmem-static_0.7_aarch64.deb
 Size: 6008
 MD5sum: 2b036764903902f4d3778bcfe5b2afb0
 SHA1: 0fad8c0335835366a2b23c02ef2e7abb4763cf9b
@@ -1290,7 +1290,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 96
 Depends: libc++
-Filename: ./libandroid-spawn_0.3_aarch64.deb
+Filename: pool/main/libandroid-spawn_0.3_aarch64.deb
 Size: 16088
 MD5sum: 48755f2f52262fe06d6d50e1fb425b7f
 SHA1: 981dad559993b0504833ba04e9cfdc09cc82873c
@@ -1304,7 +1304,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 44
 Depends: libandroid-spawn (= 0.3)
-Filename: ./libandroid-spawn-static_0.3_aarch64.deb
+Filename: pool/main/libandroid-spawn-static_0.3_aarch64.deb
 Size: 4012
 MD5sum: 2023ee8e6962171ed216fa7e3525347e
 SHA1: c9405e009aa30f77c3b5bf7d8486c6f119a8a8b0
@@ -1318,7 +1318,7 @@ Architecture: aarch64
 Essential: yes
 Maintainer: @termux
 Installed-Size: 76
-Filename: ./libandroid-support_29-1_aarch64.deb
+Filename: pool/main/libandroid-support_29-1_aarch64.deb
 Size: 10916
 MD5sum: 7ad0f49601839d2f46c4cabd36927151
 SHA1: bbdad88572dd5902000403a14c3172fe124ff605
@@ -1332,7 +1332,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 72
 Depends: libandroid-support (= 29-1)
-Filename: ./libandroid-support-static_29-1_aarch64.deb
+Filename: pool/main/libandroid-support-static_29-1_aarch64.deb
 Size: 8616
 MD5sum: e0ca97bee6f4b1a4d304a5f8dd7bed78
 SHA1: 8f8506867e7691916b2aaa08e60ede19e7d99692
@@ -1345,7 +1345,7 @@ Version: 0.1-1
 Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 56
-Filename: ./libandroid-wordexp_0.1-1_aarch64.deb
+Filename: pool/main/libandroid-wordexp_0.1-1_aarch64.deb
 Size: 3652
 MD5sum: 778eeea4a3b6a95b0475b6a531c75979
 SHA1: 930e56d5d74043944767a5b903f3f0330fbb34e1
@@ -1359,7 +1359,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 36
 Depends: libandroid-wordexp (= 0.1-1)
-Filename: ./libandroid-wordexp-static_0.1-1_aarch64.deb
+Filename: pool/main/libandroid-wordexp-static_0.1-1_aarch64.deb
 Size: 2648
 MD5sum: f2ff03c703e462d93500691d6725e0cd
 SHA1: bcf6f82cbce5fefa2df247c1caeadef411c7d9a0
@@ -1372,7 +1372,7 @@ Version: 3.13.1-1
 Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 6976
-Filename: ./libaom_3.13.1-1_aarch64.deb
+Filename: pool/main/libaom_3.13.1-1_aarch64.deb
 Size: 2026656
 MD5sum: 1422b5a731550c7914e8c9d28dc9e819
 SHA1: 79d1498ec1bb18151a63ee72457304a8cead2ff7
@@ -1386,7 +1386,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 8772
 Depends: libaom (= 3.13.1-1)
-Filename: ./libaom-static_3.13.1-1_aarch64.deb
+Filename: pool/main/libaom-static_3.13.1-1_aarch64.deb
 Size: 2172268
 MD5sum: b511b2b982160b748780fab36ca64831
 SHA1: f8df72204ee947bd30e092ce8068607496819aeb
@@ -1402,7 +1402,7 @@ Installed-Size: 1028
 Depends: libbz2, libiconv, liblzma, libxml2, openssl, zlib
 Breaks: libarchive-dev
 Replaces: libarchive-dev
-Filename: ./libarchive_3.8.5_aarch64.deb
+Filename: pool/main/libarchive_3.8.5_aarch64.deb
 Size: 390544
 MD5sum: 866648c2984f620ca8583e8c71a6111e
 SHA1: 32f76bbf35fafc9a38045cc288618bd6c351890d
@@ -1416,7 +1416,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 2012
 Depends: libarchive (= 3.8.5)
-Filename: ./libarchive-static_3.8.5_aarch64.deb
+Filename: pool/main/libarchive-static_3.8.5_aarch64.deb
 Size: 359128
 MD5sum: b6575973a39062fcb254976f4152fe7b
 SHA1: f7874dce80e59e9d96f07e17a8c7b87cdfef2e1b
@@ -1432,7 +1432,7 @@ Installed-Size: 332
 Depends: libgpg-error
 Breaks: gnupg (<< 2.4.5-3), gpgv (<< 2.4.5-3), gpgme (<< 1.23.2-3), pinentry (<< 1.3.1-1), pinentry-gtk (<< 1.3.1), profanity (<< 0.14.0-3)
 Replaces: libassuan-dev
-Filename: ./libassuan_3.0.2-1_aarch64.deb
+Filename: pool/main/libassuan_3.0.2-1_aarch64.deb
 Size: 73976
 MD5sum: bb117e56e9a8ccecaa092db27af9b82c
 SHA1: 54391ecb8ec6343fb8022c6aaeadacbb413f89ef
@@ -1446,7 +1446,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 180
 Depends: libassuan (= 3.0.2-1)
-Filename: ./libassuan-static_3.0.2-1_aarch64.deb
+Filename: pool/main/libassuan-static_3.0.2-1_aarch64.deb
 Size: 33468
 MD5sum: b594dc880929e07b4179a955096eed60
 SHA1: d3755da99466939c00ca7816d582448d99df287b
@@ -1462,7 +1462,7 @@ Installed-Size: 408
 Depends: libandroid-posix-semaphore
 Breaks: util-linux (<< 2.38.1-1)
 Replaces: util-linux (<< 2.38.1-1)
-Filename: ./libblkid_2.41.2-1_aarch64.deb
+Filename: pool/main/libblkid_2.41.2-1_aarch64.deb
 Size: 125464
 MD5sum: 5d79db394f118a917beedc9115d56184
 SHA1: 1ca00166e8ea7078e13cb20c01a4dd2d80f4c983
@@ -1478,7 +1478,7 @@ Maintainer: @termux
 Installed-Size: 108
 Breaks: libbz2-dev
 Replaces: libbz2-dev
-Filename: ./libbz2_1.0.8-8_aarch64.deb
+Filename: pool/main/libbz2_1.0.8-8_aarch64.deb
 Size: 26128
 MD5sum: 035923e7b0d06733ada3b1a1ddde1f6c
 SHA1: f4e9228d62631731094dd575dc0d980ae313cbf8
@@ -1492,7 +1492,7 @@ Architecture: aarch64
 Essential: yes
 Maintainer: @termux
 Installed-Size: 1384
-Filename: ./libc++_29_aarch64.deb
+Filename: pool/main/libc++_29_aarch64.deb
 Size: 334692
 MD5sum: 8b08375571532ebe219f43eec0fce0f7
 SHA1: 16d3b620bb5b14bb6f8559c19e7b5b04c43dd4d2
@@ -1508,7 +1508,7 @@ Installed-Size: 1632
 Depends: fontconfig, freetype, glib, libandroid-shmem, libandroid-execinfo, liblzo, libpixman, libpng, libx11, libxcb, libxext, libxrender, zlib
 Breaks: libcairo-dev, libcairo-gobject
 Replaces: libcairo-dev, libcairo-gobject
-Filename: ./libcairo_1.18.4-2_aarch64.deb
+Filename: pool/main/libcairo_1.18.4-2_aarch64.deb
 Size: 485372
 MD5sum: b8f4d9a2e91002aaeba5f2f2a7b93ecb
 SHA1: 9e2b665551d631f17862f22ac9ac00049e754dba
@@ -1521,7 +1521,7 @@ Version: 2:0.9
 Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 268
-Filename: ./libcap-ng_2:0.9_aarch64.deb
+Filename: pool/main/libcap-ng_2:0.9_aarch64.deb
 Size: 35712
 MD5sum: c9f7dc837c772c2e0f4e4366e618f8d2
 SHA1: 40d8a32a7cf51d84b298f76fb13e5ef7f6251fc5
@@ -1535,7 +1535,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 68
 Depends: libcap-ng (= 2:0.9)
-Filename: ./libcap-ng-static_2:0.9_aarch64.deb
+Filename: pool/main/libcap-ng-static_2:0.9_aarch64.deb
 Size: 8848
 MD5sum: c7adbd63e7fcf2688301e7a2a634f578
 SHA1: 640405297be89c799c4fbc6f5ae3546d9a90e463
@@ -1550,7 +1550,7 @@ Maintainer: @finagolfin
 Installed-Size: 34020
 Depends: libc++
 Conflicts: libllvm (<< 21.1.3), ndk-multilib (<< 23b-6)
-Filename: ./libcompiler-rt_21.1.8_aarch64.deb
+Filename: pool/main/libcompiler-rt_21.1.8_aarch64.deb
 Size: 2706380
 MD5sum: 9da335892823abee511d5737c924b25b
 SHA1: 11379e99bcacf3dd029e66c7c5865cd90534e37a
@@ -1566,7 +1566,7 @@ Installed-Size: 72
 Depends: openssl
 Breaks: libcrypt-dev
 Replaces: libcrypt-dev
-Filename: ./libcrypt_0.2-6_aarch64.deb
+Filename: pool/main/libcrypt_0.2-6_aarch64.deb
 Size: 8808
 MD5sum: 6644fd7e2a3508121c575524a619a285
 SHA1: d3449573c5ab523722052bb95a19695cb9284c7f
@@ -1584,7 +1584,7 @@ Depends: libnghttp2, libnghttp3, libngtcp2, libssh2, openssl (>= 1:3.2.1-1), zli
 Conflicts: apt (<< 1.4.8-8)
 Breaks: libcurl-dev
 Replaces: libcurl-dev
-Filename: ./libcurl_8.18.0-1_aarch64.deb
+Filename: pool/main/libcurl_8.18.0-1_aarch64.deb
 Size: 998300
 MD5sum: c4a04cac9c817884557f66bdd6aad068
 SHA1: 99c529a5d7f18d2ba7bfcbcde8a195bf9c546b0a
@@ -1598,7 +1598,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 1952
 Depends: libcurl (= 8.18.0-1)
-Filename: ./libcurl-static_8.18.0-1_aarch64.deb
+Filename: pool/main/libcurl-static_8.18.0-1_aarch64.deb
 Size: 403932
 MD5sum: 316b57f21552c0cb0658536266437241
 SHA1: d3877b50f4f24454684fa6885b0832b052632e37
@@ -1611,7 +1611,7 @@ Version: 1.5.3
 Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 884
-Filename: ./libdav1d_1.5.3_aarch64.deb
+Filename: pool/main/libdav1d_1.5.3_aarch64.deb
 Size: 289836
 MD5sum: 76edb2153a7c4635ca07c6d495e6073a
 SHA1: 0c133caa965962b4180a9bfd0a34ee13e04be2d2
@@ -1625,7 +1625,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 492
 Depends: libc++
-Filename: ./libde265_1.0.16-1_aarch64.deb
+Filename: pool/main/libde265_1.0.16-1_aarch64.deb
 Size: 149764
 MD5sum: d28261255c30d75850c3207440bf5de6
 SHA1: f2c6d713ab552152d3dd52ff89a51359260f41a9
@@ -1639,7 +1639,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 1060
 Depends: libde265 (= 1.0.16-1)
-Filename: ./libde265-static_1.0.16-1_aarch64.deb
+Filename: pool/main/libde265-static_1.0.16-1_aarch64.deb
 Size: 180228
 MD5sum: ca9b4c4b346ebba959e9d0dd192ed0b0
 SHA1: 1e94700b883317da9d1d67c3e18164ff44b0315e
@@ -1655,7 +1655,7 @@ Installed-Size: 300
 Depends: ncurses
 Breaks: libedit-dev
 Replaces: libedit-dev
-Filename: ./libedit_20240517-3.1-1_aarch64.deb
+Filename: pool/main/libedit_20240517-3.1-1_aarch64.deb
 Size: 79272
 MD5sum: 5e647138e17273a632254a58f1c3a30e
 SHA1: 336f83a567529765da478781d84d116eccc5502a
@@ -1669,7 +1669,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 384
 Depends: libedit (= 20240517-3.1-1)
-Filename: ./libedit-static_20240517-3.1-1_aarch64.deb
+Filename: pool/main/libedit-static_20240517-3.1-1_aarch64.deb
 Size: 76884
 MD5sum: 68132b873e7157eee97ad8d210ca6d64
 SHA1: 0c7396429e4fe76abbc6f8e49434ec581ccb0281
@@ -1684,7 +1684,7 @@ Maintainer: @termux
 Installed-Size: 1168
 Breaks: libevent-dev
 Replaces: libevent-dev
-Filename: ./libevent_2.1.12-3_aarch64.deb
+Filename: pool/main/libevent_2.1.12-3_aarch64.deb
 Size: 202120
 MD5sum: d0bebeb02c0a51c6c876176cff1d3886
 SHA1: 4ee77343428e5d01f59382b5e02fc93b8b129e03
@@ -1699,7 +1699,7 @@ Maintainer: @termux
 Installed-Size: 584
 Breaks: libexif-dev
 Replaces: libexif-dev
-Filename: ./libexif_0.6.25-1_aarch64.deb
+Filename: pool/main/libexif_0.6.25-1_aarch64.deb
 Size: 101884
 MD5sum: 461294b1bcdacb35e14e8008141f141e
 SHA1: c0a297e53058557bcc9f3f5e5f1694668e062245
@@ -1713,7 +1713,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 976
 Depends: libexif (= 0.6.25-1)
-Filename: ./libexif-static_0.6.25-1_aarch64.deb
+Filename: pool/main/libexif-static_0.6.25-1_aarch64.deb
 Size: 155840
 MD5sum: 304d1c8781cfcd427f636a65751281d7
 SHA1: 6597eb5d5bb74a9d6bc0642ec3cc9ad288d93901
@@ -1728,7 +1728,7 @@ Maintainer: @termux
 Installed-Size: 380
 Breaks: libexpat-dev
 Replaces: libexpat-dev
-Filename: ./libexpat_2.7.4_aarch64.deb
+Filename: pool/main/libexpat_2.7.4_aarch64.deb
 Size: 92020
 MD5sum: 76202d85fdd212c5ee3efb2dd8cf9170
 SHA1: 758f95357ea867b889a0861dd11fc8f9363c8ec2
@@ -1742,7 +1742,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 244
 Depends: libexpat (= 2.7.4)
-Filename: ./libexpat-static_2.7.4_aarch64.deb
+Filename: pool/main/libexpat-static_2.7.4_aarch64.deb
 Size: 57616
 MD5sum: 6c61c4de6a7ffd65289ce3ad4e50509c
 SHA1: d780a2dc92006cf995e05100f8f76b89a9087ac8
@@ -1756,7 +1756,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 500
 Depends: libblkid, libuuid
-Filename: ./libfdisk_2.41.2-1_aarch64.deb
+Filename: pool/main/libfdisk_2.41.2-1_aarch64.deb
 Size: 157092
 MD5sum: b6b1ac2dec801c80934c041a108fcec9
 SHA1: 486fd13818b65ed444acbc3208daff89edcf2b81
@@ -1771,7 +1771,7 @@ Maintainer: @termux
 Installed-Size: 232
 Breaks: libffi-dev
 Replaces: libffi-dev
-Filename: ./libffi_3.4.7-1_aarch64.deb
+Filename: pool/main/libffi_3.4.7-1_aarch64.deb
 Size: 30664
 MD5sum: efbeb03888dd96c21c35b1e7039e744c
 SHA1: 8034de96772dda2096a0dc0b7d7c26ade662a0f7
@@ -1785,7 +1785,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 136
 Depends: libffi (= 3.4.7-1)
-Filename: ./libffi-static_3.4.7-1_aarch64.deb
+Filename: pool/main/libffi-static_3.4.7-1_aarch64.deb
 Size: 16060
 MD5sum: 19bc9d610eaefd24a9b84eddc84517ad
 SHA1: 7101b2773a32eb3c0816ec902286933f4d2332be
@@ -1801,7 +1801,7 @@ Installed-Size: 1648
 Depends: libgpg-error
 Breaks: libgcrypt-dev
 Replaces: libgcrypt-dev
-Filename: ./libgcrypt_1.11.2-1_aarch64.deb
+Filename: pool/main/libgcrypt_1.11.2-1_aarch64.deb
 Size: 500948
 MD5sum: 667e9a4c3736d147f6c013839fc6bfc6
 SHA1: 2ec28137c599aaa6a158eb2e316c50c80469ee87
@@ -1815,7 +1815,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 1828
 Depends: libgcrypt (= 1.11.2-1)
-Filename: ./libgcrypt-static_1.11.2-1_aarch64.deb
+Filename: pool/main/libgcrypt-static_1.11.2-1_aarch64.deb
 Size: 467232
 MD5sum: a198dcbee170890f19bf3d2024a6a264
 SHA1: 803d2ff3b45e1756e678d9c70c9ca70bc545786a
@@ -1831,7 +1831,7 @@ Installed-Size: 676
 Depends: fontconfig, freetype, libheif, libiconv, libjpeg-turbo, libpng, libtiff, libwebp, zlib, zstd
 Breaks: libgd-dev
 Replaces: libgd-dev
-Filename: ./libgd_1:2.3.3-5_aarch64.deb
+Filename: pool/main/libgd_1:2.3.3-5_aarch64.deb
 Size: 125024
 MD5sum: be624a96ce75c6944a7998b23e2c329c
 SHA1: d23fb0a5e2cbfb5fc947f3fbd69a6f3f50cc99ee
@@ -1845,7 +1845,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 540
 Depends: libgd (= 1:2.3.3-5)
-Filename: ./libgd-static_1:2.3.3-5_aarch64.deb
+Filename: pool/main/libgd-static_1:2.3.3-5_aarch64.deb
 Size: 101356
 MD5sum: f63fa6a0df7e05b468a0790445f7c2c4
 SHA1: d0b3df0b310c62f5d646883355907dc91e977e97
@@ -1861,7 +1861,7 @@ Installed-Size: 1240
 Depends: libc++
 Breaks: libgmp-dev
 Replaces: libgmp-dev
-Filename: ./libgmp_6.3.0-2_aarch64.deb
+Filename: pool/main/libgmp_6.3.0-2_aarch64.deb
 Size: 328484
 MD5sum: 40f50eb60fee2ce403927553d665fa34
 SHA1: a7ae81b72cf0c44d506a92016f0ef1ac6eff35f3
@@ -1875,7 +1875,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 1276
 Depends: libgmp (= 6.3.0-2)
-Filename: ./libgmp-static_6.3.0-2_aarch64.deb
+Filename: pool/main/libgmp-static_6.3.0-2_aarch64.deb
 Size: 226720
 MD5sum: 4846461fe073a1b42fd8131f4bd17a43
 SHA1: 9fbc1549ab8dafb8f77df05ad5c76ac93dc08828
@@ -1891,7 +1891,7 @@ Installed-Size: 2388
 Depends: libc++, libgmp, libnettle, ca-certificates, libidn2, libunbound, libunistring, zlib
 Breaks: libgnutls-dev
 Replaces: libgnutls-dev
-Filename: ./libgnutls_3.8.11_aarch64.deb
+Filename: pool/main/libgnutls_3.8.11_aarch64.deb
 Size: 734200
 MD5sum: 3f3be0d9377ea643a7e20b27282112ec
 SHA1: 957bc1dac411b896696344239a559671ba6bb262
@@ -1905,7 +1905,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 3624
 Depends: libgnutls (= 3.8.11)
-Filename: ./libgnutls-static_3.8.11_aarch64.deb
+Filename: pool/main/libgnutls-static_3.8.11_aarch64.deb
 Size: 784820
 MD5sum: e058eb077e1833976a7ce9a59732e007
 SHA1: fb9acac90afca484b29360fac4af36a382cbe995
@@ -1920,7 +1920,7 @@ Maintainer: @termux
 Installed-Size: 604
 Breaks: libgpg-error-dev
 Replaces: libgpg-error-dev
-Filename: ./libgpg-error_1.58_aarch64.deb
+Filename: pool/main/libgpg-error_1.58_aarch64.deb
 Size: 121240
 MD5sum: 1ea70e0341ea37b1b16cc3a776f33834
 SHA1: cd8917c393f7d4201842f33c00352f43c8654234
@@ -1934,7 +1934,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 304
 Depends: libgpg-error (= 1.58)
-Filename: ./libgpg-error-static_1.58_aarch64.deb
+Filename: pool/main/libgpg-error-static_1.58_aarch64.deb
 Size: 65932
 MD5sum: 9b459c33e745a731809c31d0e5a02cca
 SHA1: e3dd1bd378cfcd1546c4d9a3a5481a9c393fe6cb
@@ -1950,7 +1950,7 @@ Installed-Size: 296
 Depends: libc++
 Breaks: libgraphite-dev
 Replaces: libgraphite-dev
-Filename: ./libgraphite_1.3.14-3_aarch64.deb
+Filename: pool/main/libgraphite_1.3.14-3_aarch64.deb
 Size: 82252
 MD5sum: bf15530f9d37327e161d09919cffe0cf
 SHA1: d6cf21789c5d0a91c5da593c7f686cda38f0b32c
@@ -1964,7 +1964,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 580
 Depends: glib
-Filename: ./libgts_0.7.6-3_aarch64.deb
+Filename: pool/main/libgts_0.7.6-3_aarch64.deb
 Size: 146208
 MD5sum: c77109c4241a6fb696f46ff5acf71d1b
 SHA1: cc634e21318ac8c111c7bac30478985a74e1ada9
@@ -1978,7 +1978,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 636
 Depends: libgts (= 0.7.6-3)
-Filename: ./libgts-static_0.7.6-3_aarch64.deb
+Filename: pool/main/libgts-static_0.7.6-3_aarch64.deb
 Size: 132088
 MD5sum: 91cb614090766ea3b291385ba37a6ead
 SHA1: 8de2c5c97be750383c0316cbf88bed4a1ccd6a9d
@@ -1992,7 +1992,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 2084
 Depends: gdk-pixbuf, glib, libaom, libc++, libdav1d, libde265, librav1e, libx265, zstd
-Filename: ./libheif_1.21.2_aarch64.deb
+Filename: pool/main/libheif_1.21.2_aarch64.deb
 Size: 493008
 MD5sum: 41802da6163d884dce4e58c97da25bdd
 SHA1: 5861df89aaf1f3af3d1281a2b2a7dc8a97e5c14a
@@ -2006,7 +2006,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 564
 Depends: libjpeg-turbo, libpng, libheif (= 1.21.2)
-Filename: ./libheif-progs_1.21.2_aarch64.deb
+Filename: pool/main/libheif-progs_1.21.2_aarch64.deb
 Size: 131608
 MD5sum: 420720618a7324914e4c416126e54e84
 SHA1: b2c16365890da70a24926964cb0943d1df0f1b28
@@ -2021,7 +2021,7 @@ Maintainer: @termux
 Installed-Size: 1216
 Breaks: libandroid-support (<= 24), libiconv-dev, libandroid-support-dev
 Replaces: libandroid-support (<= 24), libiconv-dev, libandroid-support-dev
-Filename: ./libiconv_1.18-1_aarch64.deb
+Filename: pool/main/libiconv_1.18-1_aarch64.deb
 Size: 561892
 MD5sum: 5ce06a095fd51b6dfc0870ef454e90a1
 SHA1: e9944bdbae4f4b7c29fac590f722a01e5c74e23b
@@ -2035,7 +2035,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 1228
 Depends: libiconv (= 1.18-1)
-Filename: ./libiconv-static_1.18-1_aarch64.deb
+Filename: pool/main/libiconv-static_1.18-1_aarch64.deb
 Size: 558892
 MD5sum: 126c773c8e4e708e5568984267667975
 SHA1: c8d65252819c4b704ff06416bb553698164d93f4
@@ -2051,7 +2051,7 @@ Installed-Size: 43632
 Depends: libc++
 Breaks: libicu-dev
 Replaces: libicu-dev
-Filename: ./libicu_78.2_aarch64.deb
+Filename: pool/main/libicu_78.2_aarch64.deb
 Size: 10210020
 MD5sum: a3f0c2a1a2a660a0f8368c1c6ccab383
 SHA1: 4afff0d46413a3e6c0d133ee705bf47a3fa4d8d0
@@ -2065,7 +2065,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 45144
 Depends: libicu (= 78.2)
-Filename: ./libicu-static_78.2_aarch64.deb
+Filename: pool/main/libicu-static_78.2_aarch64.deb
 Size: 9998032
 MD5sum: f865f61396e679943665a4058624c029
 SHA1: cb89337ea0f92354d2eb2dd24256582c05cb2c18
@@ -2081,7 +2081,7 @@ Installed-Size: 728
 Depends: libiconv
 Breaks: libidn-dev
 Replaces: libidn-dev
-Filename: ./libidn_1.43-1_aarch64.deb
+Filename: pool/main/libidn_1.43-1_aarch64.deb
 Size: 174832
 MD5sum: fc7a5a0d126e6818dfde099702b5ebcd
 SHA1: 4094ca994a43a5632a574552dcaef4ac1f201788
@@ -2095,7 +2095,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 276
 Depends: libidn (= 1.43-1)
-Filename: ./libidn-static_1.43-1_aarch64.deb
+Filename: pool/main/libidn-static_1.43-1_aarch64.deb
 Size: 41860
 MD5sum: 19ce0af26ff0b76a17bb6420c233984c
 SHA1: f58e355c84eb2086679345c544490e224fd468bc
@@ -2111,7 +2111,7 @@ Installed-Size: 428
 Depends: libandroid-support, libiconv, libunistring
 Breaks: libidn2-dev
 Replaces: libidn2-dev
-Filename: ./libidn2_2.3.8-1_aarch64.deb
+Filename: pool/main/libidn2_2.3.8-1_aarch64.deb
 Size: 104740
 MD5sum: 42d3add995b3ba179d72a13d9b8a1c85
 SHA1: e55934120c789b4c67a2aa4e52399c2d94f506ff
@@ -2125,7 +2125,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 296
 Depends: libidn2 (= 2.3.8-1)
-Filename: ./libidn2-static_2.3.8-1_aarch64.deb
+Filename: pool/main/libidn2-static_2.3.8-1_aarch64.deb
 Size: 72984
 MD5sum: a966fcff3aae1183ccb72745e7c9e37f
 SHA1: fd3bc0cfae0f59c1310c0d9af3d906b72b1cb02d
@@ -2138,7 +2138,7 @@ Version: 4.4.1
 Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 624
-Filename: ./libimagequant_4.4.1_aarch64.deb
+Filename: pool/main/libimagequant_4.4.1_aarch64.deb
 Size: 221996
 MD5sum: 2ef3cd2841937b42c83254be952901f7
 SHA1: 11b5066b31c66397e2d10fcf8dd00334de798aed
@@ -2152,7 +2152,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 21960
 Depends: libimagequant (= 4.4.1)
-Filename: ./libimagequant-static_4.4.1_aarch64.deb
+Filename: pool/main/libimagequant-static_4.4.1_aarch64.deb
 Size: 4011456
 MD5sum: 11022a84da25e49a074a2f5212540409
 SHA1: 21530d0cb141e0f64d149fbad077e0fa5ef85a29
@@ -2168,7 +2168,7 @@ Installed-Size: 1004
 Depends: libjpeg-turbo
 Breaks: libjasper-dev
 Replaces: libjasper-dev
-Filename: ./libjasper_4.2.8_aarch64.deb
+Filename: pool/main/libjasper_4.2.8_aarch64.deb
 Size: 409268
 MD5sum: 22d0b67c92aaf5aa414e83b5ad243799
 SHA1: be67d6b1be44e3e172612dff58d45e5b138e895a
@@ -2182,7 +2182,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 108
 Depends: libjasper (= 4.2.8)
-Filename: ./libjasper-utils_4.2.8_aarch64.deb
+Filename: pool/main/libjasper-utils_4.2.8_aarch64.deb
 Size: 14740
 MD5sum: 6cf66c5eb1b6052ccba9da373b3bb56e
 SHA1: 5c49c1fae441bc4bb9a72015f6fb69d02886b759
@@ -2197,7 +2197,7 @@ Maintainer: @termux
 Installed-Size: 2104
 Breaks: libjpeg-turbo-dev
 Replaces: libjpeg-turbo-dev
-Filename: ./libjpeg-turbo_3.1.3_aarch64.deb
+Filename: pool/main/libjpeg-turbo_3.1.3_aarch64.deb
 Size: 383412
 MD5sum: 4f8f276a17cb4e265150cead7ec33d16
 SHA1: 943462968429bb4949436c880c04411436b05e81
@@ -2211,7 +2211,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 348
 Depends: libjpeg-turbo (= 3.1.3)
-Filename: ./libjpeg-turbo-progs_3.1.3_aarch64.deb
+Filename: pool/main/libjpeg-turbo-progs_3.1.3_aarch64.deb
 Size: 97868
 MD5sum: b243d5533bba361000c00d4f9de1fa99
 SHA1: 3bd74b0405d17f5d85ba8be4a9a1f55697def104
@@ -2225,7 +2225,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 2104
 Depends: libjpeg-turbo (= 3.1.3)
-Filename: ./libjpeg-turbo-static_3.1.3_aarch64.deb
+Filename: pool/main/libjpeg-turbo-static_3.1.3_aarch64.deb
 Size: 264932
 MD5sum: a502f14352b717f3222f5aaff356ead4
 SHA1: ec81a47c7769188da75e717b262b2e66870aba93
@@ -2240,7 +2240,7 @@ Maintainer: @termux
 Installed-Size: 7268
 Depends: brotli, giflib, glib, libc++, libffi, libiconv, libjpeg-turbo, libpng, zlib, zstd
 Suggests: gdk-pixbuf
-Filename: ./libjxl_0.11.1-6_aarch64.deb
+Filename: pool/main/libjxl_0.11.1-6_aarch64.deb
 Size: 1203404
 MD5sum: 4c1e51caec1491b56c068518ee2526bf
 SHA1: 7bacdbf61106f19e3108bc531c7c44d8086af70f
@@ -2254,7 +2254,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 8768
 Depends: giflib, imath, libandroid-glob, libandroid-spawn, libjpeg-turbo, libpng, libwebp, openexr, libjxl (= 0.11.1-6)
-Filename: ./libjxl-progs_0.11.1-6_aarch64.deb
+Filename: pool/main/libjxl-progs_0.11.1-6_aarch64.deb
 Size: 1278772
 MD5sum: d0b98fa740dd05ef05bb8b442bc12786
 SHA1: 191a1659aa16f8572e37e38cc88b4a802c20ca19
@@ -2270,7 +2270,7 @@ Installed-Size: 404
 Depends: libgpg-error
 Breaks: libksba-dev
 Replaces: libksba-dev
-Filename: ./libksba_1.6.7-2_aarch64.deb
+Filename: pool/main/libksba_1.6.7-2_aarch64.deb
 Size: 105312
 MD5sum: 6aa57d249d24f0959c46b2ed5d838ae8
 SHA1: 90251673c9f9f4a4f21523d1f70c23962409e9af
@@ -2284,7 +2284,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 420
 Depends: libksba (= 1.6.7-2)
-Filename: ./libksba-static_1.6.7-2_aarch64.deb
+Filename: pool/main/libksba-static_1.6.7-2_aarch64.deb
 Size: 90972
 MD5sum: ba8af06be609e6db9015531398235e9a
 SHA1: 60f26f01e20f07c3e77be74c6ff2b9a3b9d3ffbc
@@ -2301,7 +2301,7 @@ Depends: libc++, libffi, libxml2, ncurses, zlib, zstd
 Conflicts: gcc, clang (<< 3.9.1-3)
 Breaks: libclang, libclang-dev, libllvm-dev
 Replaces: gcc, libclang, libclang-dev, libllvm-dev
-Filename: ./libllvm_21.1.8_aarch64.deb
+Filename: pool/main/libllvm_21.1.8_aarch64.deb
 Size: 30448844
 MD5sum: e08761a83a3bb3368c131e563ce31405
 SHA1: 52dd9a48137e8e361464a270b01cee3fc3493bd2
@@ -2315,7 +2315,7 @@ Architecture: aarch64
 Maintainer: @finagolfin
 Installed-Size: 913124
 Depends: libllvm (= 21.1.8)
-Filename: ./libllvm-static_21.1.8_aarch64.deb
+Filename: pool/main/libllvm-static_21.1.8_aarch64.deb
 Size: 87716984
 MD5sum: a0a4d536420601b283c8502b9cfc54e4
 SHA1: acb96167acb6e24b29f2ab10a1882e30f46122db
@@ -2329,7 +2329,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 164
 Depends: glib
-Filename: ./liblqr_0.4.3-1_aarch64.deb
+Filename: pool/main/liblqr_0.4.3-1_aarch64.deb
 Size: 23512
 MD5sum: 75e1fdc11b843562bef3517d16ab0c5c
 SHA1: a88d90576901534d8790f3726b3bb03f34c61f13
@@ -2343,7 +2343,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 116
 Depends: liblqr (= 0.4.3-1)
-Filename: ./liblqr-static_0.4.3-1_aarch64.deb
+Filename: pool/main/liblqr-static_0.4.3-1_aarch64.deb
 Size: 21544
 MD5sum: df105b2e405f6fddcca9dc7fa8811ef4
 SHA1: d036ba133cd0db66a8c68816d4b14bf7cad162bc
@@ -2358,7 +2358,7 @@ Maintainer: @termux
 Installed-Size: 96
 Breaks: libtool (<< 2.4.7-2)
 Replaces: libtool (<< 2.4.7-2)
-Filename: ./libltdl_2.5.4-2_aarch64.deb
+Filename: pool/main/libltdl_2.5.4-2_aarch64.deb
 Size: 17928
 MD5sum: 3dd2058a7f805d43852b59f83b93153f
 SHA1: 167b5df86a95fb81f82fae36265fdb4263a2a56e
@@ -2374,7 +2374,7 @@ Maintainer: @termux
 Installed-Size: 860
 Breaks: liblzma-dev
 Replaces: liblzma-dev
-Filename: ./liblzma_5.8.2_aarch64.deb
+Filename: pool/main/liblzma_5.8.2_aarch64.deb
 Size: 192572
 MD5sum: ab802263a6065f87da33f40abe0ac8fa
 SHA1: 888525037df6cc541e7809b008dfb2af593206e0
@@ -2388,7 +2388,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 360
 Depends: liblzma (= 5.8.2)
-Filename: ./liblzma-static_5.8.2_aarch64.deb
+Filename: pool/main/liblzma-static_5.8.2_aarch64.deb
 Size: 89560
 MD5sum: 6a03e4111c4621a6aab50d37c20156b6
 SHA1: 640f25c8b5160621a0de50f48620958898e0e15b
@@ -2403,7 +2403,7 @@ Maintainer: @termux
 Installed-Size: 448
 Breaks: liblzo-dev
 Replaces: liblzo-dev
-Filename: ./liblzo_2.10-4_aarch64.deb
+Filename: pool/main/liblzo_2.10-4_aarch64.deb
 Size: 69536
 MD5sum: f5960ff7d841921c43750caa1be53388
 SHA1: 937c62fe412c2a28d1088a219c6335ade8971fa5
@@ -2417,7 +2417,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 232
 Depends: liblzo (= 2.10-4)
-Filename: ./liblzo-static_2.10-4_aarch64.deb
+Filename: pool/main/liblzo-static_2.10-4_aarch64.deb
 Size: 34428
 MD5sum: 814dd5f4c3a5072537319c98b151353d
 SHA1: 22e1e7e7e10c5c8901dbb55c97ce20e8a2578b58
@@ -2431,7 +2431,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 488
 Depends: libblkid, libsmartcols
-Filename: ./libmount_2.41.2-1_aarch64.deb
+Filename: pool/main/libmount_2.41.2-1_aarch64.deb
 Size: 153064
 MD5sum: e57a2cb8972b64f34e3775ea529d16b7
 SHA1: 7dd6dfff324fd437333eb90975eeb7686715b092
@@ -2447,7 +2447,7 @@ Installed-Size: 1000
 Depends: libgmp
 Breaks: libmpfr-dev
 Replaces: libmpfr-dev
-Filename: ./libmpfr_4.2.1-1_aarch64.deb
+Filename: pool/main/libmpfr_4.2.1-1_aarch64.deb
 Size: 272928
 MD5sum: 74e5f6cfd680da32b3e5cb16c02a9444
 SHA1: b129a1da517589af46a82b68cfb60a607f6cd86c
@@ -2461,7 +2461,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 1120
 Depends: libmpfr (= 4.2.1-1)
-Filename: ./libmpfr-static_4.2.1-1_aarch64.deb
+Filename: pool/main/libmpfr-static_4.2.1-1_aarch64.deb
 Size: 207976
 MD5sum: 6afa3d0de1f54e1f00e90b6db3768e8e
 SHA1: 1dd12a64a40f9543a12ab8465826f17441d9d348
@@ -2477,7 +2477,7 @@ Installed-Size: 1416
 Depends: libgmp
 Breaks: libnettle-dev
 Replaces: libnettle-dev
-Filename: ./libnettle_3.10.2-1_aarch64.deb
+Filename: pool/main/libnettle_3.10.2-1_aarch64.deb
 Size: 406104
 MD5sum: b37d57ab031ed0a4dda1b05cb18031f1
 SHA1: 1f58c9d7bd66287c05aa2d1cec82afaa034b58a6
@@ -2491,7 +2491,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 3832
 Depends: libnettle (= 3.10.2-1)
-Filename: ./libnettle-static_3.10.2-1_aarch64.deb
+Filename: pool/main/libnettle-static_3.10.2-1_aarch64.deb
 Size: 682888
 MD5sum: a6b7ad244848f52be5b0b84601d38700
 SHA1: d961a5b72942792c8a9c260877df48a4dd8b732a
@@ -2506,7 +2506,7 @@ Maintainer: @termux
 Installed-Size: 516
 Breaks: libnghttp2-dev
 Replaces: libnghttp2-dev
-Filename: ./libnghttp2_1.68.0-1_aarch64.deb
+Filename: pool/main/libnghttp2_1.68.0-1_aarch64.deb
 Size: 95308
 MD5sum: 1e917ec89370df473c62bc4f82190b82
 SHA1: a3fb3d1a2dc27ad42c3944c34df1e120da5b7ea5
@@ -2520,7 +2520,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 320
 Depends: libnghttp2 (= 1.68.0-1)
-Filename: ./libnghttp2-static_1.68.0-1_aarch64.deb
+Filename: pool/main/libnghttp2-static_1.68.0-1_aarch64.deb
 Size: 63288
 MD5sum: d1e75881b6353e6b7780909fbdf3cc95
 SHA1: 0e47ec8131f590645ffda7792f60155e67f306cf
@@ -2534,7 +2534,7 @@ Architecture: aarch64
 Essential: yes
 Maintainer: @termux
 Installed-Size: 332
-Filename: ./libnghttp3_1.15.0_aarch64.deb
+Filename: pool/main/libnghttp3_1.15.0_aarch64.deb
 Size: 67932
 MD5sum: bfa013f4dcba881d1551860752d3121a
 SHA1: bd871c5dd27adbb33a543df65548a8ee95439a9c
@@ -2548,7 +2548,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 332
 Depends: libnghttp3 (= 1.15.0)
-Filename: ./libnghttp3-static_1.15.0_aarch64.deb
+Filename: pool/main/libnghttp3-static_1.15.0_aarch64.deb
 Size: 63500
 MD5sum: e942bc4ff7c8d82f2840f0e5183f8beb
 SHA1: b53444419c9f1a0a71b23862519a600275b6372b
@@ -2562,7 +2562,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 728
 Depends: openssl
-Filename: ./libngtcp2_1.20.0_aarch64.deb
+Filename: pool/main/libngtcp2_1.20.0_aarch64.deb
 Size: 164800
 MD5sum: 0469dc5bb991a10abd5e626612ed7c1e
 SHA1: 2d8996867a552ec27ab8131af10cb0e723b46d57
@@ -2576,7 +2576,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 740
 Depends: libngtcp2 (= 1.20.0)
-Filename: ./libngtcp2-static_1.20.0_aarch64.deb
+Filename: pool/main/libngtcp2-static_1.20.0_aarch64.deb
 Size: 146452
 MD5sum: 58f2e64bbaf75d02c5bf815a545218cc
 SHA1: edc24127781cbfda40d3eaf97c6873d8452cd67e
@@ -2591,7 +2591,7 @@ Maintainer: @termux
 Installed-Size: 92
 Breaks: libnpth-dev
 Replaces: libnpth-dev
-Filename: ./libnpth_1.6-3_aarch64.deb
+Filename: pool/main/libnpth_1.6-3_aarch64.deb
 Size: 11224
 MD5sum: 797dcc58e1e8e2f8586f5771aa665cf5
 SHA1: 804b25b15d1db2bd00316548eac10fab263bd15f
@@ -2605,7 +2605,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 48
 Depends: libnpth (= 1.6-3)
-Filename: ./libnpth-static_1.6-3_aarch64.deb
+Filename: pool/main/libnpth-static_1.6-3_aarch64.deb
 Size: 4676
 MD5sum: 8164c3ca5684ea81183c0efc9b976e06
 SHA1: af76b9e6860a3bdf40cb1a21152683ec3017bb33
@@ -2618,7 +2618,7 @@ Version: 4.38.2
 Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 1048
-Filename: ./libnspr_4.38.2_aarch64.deb
+Filename: pool/main/libnspr_4.38.2_aarch64.deb
 Size: 181100
 MD5sum: 093fcc3bdd3e5bec3b5fb8b2c177668d
 SHA1: e9412ba3ae095f53c909d7b083dcdbecf3a3c969
@@ -2632,7 +2632,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 2072
 Depends: libnspr (= 4.38.2)
-Filename: ./libnspr-static_4.38.2_aarch64.deb
+Filename: pool/main/libnspr-static_4.38.2_aarch64.deb
 Size: 394840
 MD5sum: 097448f230a76c043cceb03f9034d2a2
 SHA1: 25a7944bbe1f30d59336767613949a7be04ef536
@@ -2646,7 +2646,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 9748
 Depends: libnspr, libsqlite
-Filename: ./libnss_3.120_aarch64.deb
+Filename: pool/main/libnss_3.120_aarch64.deb
 Size: 1906100
 MD5sum: fc4a025c3928afe7ffdc06e9bbb9d875
 SHA1: 60b4587e0c419fda35c0633a6653c9c39791dcfa
@@ -2661,7 +2661,7 @@ Maintainer: @termux
 Installed-Size: 672
 Breaks: libpixman-dev
 Replaces: libpixman-dev
-Filename: ./libpixman_0.46.4-1_aarch64.deb
+Filename: pool/main/libpixman_0.46.4-1_aarch64.deb
 Size: 158864
 MD5sum: 9ec7942ae9dadfa741104e94a067937e
 SHA1: 9ae0e711c91153be9f0e9a34604ff461eba1c081
@@ -2677,7 +2677,7 @@ Installed-Size: 524
 Depends: zlib
 Breaks: libpng-dev
 Replaces: libpng-dev
-Filename: ./libpng_1.6.54_aarch64.deb
+Filename: pool/main/libpng_1.6.54_aarch64.deb
 Size: 195508
 MD5sum: 46b7a3bcbd126ea47fa86b4cd0590ddf
 SHA1: bb76df12095146d755d1baa6ca29bc2a1acc62ab
@@ -2691,7 +2691,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 332
 Depends: libpng (= 1.6.54)
-Filename: ./libpng-static_1.6.54_aarch64.deb
+Filename: pool/main/libpng-static_1.6.54_aarch64.deb
 Size: 86552
 MD5sum: 50ebf714108482167bcc3196c441800c
 SHA1: 22549d6f11dbb84790c14a13e8820006f66cdce4
@@ -2705,7 +2705,7 @@ Architecture: aarch64
 Maintainer: @finagolfin
 Installed-Size: 5816
 Depends: libllvm (= 21.1.8)
-Filename: ./libpolly_21.1.8_aarch64.deb
+Filename: pool/main/libpolly_21.1.8_aarch64.deb
 Size: 1224140
 MD5sum: ca2fa90b2d795ba4cdbfb3fb7d3a24cb
 SHA1: c961b05d5886e3815850f36999a151290679532b
@@ -2719,7 +2719,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 88
 Depends: freetype, harfbuzz, fribidi, zstd
-Filename: ./libraqm_0.10.3_aarch64.deb
+Filename: pool/main/libraqm_0.10.3_aarch64.deb
 Size: 11100
 MD5sum: 167b15f76ddc188ecbcd98f766307d99
 SHA1: 185795d2fe10b8f7b28877018b2017cae64c25eb
@@ -2732,7 +2732,7 @@ Version: 0.8.1
 Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 2280
-Filename: ./librav1e_0.8.1_aarch64.deb
+Filename: pool/main/librav1e_0.8.1_aarch64.deb
 Size: 686652
 MD5sum: 0be36fea78396d5b17162662dc360db8
 SHA1: 07c4232562d15847e37c1bdf42021c47d4f7ccfb
@@ -2746,7 +2746,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 79748
 Depends: librav1e (= 0.8.1)
-Filename: ./librav1e-static_0.8.1_aarch64.deb
+Filename: pool/main/librav1e-static_0.8.1_aarch64.deb
 Size: 8015256
 MD5sum: f14836b082e4b48c891863e6364b1d04
 SHA1: 25866529b298ed8e32e525a3302f1e7a7a039957
@@ -2760,7 +2760,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 2856
 Depends: libc++, libjasper, libjpeg-turbo, littlecms, zlib
-Filename: ./libraw_0.22.0_aarch64.deb
+Filename: pool/main/libraw_0.22.0_aarch64.deb
 Size: 418572
 MD5sum: 4cdb6b00196ec917e3730c4530f29135
 SHA1: 257c9df5ff2ddebd0002d1d4c5627f27199a0c65
@@ -2774,7 +2774,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 3628
 Depends: libraw (= 0.22.0)
-Filename: ./libraw-static_0.22.0_aarch64.deb
+Filename: pool/main/libraw-static_0.22.0_aarch64.deb
 Size: 356512
 MD5sum: df465eedd99f9e618ab9352f80b1c842
 SHA1: 05cfae0182eb1b0b05bd88329fc66ada81789ff0
@@ -2790,7 +2790,7 @@ Installed-Size: 27384
 Depends: fontconfig, freetype, gdk-pixbuf, glib, harfbuzz, libcairo, libdav1d, libpng, libxml2, pango, zstd
 Breaks: librsvg-dev
 Replaces: librsvg-dev
-Filename: ./librsvg_2.61.3_aarch64.deb
+Filename: pool/main/librsvg_2.61.3_aarch64.deb
 Size: 5327628
 MD5sum: b6c8322e74fdccb8ed83974fa19a2241
 SHA1: bd10d68b4c1c58ba4cd1f8932f7ad08a10ad653e
@@ -2806,7 +2806,7 @@ Installed-Size: 324
 Depends: libandroid-posix-semaphore
 Breaks: util-linux (<< 2.38.1-1)
 Replaces: util-linux (<< 2.38.1-1)
-Filename: ./libsmartcols_2.41.2-1_aarch64.deb
+Filename: pool/main/libsmartcols_2.41.2-1_aarch64.deb
 Size: 100220
 MD5sum: 8dea5c83641fafc3422eef9ab4407692
 SHA1: bbfe89d1674d053f63f5031105c3905973bb8fb9
@@ -2822,7 +2822,7 @@ Installed-Size: 3024
 Depends: zlib
 Breaks: libsqlite-dev
 Replaces: libsqlite-dev
-Filename: ./libsqlite_3.51.2_aarch64.deb
+Filename: pool/main/libsqlite_3.51.2_aarch64.deb
 Size: 711208
 MD5sum: 18ac57c1f43adcfb33c580c39887c3de
 SHA1: ac76b35414dd0df1033dc197cdbdb1f42c1f32ad
@@ -2836,7 +2836,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 1652
 Depends: libsqlite (= 3.51.2)
-Filename: ./libsqlite-static_3.51.2_aarch64.deb
+Filename: pool/main/libsqlite-static_3.51.2_aarch64.deb
 Size: 544308
 MD5sum: dd1dd9132890cd24f46cff3e815f646f
 SHA1: 0531d03d44dfe8c8b2800e418039a6d2b08f0ba9
@@ -2851,7 +2851,7 @@ Maintainer: @termux
 Installed-Size: 1184
 Depends: tcl, libsqlite (= 3.51.2)
 Breaks: sqlcipher (<< 4.4.2-1), tcl (<< 8.6.10-4)
-Filename: ./libsqlite-tcl_3.51.2_aarch64.deb
+Filename: pool/main/libsqlite-tcl_3.51.2_aarch64.deb
 Size: 510248
 MD5sum: f8cb550612a0c6d06f7eb99f34ae3644
 SHA1: cba79503353c50f8c116aed2f81ccc114072b317
@@ -2867,7 +2867,7 @@ Installed-Size: 1156
 Depends: openssl, zlib
 Breaks: libssh2-dev
 Replaces: libssh2-dev
-Filename: ./libssh2_1.11.1-1_aarch64.deb
+Filename: pool/main/libssh2_1.11.1-1_aarch64.deb
 Size: 219028
 MD5sum: e0355e6bf64e02283727b31809016a13
 SHA1: f1d2ca80ec0c0acc6b15d8c7e0e0c3b4ae9f51af
@@ -2881,7 +2881,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 488
 Depends: libssh2 (= 1.11.1-1)
-Filename: ./libssh2-static_1.11.1-1_aarch64.deb
+Filename: pool/main/libssh2-static_1.11.1-1_aarch64.deb
 Size: 111524
 MD5sum: 0b23c71d02fc8b0e2b2d719367b0943d
 SHA1: e7c04cc1bcaa1b06423065b6e3a4daf7c9a34934
@@ -2897,7 +2897,7 @@ Installed-Size: 6524
 Depends: libc++, libjpeg-turbo, liblzma, zlib, zstd
 Breaks: libtiff-dev
 Replaces: libtiff-dev
-Filename: ./libtiff_4.7.1_aarch64.deb
+Filename: pool/main/libtiff_4.7.1_aarch64.deb
 Size: 849736
 MD5sum: fecc530b9f3fe0a904dd688aea53b7e1
 SHA1: 1b1ae6c715c863eeebc58c5bfe29fc7f1e2ddae9
@@ -2911,7 +2911,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 864
 Depends: libtiff (= 4.7.1)
-Filename: ./libtiff-static_4.7.1_aarch64.deb
+Filename: pool/main/libtiff-static_4.7.1_aarch64.deb
 Size: 170688
 MD5sum: 61696977db242d85bb6b6adfcd205c25
 SHA1: 77f744c53d8dd7b3c86d9d561042a8ff69e54c6d
@@ -2925,7 +2925,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 812
 Depends: libtiff (= 4.7.1)
-Filename: ./libtiff-utils_4.7.1_aarch64.deb
+Filename: pool/main/libtiff-utils_4.7.1_aarch64.deb
 Size: 257312
 MD5sum: 64142fe11e3b93732c7fa87cdcd70d0f
 SHA1: 47bc0507a5a686b1ed50d0e73c8068ec18bfcb94
@@ -2941,7 +2941,7 @@ Installed-Size: 2788
 Depends: bash, grep, sed, libltdl
 Conflicts: libtool-dev, libtool-static
 Replaces: libtool-dev, libtool-static
-Filename: ./libtool_2.5.4-2_aarch64.deb
+Filename: pool/main/libtool_2.5.4-2_aarch64.deb
 Size: 391900
 MD5sum: 6622a4335728bc3cce2b833d1dec2162
 SHA1: 44112bcd4ce430610e6067cbd638bbfb7defcf57
@@ -2957,7 +2957,7 @@ Installed-Size: 1248
 Depends: libevent, libnghttp2, libngtcp2, openssl, resolv-conf
 Breaks: unbound (<< 1.17.1-1)
 Replaces: unbound (<< 1.17.1-1)
-Filename: ./libunbound_1.24.2-1_aarch64.deb
+Filename: pool/main/libunbound_1.24.2-1_aarch64.deb
 Size: 380788
 MD5sum: 4cf706e5211d211df9e218a17d16a3ff
 SHA1: 102ba335779108572bab3797bb1ccbce49c1da93
@@ -2971,7 +2971,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 2060
 Depends: libunbound (= 1.24.2-1)
-Filename: ./libunbound-static_1.24.2-1_aarch64.deb
+Filename: pool/main/libunbound-static_1.24.2-1_aarch64.deb
 Size: 458016
 MD5sum: 7b816f0f9405c2079e9f177f5cfecea7
 SHA1: 181e1ec52d19171daf4a1cb003e735eec4e5cfa7
@@ -2987,7 +2987,7 @@ Installed-Size: 3208
 Depends: libandroid-support, libiconv
 Breaks: libunistring-dev
 Replaces: libunistring-dev
-Filename: ./libunistring_1.3-1_aarch64.deb
+Filename: pool/main/libunistring_1.3-1_aarch64.deb
 Size: 553416
 MD5sum: 4a10bffdb7f55eeb094defb7f23cbca3
 SHA1: 1117ea4aeb0b8347550ef744696a889728697d49
@@ -3001,7 +3001,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 2964
 Depends: libunistring (= 1.3-1)
-Filename: ./libunistring-static_1.3-1_aarch64.deb
+Filename: pool/main/libunistring-static_1.3-1_aarch64.deb
 Size: 469472
 MD5sum: 755e74c4894621f73781acbb6e18a024
 SHA1: 605384c37a834ea8c67106f5680647dfefa67f62
@@ -3016,7 +3016,7 @@ Maintainer: @termux
 Installed-Size: 252
 Breaks: libusb-dev
 Replaces: libusb-dev
-Filename: ./libusb_1.0.29-1_aarch64.deb
+Filename: pool/main/libusb_1.0.29-1_aarch64.deb
 Size: 58616
 MD5sum: a05b7df66ab3e0744b0f9403c5a5a7a4
 SHA1: 6f9f7c86c03207cdd0446bd8e1d054259f8e30a2
@@ -3030,7 +3030,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 232
 Depends: libusb (= 1.0.29-1)
-Filename: ./libusb-static_1.0.29-1_aarch64.deb
+Filename: pool/main/libusb-static_1.0.29-1_aarch64.deb
 Size: 47036
 MD5sum: af7a16d5dbee85839f354ad0d7b1dc83
 SHA1: 83e989809de8834dfd443adbe3808d7e9ad5fcd3
@@ -3046,7 +3046,7 @@ Installed-Size: 84
 Depends: libandroid-posix-semaphore
 Breaks: libuuid-dev
 Replaces: libuuid-dev
-Filename: ./libuuid_2.41.2-1_aarch64.deb
+Filename: pool/main/libuuid_2.41.2-1_aarch64.deb
 Size: 15396
 MD5sum: 96b1bf724270fcaab430747ddf13fb3c
 SHA1: 88123d85e782992b834618f986e21444d0f08ed1
@@ -3060,7 +3060,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 3492
 Depends: cgif, fftw, fontconfig, glib, imagemagick, imath, libc++, libarchive, libcairo, libexif, libexpat, libheif, libimagequant, libjpeg-turbo, libjxl, libpng, librsvg, libtiff, libwebp, littlecms, openexr, openjpeg, pango, poppler, zlib, zstd
-Filename: ./libvips_8.18.0-1_aarch64.deb
+Filename: pool/main/libvips_8.18.0-1_aarch64.deb
 Size: 1109284
 MD5sum: b4502a428e60a6532e43d87418860c4c
 SHA1: 229c56eaab734792b20fac13d1275199a4ae80ac
@@ -3076,7 +3076,7 @@ Installed-Size: 1256
 Depends: giflib, libjpeg-turbo, libpng, libtiff, zlib
 Breaks: libwebp-dev
 Replaces: libwebp-dev
-Filename: ./libwebp_1.6.0-1_aarch64.deb
+Filename: pool/main/libwebp_1.6.0-1_aarch64.deb
 Size: 328020
 MD5sum: 8d143cc78d4f785d6ba2c85d50e591e0
 SHA1: a212efd59929bb611f930bc87d15fc438aaf998d
@@ -3091,7 +3091,7 @@ Maintainer: @termux
 Installed-Size: 13704
 Depends: libandroid-support, libxcb
 Recommends: xorg-xauth
-Filename: ./libx11_1.8.12-1_aarch64.deb
+Filename: pool/main/libx11_1.8.12-1_aarch64.deb
 Size: 1912116
 MD5sum: b68789a12acc6f3e5b42078aab688777
 SHA1: 1a33a3243023c9fe57c3060363d1d13d622233be
@@ -3105,7 +3105,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 2136
 Depends: libx11 (= 1.8.12-1)
-Filename: ./libx11-static_1.8.12-1_aarch64.deb
+Filename: pool/main/libx11-static_1.8.12-1_aarch64.deb
 Size: 567568
 MD5sum: 3d874c25aa68859d4fc59db3ca4c8559
 SHA1: 3552fdc95c1d4ac028ba834494fa6dfbd0f9d79c
@@ -3121,7 +3121,7 @@ Installed-Size: 7572
 Depends: libandroid-posix-semaphore, libc++
 Breaks: libx265-dev
 Replaces: libx265-dev
-Filename: ./libx265_4.1-3_aarch64.deb
+Filename: pool/main/libx265_4.1-3_aarch64.deb
 Size: 1183504
 MD5sum: cb7147cb6c98d51a19e632e6975fda24
 SHA1: 21f516810f4d38208f24e7bc8bd05a59fa95f56a
@@ -3135,7 +3135,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 4364
 Depends: libx265 (= 4.1-3)
-Filename: ./libx265-static_4.1-3_aarch64.deb
+Filename: pool/main/libx265-static_4.1-3_aarch64.deb
 Size: 813684
 MD5sum: 7ac3c10d5118a7b27493ca11ed6d5a16
 SHA1: b5af793e8afbb15ca3b53e29646b838b52c5aa80
@@ -3148,7 +3148,7 @@ Version: 1.0.12-2
 Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 128
-Filename: ./libxau_1.0.12-2_aarch64.deb
+Filename: pool/main/libxau_1.0.12-2_aarch64.deb
 Size: 9164
 MD5sum: 76c10361e4f547e953273428f735a2d1
 SHA1: ad93afb7f263f676d299b571ed7da0dd8b947e32
@@ -3163,7 +3163,7 @@ Maintainer: @termux
 Installed-Size: 12772
 Depends: libxau, libxdmcp
 Recommends: xorg-xauth
-Filename: ./libxcb_1.17.0-1_aarch64.deb
+Filename: pool/main/libxcb_1.17.0-1_aarch64.deb
 Size: 915592
 MD5sum: 25a6eb9b3db5c3fde9cab29fb993c730
 SHA1: b2a64f1970e788d4a57c74b80550c3e20e75e736
@@ -3177,7 +3177,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 1332
 Depends: libxcb (= 1.17.0-1)
-Filename: ./libxcb-static_1.17.0-1_aarch64.deb
+Filename: pool/main/libxcb-static_1.17.0-1_aarch64.deb
 Size: 160772
 MD5sum: b875479239bf1e867aa28fbf88b1e232
 SHA1: e5cbbab0e15f9f3b5a8d41c822d1280650fb0e24
@@ -3190,7 +3190,7 @@ Version: 1.1.5-2
 Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 196
-Filename: ./libxdmcp_1.1.5-2_aarch64.deb
+Filename: pool/main/libxdmcp_1.1.5-2_aarch64.deb
 Size: 24388
 MD5sum: 14ce6c56d6e45f3fd56067f9af0ad8b6
 SHA1: 50b98092ebbdfa8ca6b900d51a70b98b81064140
@@ -3204,7 +3204,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 60
 Depends: libxdmcp (= 1.1.5-2)
-Filename: ./libxdmcp-static_1.1.5-2_aarch64.deb
+Filename: pool/main/libxdmcp-static_1.1.5-2_aarch64.deb
 Size: 7920
 MD5sum: 46f998659dd1573b119a5543cb54a134
 SHA1: 4bc6d51e976792e22935661a7c3ca90811574667
@@ -3218,7 +3218,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 616
 Depends: libx11
-Filename: ./libxext_1.3.7_aarch64.deb
+Filename: pool/main/libxext_1.3.7_aarch64.deb
 Size: 98044
 MD5sum: f09e6845621b053ac9c229a4b1b7df6d
 SHA1: fd7d75794b16c8b547c4b4263f23a6cb9de21bb0
@@ -3232,7 +3232,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 156
 Depends: libxext (= 1.3.7)
-Filename: ./libxext-static_1.3.7_aarch64.deb
+Filename: pool/main/libxext-static_1.3.7_aarch64.deb
 Size: 25920
 MD5sum: a533ff15c9a0134b76cbd5bbe9d88cdd
 SHA1: 8634b6aa2a7924487f24d16e715861e5a2678006
@@ -3246,7 +3246,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 496
 Depends: fontconfig, freetype, libx11, libxrender
-Filename: ./libxft_2.3.9-1_aarch64.deb
+Filename: pool/main/libxft_2.3.9-1_aarch64.deb
 Size: 48164
 MD5sum: 28bf01781bc06191b93c5ac3f33e882d
 SHA1: 049770a5a6021ecdde0a79052f3cfe703184f382
@@ -3260,7 +3260,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 164
 Depends: libxft (= 2.3.9-1)
-Filename: ./libxft-static_2.3.9-1_aarch64.deb
+Filename: pool/main/libxft-static_2.3.9-1_aarch64.deb
 Size: 36608
 MD5sum: 972b29734e96b828aafb03eaf2aa423f
 SHA1: 80264c01863d4d6508da693f7169dafe1387180f
@@ -3276,7 +3276,7 @@ Installed-Size: 1632
 Depends: libandroid-glob, libiconv, libicu, zlib
 Breaks: libxml2-dev
 Replaces: libxml2-dev
-Filename: ./libxml2_2.15.1-1_aarch64.deb
+Filename: pool/main/libxml2_2.15.1-1_aarch64.deb
 Size: 439916
 MD5sum: 29eec8dd55aa41a4fc6bc2051cacdbfe
 SHA1: 17b89e5b58111fe8b89ac5c59aa998065f9a3d10
@@ -3290,7 +3290,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 164
 Depends: python, libxml2 (= 2.15.1-1)
-Filename: ./libxml2-python_2.15.1-1_aarch64.deb
+Filename: pool/main/libxml2-python_2.15.1-1_aarch64.deb
 Size: 29168
 MD5sum: 2330627d70e1b6c05fea9316641a6e34
 SHA1: 74c2bc1cfdb77801d84f9510fd40f1036c8df8f3
@@ -3305,7 +3305,7 @@ Maintainer: @termux
 Installed-Size: 112
 Depends: readline, libxml2 (= 2.15.1-1)
 Provides: xmllint
-Filename: ./libxml2-utils_2.15.1-1_aarch64.deb
+Filename: pool/main/libxml2-utils_2.15.1-1_aarch64.deb
 Size: 25652
 MD5sum: 67c29b84c56490e0755d7983693435d8
 SHA1: ffac338c4a777bdbb597a06e7363ad2f78780927
@@ -3319,7 +3319,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 164
 Depends: libx11
-Filename: ./libxrender_0.9.12-1_aarch64.deb
+Filename: pool/main/libxrender_0.9.12-1_aarch64.deb
 Size: 24668
 MD5sum: 37e77775b31f488b76d9091bd7b56d6a
 SHA1: 2080b55c73e4797ed015ac8d4023239cbdac53f2
@@ -3335,7 +3335,7 @@ Installed-Size: 1948
 Depends: libgcrypt, libgpg-error, libxml2, libandroid-glob
 Breaks: libxslt-dev
 Replaces: libxslt-dev
-Filename: ./libxslt_1.1.45_aarch64.deb
+Filename: pool/main/libxslt_1.1.45_aarch64.deb
 Size: 248528
 MD5sum: 752dda42382b9e43f2b56a5d723dbe71
 SHA1: 89d90d59eb15275f567a16ec8af459132da96104
@@ -3349,7 +3349,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 144
 Depends: libx11, libxau, libxcb, libxdmcp, libxext
-Filename: ./libxss_1.2.5_aarch64.deb
+Filename: pool/main/libxss_1.2.5_aarch64.deb
 Size: 11980
 MD5sum: a8e3b16c8f451b2fd3e24d67b8149c05
 SHA1: f4a88c6e27b0339f382e8cb736c2a03cb5de8626
@@ -3363,7 +3363,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 44
 Depends: libxss (= 1.2.5)
-Filename: ./libxss-static_1.2.5_aarch64.deb
+Filename: pool/main/libxss-static_1.2.5_aarch64.deb
 Size: 4376
 MD5sum: eb96a909355bd57a869e55c121d87b40
 SHA1: 1b6203f80dcd5cdd92b377e5ca7968d08008ccbb
@@ -3379,7 +3379,7 @@ Installed-Size: 932
 Depends: libbz2, liblzma, openssl, zlib, zstd
 Breaks: libzip-dev
 Replaces: libzip-dev
-Filename: ./libzip_1.11.4-1_aarch64.deb
+Filename: pool/main/libzip_1.11.4-1_aarch64.deb
 Size: 242136
 MD5sum: c64d77ad58885b4f7fdb4124ae97f199
 SHA1: 5a3e057ecfe3f36c0a749cbfe34c4573327ba2f0
@@ -3394,7 +3394,7 @@ Maintainer: @termux
 Installed-Size: 540
 Breaks: littlecms-dev
 Replaces: littlecms-dev
-Filename: ./littlecms_2.18_aarch64.deb
+Filename: pool/main/littlecms_2.18_aarch64.deb
 Size: 142676
 MD5sum: b90eb49fefe01002cd8c64423d6c7581
 SHA1: c30bbdffa29d14c36888980e8013f55e37d663f2
@@ -3408,7 +3408,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 648
 Depends: littlecms (= 2.18)
-Filename: ./littlecms-static_2.18_aarch64.deb
+Filename: pool/main/littlecms-static_2.18_aarch64.deb
 Size: 145852
 MD5sum: 4eebf3e0bdfabf2b90cdc1eca357b0f1
 SHA1: 3a45f492b11d2ea931ff3e738018cc96490e8c63
@@ -3422,7 +3422,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 180
 Depends: libjpeg-turbo, libtiff, littlecms (= 2.18)
-Filename: ./littlecms-utils_2.18_aarch64.deb
+Filename: pool/main/littlecms-utils_2.18_aarch64.deb
 Size: 35120
 MD5sum: 18e9eca4b9b2ac20610675c60d285040
 SHA1: b4ac083db8e3716b35dc6c288a0d73f39462701a
@@ -3436,7 +3436,7 @@ Architecture: aarch64
 Maintainer: @finagolfin
 Installed-Size: 20300
 Depends: libllvm (= 21.1.8)
-Filename: ./lld_21.1.8_aarch64.deb
+Filename: pool/main/lld_21.1.8_aarch64.deb
 Size: 2801716
 MD5sum: b637228e1c0d01457e065d02cb2979bd
 SHA1: 649fa94adefd10d916935a7cc701f5d869b5c989
@@ -3452,7 +3452,7 @@ Installed-Size: 23040
 Depends: clang, libandroid-spawn, libc++, libedit, libxml2, python, ncurses-ui-libs, libllvm (= 21.1.8)
 Breaks: lldb-dev, lldb-static
 Replaces: lldb-dev, lldb-static
-Filename: ./lldb_21.1.8_aarch64.deb
+Filename: pool/main/lldb_21.1.8_aarch64.deb
 Size: 4915548
 MD5sum: bba218459789c550319e8207bc4e005e
 SHA1: 921ae24c269c2f350cfe4e504802cdc2462197fb
@@ -3468,7 +3468,7 @@ Installed-Size: 70284
 Depends: libllvm (= 21.1.8)
 Breaks: libllvm (<< 11.0.0-1)
 Replaces: libllvm (<< 11.0.0-1)
-Filename: ./llvm_21.1.8_aarch64.deb
+Filename: pool/main/llvm_21.1.8_aarch64.deb
 Size: 14601400
 MD5sum: b83ffc9c29df00bc648680e82ada4197
 SHA1: 4a887b9553e6c10e7abb49628d8ef67e739f3ae4
@@ -3484,7 +3484,7 @@ Installed-Size: 12976
 Depends: libc++, ncurses, zlib, zstd
 Breaks: libllvm (<< 16.0.0)
 Replaces: libllvm (<< 16.0.0)
-Filename: ./llvm-tools_21.1.8_aarch64.deb
+Filename: pool/main/llvm-tools_21.1.8_aarch64.deb
 Size: 2363084
 MD5sum: 5bdeee2a88864f88d3d7b7cc92b9e5db
 SHA1: ab348f457420f8b34ef0835666153b3dea2dfd8f
@@ -3500,7 +3500,7 @@ Installed-Size: 944
 Conflicts: make-guile
 Breaks: make-dev
 Replaces: make-dev
-Filename: ./make_4.4.1-1_aarch64.deb
+Filename: pool/main/make_4.4.1-1_aarch64.deb
 Size: 240476
 MD5sum: 64fe4b04695eb0f7085530c8b8cefe98
 SHA1: 99479baa2a9e564c3178e2ad8d8bdf40811bc76d
@@ -3514,7 +3514,7 @@ Architecture: aarch64
 Maintainer: @finagolfin
 Installed-Size: 269072
 Depends: libc++, ncurses, libllvm (= 21.1.8)
-Filename: ./mlir_21.1.8_aarch64.deb
+Filename: pool/main/mlir_21.1.8_aarch64.deb
 Size: 29680356
 MD5sum: a8d743f425b2bbad150253f739a00e64
 SHA1: 8ec1db4c4dfbe9055f155485efd17d6dded7c9a0
@@ -3529,7 +3529,7 @@ Maintainer: @termux
 Installed-Size: 560
 Depends: libblkid, libsmartcols, libmount
 Breaks: termux-tools (<= 1.34.1)
-Filename: ./mount-utils_2.41.2-1_aarch64.deb
+Filename: pool/main/mount-utils_2.41.2-1_aarch64.deb
 Size: 142900
 MD5sum: 8cbc9673bf5118227a34f2359f8c0e30
 SHA1: f9505406d6fd1fb63b5cb68aed2c62db180852f3
@@ -3544,7 +3544,7 @@ Maintainer: @termux
 Installed-Size: 1600
 Breaks: ncurses-dev, ncurses-utils (<< 6.1.20190511-4)
 Replaces: ncurses-dev, ncurses-utils (<< 6.1.20190511-4)
-Filename: ./ncurses_6.6.20260124_aarch64.deb
+Filename: pool/main/ncurses_6.6.20260124_aarch64.deb
 Size: 558392
 MD5sum: b10ffd221e35af1cfeba64fc5e6974ec
 SHA1: 80c3b82125d8264fbaacdcda51ac1904c7eae587
@@ -3558,7 +3558,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 784
 Depends: ncurses (= 6.6.20260124)
-Filename: ./ncurses-static_6.6.20260124_aarch64.deb
+Filename: pool/main/ncurses-static_6.6.20260124_aarch64.deb
 Size: 153912
 MD5sum: 7e5fab54f42869efffad6d7e53377039
 SHA1: ea78652b295a0de925d247ab2e26f52ee630b22f
@@ -3574,7 +3574,7 @@ Installed-Size: 148
 Depends: ncurses (= 6.6.20260124)
 Breaks: ncurses (<< 6.4)
 Replaces: ncurses (<< 6.4)
-Filename: ./ncurses-ui-libs_6.6.20260124_aarch64.deb
+Filename: pool/main/ncurses-ui-libs_6.6.20260124_aarch64.deb
 Size: 32928
 MD5sum: 3ed8c55758b94207e33c6f92651952b9
 SHA1: a88d19594ba6106ef7b083756e388b788dfdba6b
@@ -3588,7 +3588,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 260
 Depends: ncurses-ui-libs, ncurses (= 6.6.20260124)
-Filename: ./ncurses-ui-libs-static_6.6.20260124_aarch64.deb
+Filename: pool/main/ncurses-ui-libs-static_6.6.20260124_aarch64.deb
 Size: 39456
 MD5sum: 5accfd959e93559f5f6117f1d7cd01aa
 SHA1: 304fc8d69cfbfa32d707e797c3565dda6d967018
@@ -3602,7 +3602,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 272
 Depends: ncurses (= 6.6.20260124)
-Filename: ./ncurses-utils_6.6.20260124_aarch64.deb
+Filename: pool/main/ncurses-utils_6.6.20260124_aarch64.deb
 Size: 89196
 MD5sum: 92b00274ba5e5d801c2aeca3d3ca9f19
 SHA1: 02086559fa00d2dbaf28b12c59807712ecf5ec5a
@@ -3617,7 +3617,7 @@ Maintainer: @termux
 Installed-Size: 31264
 Conflicts: libutil-dev, libgcc, libandroid-support-dev
 Replaces: libutil-dev, libgcc, libandroid-support-dev, ndk-stl
-Filename: ./ndk-sysroot_29-2_aarch64.deb
+Filename: pool/main/ndk-sysroot_29-2_aarch64.deb
 Size: 1952288
 MD5sum: e72b71ef84bec54b073d00109a185cc0
 SHA1: 694cf2616920bb52faac1a98f49eefd0c689d850
@@ -3631,7 +3631,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 112
 Depends: libnettle (= 3.10.2-1)
-Filename: ./nettle_3.10.2-1_aarch64.deb
+Filename: pool/main/nettle_3.10.2-1_aarch64.deb
 Size: 18156
 MD5sum: cfbecc70fbc4388014a04cd5ba091785
 SHA1: 2ea6bdb2ae27f59be8e9dbcaa56d610a1093dc45
@@ -3645,7 +3645,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 7900
 Depends: zlib, libnss (= 3.120)
-Filename: ./nss-utils_3.120_aarch64.deb
+Filename: pool/main/nss-utils_3.120_aarch64.deb
 Size: 1362544
 MD5sum: aaaeac5617bd1751e4869f16ef972422
 SHA1: de3693f7b4d99fe64529c7b546c4ae11136368d6
@@ -3661,7 +3661,7 @@ Installed-Size: 5000
 Depends: imath, libc++, openjph, zlib
 Conflicts: openexr2
 Replaces: openexr2
-Filename: ./openexr_3.4.0-1_aarch64.deb
+Filename: pool/main/openexr_3.4.0-1_aarch64.deb
 Size: 844240
 MD5sum: b7a1226381b8735d72c144bdd13fbaf4
 SHA1: 1f4149d3915dba96105da8f27a9531d38c90a110
@@ -3676,7 +3676,7 @@ Maintainer: @termux
 Installed-Size: 516
 Breaks: openjpeg-dev
 Replaces: openjpeg-dev
-Filename: ./openjpeg_2.5.4_aarch64.deb
+Filename: pool/main/openjpeg_2.5.4_aarch64.deb
 Size: 150352
 MD5sum: 87165eaf28653b6d0c70b5c73dd8a811
 SHA1: 4286dd79ecfe990b9a94b9f2832ffbd096f64e02
@@ -3690,7 +3690,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 276
 Depends: libtiff, littlecms, libpng, openjpeg (= 2.5.4)
-Filename: ./openjpeg-tools_2.5.4_aarch64.deb
+Filename: pool/main/openjpeg-tools_2.5.4_aarch64.deb
 Size: 71704
 MD5sum: 4a96d78995c64638b6c0342cca6ece77
 SHA1: 195b69b494fa22a7f8f10ee53127418b5d6f287a
@@ -3704,7 +3704,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 496
 Depends: libc++, libtiff
-Filename: ./openjph_0.21.2_aarch64.deb
+Filename: pool/main/openjph_0.21.2_aarch64.deb
 Size: 111692
 MD5sum: b9dc279babd9351daf52c848678b46b5
 SHA1: 878f37730008bf9830e33e7399a37b496201848b
@@ -3721,7 +3721,7 @@ Depends: ca-certificates, zlib
 Conflicts: libcurl (<< 7.61.0-1)
 Breaks: openssl-tool (<< 1.1.1b-1), openssl-dev
 Replaces: openssl-tool (<< 1.1.1b-1), openssl-dev
-Filename: ./openssl_1:3.6.1_aarch64.deb
+Filename: pool/main/openssl_1:3.6.1_aarch64.deb
 Size: 2478368
 MD5sum: 8610ed3183170ab3a54a3ce55e89ebb6
 SHA1: 8bbfb909f3ca6d5f533a8c7227bcfbaf2c3491f0
@@ -3735,7 +3735,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 12064
 Depends: openssl (= 1:3.6.1)
-Filename: ./openssl-static_1:3.6.1_aarch64.deb
+Filename: pool/main/openssl-static_1:3.6.1_aarch64.deb
 Size: 2632224
 MD5sum: c1c73b79bebd9c9da9c30cecdc82e8c9
 SHA1: 0a540990ee2dd2313d72d7b14ecc6e21a278fcf5
@@ -3749,7 +3749,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 968
 Depends: openssl (= 1:3.6.1)
-Filename: ./openssl-tool_1:3.6.1_aarch64.deb
+Filename: pool/main/openssl-tool_1:3.6.1_aarch64.deb
 Size: 278064
 MD5sum: c1c6ae4c26248e9f27c0abd5f443afe0
 SHA1: b158ed6b62fc1dac4033df29508e13341117117e
@@ -3765,7 +3765,7 @@ Installed-Size: 1128
 Depends: fontconfig, freetype, fribidi, glib, harfbuzz, libcairo, libx11, libxft, libxrender, zstd
 Breaks: pango-dev
 Replaces: pango-dev
-Filename: ./pango_1.57.0_aarch64.deb
+Filename: pool/main/pango_1.57.0_aarch64.deb
 Size: 241740
 MD5sum: fb6b3ea66990f229703cd35de247feb6
 SHA1: 245a7b06f5d0148cf6c40e78d46c66382e6e1185
@@ -3780,7 +3780,7 @@ Maintainer: @termux
 Installed-Size: 4348
 Breaks: pcre2-dev
 Replaces: pcre2-dev
-Filename: ./pcre2_10.47_aarch64.deb
+Filename: pool/main/pcre2_10.47_aarch64.deb
 Size: 960484
 MD5sum: 61c71e3c53c8bf226fa6979403f355e8
 SHA1: 43667738eca7ae274dc251aa78ab331cc28e87a0
@@ -3794,7 +3794,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 1836
 Depends: pcre2 (= 10.47)
-Filename: ./pcre2-static_10.47_aarch64.deb
+Filename: pool/main/pcre2-static_10.47_aarch64.deb
 Size: 375872
 MD5sum: fff0bf4e085206aadd3d96caf66977fe
 SHA1: c90746db4d0a80ba0f9d4f0eafb5b51f8e83ff0b
@@ -3808,7 +3808,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 104
 Depends: pcre2 (= 10.47)
-Filename: ./pcre2grep_10.47_aarch64.deb
+Filename: pool/main/pcre2grep_10.47_aarch64.deb
 Size: 34080
 MD5sum: 56f437fdd96eacc8073882961379ce28
 SHA1: 36fedc8107473ebf9b94260bb2ac4a28c215b996
@@ -3822,7 +3822,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 208
 Depends: libandroid-support, libassuan, libgpg-error, libiconv, ncurses
-Filename: ./pinentry_1.3.2-2_aarch64.deb
+Filename: pool/main/pinentry_1.3.2-2_aarch64.deb
 Size: 47348
 MD5sum: ab06c00edc362ffebb272c71531b8bc5
 SHA1: 07c07bb5abc3f29dfad9ab168ce430c673aa9476
@@ -3836,7 +3836,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 140
 Depends: glib
-Filename: ./pkg-config_0.29.2-3_aarch64.deb
+Filename: pool/main/pkg-config_0.29.2-3_aarch64.deb
 Size: 32740
 MD5sum: 0303e97c3b2dc17f985ad861e3ed5e77
 SHA1: 3616ff254432d2d421f5e1cc7bf0bb7e17df5de2
@@ -3852,7 +3852,7 @@ Installed-Size: 6552
 Depends: fontconfig, freetype, glib, gpgme, gpgmepp, libc++, libcairo, libcurl, libiconv, libjpeg-turbo, libnspr, libnss, libpng, libtiff, littlecms, openjpeg, zlib, zstd
 Breaks: poppler-dev, poppler-qt (<< 24.05.0)
 Replaces: poppler-dev, poppler-qt (<< 22.04.0-3)
-Filename: ./poppler_24.05.0-5_aarch64.deb
+Filename: pool/main/poppler_24.05.0-5_aarch64.deb
 Size: 1178580
 MD5sum: 5fed6523c616d3f28bad131fe6bfe0e0
 SHA1: edff2a7cda0172f531eeec15070ca4649bcfa58b
@@ -3869,7 +3869,7 @@ Installed-Size: 680
 Depends: ncurses
 Breaks: procps-dev
 Replaces: procps-dev
-Filename: ./procps_3.3.17-6_aarch64.deb
+Filename: pool/main/procps_3.3.17-6_aarch64.deb
 Size: 143092
 MD5sum: 7f5531b22b9cf64888e7c4136a973f05
 SHA1: c96154f04ca044ea00ad1bdba6706110a59451c6
@@ -3883,7 +3883,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 152
 Depends: procps (= 3.3.17-6)
-Filename: ./procps-static_3.3.17-6_aarch64.deb
+Filename: pool/main/procps-static_3.3.17-6_aarch64.deb
 Size: 28500
 MD5sum: 0fb126e24969fb4deab21bb97d023d46
 SHA1: 609894046c29a2f27288094e7011754264885bb4
@@ -3898,7 +3898,7 @@ Essential: yes
 Maintainer: @termux
 Installed-Size: 340
 Depends: ncurses
-Filename: ./psmisc_23.7-1_aarch64.deb
+Filename: pool/main/psmisc_23.7-1_aarch64.deb
 Size: 93188
 MD5sum: f69d4a04f76c5b73a442c134ad8cdf47
 SHA1: 6738876dad7568d36f25b282cf2c5a00c56ad195
@@ -3917,7 +3917,7 @@ Suggests: python-tkinter
 Breaks: python2 (<= 2.7.15), python-dev
 Replaces: python-dev
 Provides: python3
-Filename: ./python_3.12.12-1_aarch64.deb
+Filename: pool/main/python_3.12.12-1_aarch64.deb
 Size: 4474508
 MD5sum: 08c3f364a6beb8b0b53ee7bddc33dbdd
 SHA1: ae05cec55922d8ef7d0285fbcd7a69450c7617b6
@@ -3933,7 +3933,7 @@ Installed-Size: 1840
 Depends: python (= 3.12.12-1)
 Breaks: python (<< 3.11.1-3)
 Replaces: python (<< 3.11.1-3)
-Filename: ./python-ensurepip-wheels_3.12.12-1_all.deb
+Filename: pool/main/python-ensurepip-wheels_3.12.12-1_all.deb
 Size: 1801588
 MD5sum: cb65a15f6bad4fc6184b2829674ac7fd
 SHA1: 07880dbbeaaa3c8b95c97ff74a7ef4aea879af85
@@ -3947,7 +3947,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 4552
 Depends: libxml2, libxslt, python, python-pip
-Filename: ./python-lxml_6.0.2_aarch64.deb
+Filename: pool/main/python-lxml_6.0.2_aarch64.deb
 Size: 992924
 MD5sum: 156cc168ea99fb348242a52cbdf14ebb
 SHA1: 35d5e3764ed2f9cfcb072eb7d53a4b82995c1451
@@ -3961,7 +3961,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 1992
 Depends: freetype, libimagequant, libjpeg-turbo, libraqm, libtiff, libwebp, libxcb, littlecms, openjpeg, python, python-pip, zlib
-Filename: ./python-pillow_12.1.1-1_aarch64.deb
+Filename: pool/main/python-pillow_12.1.1-1_aarch64.deb
 Size: 398008
 MD5sum: 5fe7421fa25e2fdc1bf778030b77db16
 SHA1: d041e92b879cbcbc9dd5925e7ca6d1cb4b6a5c16
@@ -3977,7 +3977,7 @@ Installed-Size: 7232
 Depends: python (>= 3.11.1-1)
 Recommends: clang, make, pkg-config
 Breaks: python (<< 3.11.1-1)
-Filename: ./python-pip_26.0-1_all.deb
+Filename: pool/main/python-pip_26.0-1_all.deb
 Size: 1170984
 MD5sum: bc576c91e24d836230f9041b5f310ff6
 SHA1: c81ae29028aebd914759a2d0c614d455b953f89a
@@ -3991,7 +3991,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 47112
 Depends: python (= 3.12.12-1)
-Filename: ./python-static_3.12.12-1_aarch64.deb
+Filename: pool/main/python-static_3.12.12-1_aarch64.deb
 Size: 6762620
 MD5sum: 7529221e4eb08927b40f522e3b3369ac
 SHA1: 2bf4b5dfd31a10c35cf11b42e7e28828f74dd17b
@@ -4007,7 +4007,7 @@ Installed-Size: 2692
 Depends: tcl, tk, python (= 3.12.12-1)
 Breaks: python (<< 3.11.1-3)
 Replaces: python (<< 3.11.1-3)
-Filename: ./python-tkinter_3.12.12-1_aarch64.deb
+Filename: pool/main/python-tkinter_3.12.12-1_aarch64.deb
 Size: 518144
 MD5sum: e5098605e0f58c9514eb30f7581ff1fa
 SHA1: 1cb09eb2c230c08c120873ca1fd3411870876423
@@ -4021,7 +4021,7 @@ Architecture: all
 Maintainer: @lay2dev
 Installed-Size: 616
 Depends: python, python-lxml, python-pillow, python-pip
-Filename: ./python-uiautomator2-botdrop_3.2.0_all.deb
+Filename: pool/main/python-uiautomator2-botdrop_3.2.0_all.deb
 Size: 188288
 MD5sum: 682aeb7234a8551b7f50c5a7f0428f50
 SHA1: 00c782a61dac2cceaf2fde86351bf3bd184146ff
@@ -4038,7 +4038,7 @@ Depends: xcb-proto (= 1.17.0-1)
 Recommends: python
 Breaks: xcb-proto (<< 1.15.2)
 Replaces: xcb-proto (<< 1.15.2)
-Filename: ./python-xcbgen_1.17.0-1_all.deb
+Filename: pool/main/python-xcbgen_1.17.0-1_all.deb
 Size: 15176
 MD5sum: 3e8c8f7c869793e11606bdae8d5d812f
 SHA1: 85d960116aa19cd324f60023c83c3c0e985c043d
@@ -4053,7 +4053,7 @@ Maintainer: @termux
 Installed-Size: 24
 Depends: python, libunbound (= 1.24.2-1)
 Conflicts: unbound (<< 1.15.0-1)
-Filename: ./pyunbound_1.24.2-1_aarch64.deb
+Filename: pool/main/pyunbound_1.24.2-1_aarch64.deb
 Size: 772
 MD5sum: a93e076105224e4591e3dcf64d771908
 SHA1: 424a76093684181d096541d1aa16a1630de1be4e
@@ -4067,7 +4067,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 152
 Depends: libc++, zstd (= 1.5.7-1)
-Filename: ./pzstd_1.5.7-1_aarch64.deb
+Filename: pool/main/pzstd_1.5.7-1_aarch64.deb
 Size: 41784
 MD5sum: 97bf94029e0bc1c5f82b9a60d281f897
 SHA1: 46e5a7cdf1c43a1e8b19808c4828cd62d6783414
@@ -4080,7 +4080,7 @@ Version: 0.8.1
 Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 3248
-Filename: ./rav1e_0.8.1_aarch64.deb
+Filename: pool/main/rav1e_0.8.1_aarch64.deb
 Size: 988656
 MD5sum: b4f8664154205d38497093a787407d18
 SHA1: d134c32198d05dc19275a76d02e1052a90167950
@@ -4096,7 +4096,7 @@ Installed-Size: 1932
 Depends: libandroid-support, ncurses
 Breaks: bash (<< 5.0), readline-dev
 Replaces: readline-dev
-Filename: ./readline_8.3.1-2_aarch64.deb
+Filename: pool/main/readline_8.3.1-2_aarch64.deb
 Size: 294112
 MD5sum: d842f449293addf0266631aeee891d63
 SHA1: 6540c2fc30d87de58ae7542fe5ffea65aef9efa0
@@ -4110,7 +4110,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 712
 Depends: readline (= 8.3.1-2)
-Filename: ./readline-static_8.3.1-2_aarch64.deb
+Filename: pool/main/readline-static_8.3.1-2_aarch64.deb
 Size: 124808
 MD5sum: d1f1a7a86d7b7065da2e01fedf409cad
 SHA1: 3d73bec943d7ba5e78e604b7988df9d94479a267
@@ -4123,7 +4123,7 @@ Version: 1.3
 Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 48
-Filename: ./resolv-conf_1.3_aarch64.deb
+Filename: pool/main/resolv-conf_1.3_aarch64.deb
 Size: 992
 MD5sum: 50a21d73c5f2a8e2c78ab352138c5942
 SHA1: 5dac734221a37eda4969acd47c9767270c01c64f
@@ -4139,7 +4139,7 @@ Installed-Size: 508
 Depends: libgcrypt, libksba, libgpg-error, libassuan, libnpth, libusb, gnupg (= 2.5.17)
 Conflicts: gnupg (<< 2.3.3-2)
 Replaces: gnupg (<< 2.3.3-2)
-Filename: ./scdaemon_2.5.17_aarch64.deb
+Filename: pool/main/scdaemon_2.5.17_aarch64.deb
 Size: 183824
 MD5sum: c8d864bd7e6244b3613100ff5401088b
 SHA1: 8cd29492be7febf887af1121bb4288d2a2719085
@@ -4153,7 +4153,7 @@ Architecture: aarch64
 Essential: yes
 Maintainer: @termux
 Installed-Size: 412
-Filename: ./sed_4.9-2_aarch64.deb
+Filename: pool/main/sed_4.9-2_aarch64.deb
 Size: 117712
 MD5sum: eaf500ed9fbaccc7f267c5a5abd8677b
 SHA1: bfc5e95d03cc44943116f0844ca4e2cb75e28ab6
@@ -4167,7 +4167,7 @@ Architecture: aarch64
 Maintainer: BotDrop <support@botdrop.app>
 Installed-Size: 428
 Depends: libvips, glib, libarchive
-Filename: ./sharp-node-addon_0.34.5_aarch64.deb
+Filename: pool/main/sharp-node-addon_0.34.5_aarch64.deb
 Size: 111272
 MD5sum: 6fe76e83542250c0d13876f931934884
 SHA1: c0125cc14e8df7c3172ec225646a7386aa6f7414
@@ -4182,7 +4182,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 1456
 Depends: readline, zlib
-Filename: ./sqlite_3.51.2_aarch64.deb
+Filename: pool/main/sqlite_3.51.2_aarch64.deb
 Size: 618220
 MD5sum: 6b6eecc8a1842d47dd7cd85fe764d604
 SHA1: 738beebd07223602e5111e50f07948bc3d2673b2
@@ -4196,7 +4196,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 6916
 Depends: libc++, pcre2, zlib
-Filename: ./swig_4.4.1_aarch64.deb
+Filename: pool/main/swig_4.4.1_aarch64.deb
 Size: 928044
 MD5sum: f4336a24f89ac97891341c8de3b20705
 SHA1: 289b33ade07e682283aeeb2601526a1f8457bdd9
@@ -4211,7 +4211,7 @@ Essential: yes
 Maintainer: @termux
 Installed-Size: 1268
 Depends: libacl, libandroid-glob, libandroid-selinux, libiconv
-Filename: ./tar_1.35-2_aarch64.deb
+Filename: pool/main/tar_1.35-2_aarch64.deb
 Size: 345428
 MD5sum: 5287bce673536d0ae3687c5d427d2915
 SHA1: ec15311b1ad5fb3244c6c2e596655fe0e68929e4
@@ -4227,7 +4227,7 @@ Installed-Size: 7728
 Depends: zlib
 Breaks: tcl-dev, tcl-static
 Replaces: tcl-dev, tcl-static
-Filename: ./tcl_8.6.14-1_aarch64.deb
+Filename: pool/main/tcl_8.6.14-1_aarch64.deb
 Size: 2260476
 MD5sum: 589291da4fc67df236343774f6c9bd95
 SHA1: 0d2964f8734406c3f886de6aca0b3f21c6404a47
@@ -4241,7 +4241,7 @@ Architecture: all
 Maintainer: Michal Bednarski @michalbednarski
 Installed-Size: 620
 Conflicts: termux-tools (<< 0.51)
-Filename: ./termux-am_0.8.0-2_all.deb
+Filename: pool/main/termux-am_0.8.0-2_all.deb
 Size: 577032
 MD5sum: f2b6e3fa1619fa67585280f3018ffb24
 SHA1: 18872d9fe734ed2cffd1d759ef2b0f6c95d2fc6b
@@ -4255,7 +4255,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 88
 Depends: libc++
-Filename: ./termux-am-socket_1.5.0-1_aarch64.deb
+Filename: pool/main/termux-am-socket_1.5.0-1_aarch64.deb
 Size: 16384
 MD5sum: 17fb53dd302f340251fba26158735d7b
 SHA1: abd5a68d87a02396a257058b100508233f37989a
@@ -4269,7 +4269,7 @@ Architecture: aarch64
 Essential: yes
 Maintainer: @termux
 Installed-Size: 1948
-Filename: ./termux-core_0.4.0-1_aarch64.deb
+Filename: pool/main/termux-core_0.4.0-1_aarch64.deb
 Size: 197536
 MD5sum: ca27313e09195b30453adf608ed96752
 SHA1: bf7ad23f879498b32074467f377ae501bf35a3aa
@@ -4283,7 +4283,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 136
 Depends: termux-core (= 0.4.0-1)
-Filename: ./termux-core-static_0.4.0-1_aarch64.deb
+Filename: pool/main/termux-core-static_0.4.0-1_aarch64.deb
 Size: 20120
 MD5sum: fd2989edd0bff12f3e4305da236b855d
 SHA1: cde214d97c04f14609a40be115235e1e442fdccc
@@ -4297,7 +4297,7 @@ Architecture: aarch64
 Essential: yes
 Maintainer: @termux
 Installed-Size: 2088
-Filename: ./termux-exec_1:2.4.0-1_aarch64.deb
+Filename: pool/main/termux-exec_1:2.4.0-1_aarch64.deb
 Size: 286540
 MD5sum: c8797f6302af778ffc0dfc255c25c14b
 SHA1: 01f2d594441c7b7d8af1af7be17d35a4fe4f8786
@@ -4311,7 +4311,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 76
 Depends: termux-exec (= 1:2.4.0-1)
-Filename: ./termux-exec-static_1:2.4.0-1_aarch64.deb
+Filename: pool/main/termux-exec-static_1:2.4.0-1_aarch64.deb
 Size: 10528
 MD5sum: f0fd4c0d012644af382f292886f06267
 SHA1: 9882d4bf12650afea9b019ff6963b8a5e2615a8d
@@ -4330,7 +4330,7 @@ Recommends: ed, dos2unix, inetutils, net-tools, patch, unzip
 Suggests: termux-api
 Conflicts: procps (<< 3.3.15-2)
 Breaks: termux-keyring (<< 1.9)
-Filename: ./termux-tools_1.46.0+really1.45.0-1_aarch64.deb
+Filename: pool/main/termux-tools_1.46.0+really1.45.0-1_aarch64.deb
 Size: 23364
 MD5sum: 2cf36cf893113570b111ab88e113694d
 SHA1: 78484cb41fa46b4e92f509835517810eb9be2054
@@ -4344,7 +4344,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 5568
 Depends: fontconfig, libx11, libxft, libxss, tcl
-Filename: ./tk_8.6.14-1_aarch64.deb
+Filename: pool/main/tk_8.6.14-1_aarch64.deb
 Size: 1754948
 MD5sum: 221ee87ec0e8e8ec97093d4da0d8ed8b
 SHA1: 9cdae71ce0ae09a3512765fb1945181464c171a2
@@ -4357,7 +4357,7 @@ Version: 2.37-8
 Architecture: all
 Maintainer: @termux
 Installed-Size: 10108
-Filename: ./ttf-dejavu_2.37-8_all.deb
+Filename: pool/main/ttf-dejavu_2.37-8_all.deb
 Size: 2460284
 MD5sum: 21d540367ff21d57000802762b89cc51
 SHA1: a6725ecb680740382a833408c8a4f9b29b97d42b
@@ -4371,7 +4371,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 3460
 Depends: libexpat, libunbound (= 1.24.2-1)
-Filename: ./unbound_1.24.2-1_aarch64.deb
+Filename: pool/main/unbound_1.24.2-1_aarch64.deb
 Size: 639808
 MD5sum: 482ab08f8b3b57a4b1f965031a32279a
 SHA1: a14fb271a2673ed02d2b7367f4e7d513f4374f3b
@@ -4388,7 +4388,7 @@ Installed-Size: 4368
 Depends: libandroid-glob, libandroid-posix-semaphore, libcap-ng, libsmartcols, ncurses, zlib
 Breaks: util-linux-dev
 Replaces: util-linux-dev
-Filename: ./util-linux_2.41.2-1_aarch64.deb
+Filename: pool/main/util-linux_2.41.2-1_aarch64.deb
 Size: 757932
 MD5sum: 8dfc361b83eb77f3a925037de3ec5e37
 SHA1: a246f6dbd037b271884cfcedb613eea83f72bf2b
@@ -4402,7 +4402,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 3208
 Depends: util-linux (= 2.41.2-1)
-Filename: ./util-linux-static_2.41.2-1_aarch64.deb
+Filename: pool/main/util-linux-static_2.41.2-1_aarch64.deb
 Size: 431156
 MD5sum: 34e34b33e4a8bff12e3675e48f2089cf
 SHA1: 6b1492a4ca3d7b4be841ad27246011e731f16579
@@ -4416,7 +4416,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 228
 Depends: libsmartcols, libuuid
-Filename: ./uuid-utils_2.41.2-1_aarch64.deb
+Filename: pool/main/uuid-utils_2.41.2-1_aarch64.deb
 Size: 41056
 MD5sum: 058b6502383fab000bf43ae4e0215454
 SHA1: 2259689d8b5e8a1e916709a1eca7504b58ad5cf1
@@ -4433,7 +4433,7 @@ Depends: glib
 Recommends: clang, pkg-config
 Breaks: valac-dev
 Replaces: valac-dev
-Filename: ./valac_0.56.18-1_aarch64.deb
+Filename: pool/main/valac_0.56.18-1_aarch64.deb
 Size: 1661876
 MD5sum: 48b877696282ca548e2189935088f183
 SHA1: 7ae0642d9c9058e23e8e83ff73cc5b2a89391ef0
@@ -4447,7 +4447,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 6480
 Depends: valac (= 0.56.18-1)
-Filename: ./valac-static_0.56.18-1_aarch64.deb
+Filename: pool/main/valac-static_0.56.18-1_aarch64.deb
 Size: 940812
 MD5sum: 9afb68ef35e07c570cdd92f266c9faf4
 SHA1: 91af1fb4bd523a14236ee6aa60a09e23fd282ef2
@@ -4461,7 +4461,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 1932
 Depends: graphviz, valac (= 0.56.18-1)
-Filename: ./valadoc_0.56.18-1_aarch64.deb
+Filename: pool/main/valadoc_0.56.18-1_aarch64.deb
 Size: 342812
 MD5sum: 7f3f0c13be8716b98eb14b4e073fe182
 SHA1: 27ef9519991bf80cf28e21ebac7586087dc82b38
@@ -4475,7 +4475,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 2708
 Depends: valadoc, valac (= 0.56.18-1)
-Filename: ./valadoc-static_0.56.18-1_aarch64.deb
+Filename: pool/main/valadoc-static_0.56.18-1_aarch64.deb
 Size: 369564
 MD5sum: 1b7b7b8fc5e847956284464904a2e25c
 SHA1: 57e45c9619ca08bb27e0e5211ffed99dd0840d19
@@ -4489,7 +4489,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 84
 Conflicts: debianutils (<< 5.7-1)
-Filename: ./which_2.23-1_aarch64.deb
+Filename: pool/main/which_2.23-1_aarch64.deb
 Size: 12556
 MD5sum: 04c65e179bad91beb0f02cc650e770ed
 SHA1: b93c4f59a312e42dff9c49237e358561bd020a0f
@@ -4503,7 +4503,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 176
 Depends: libx265 (= 4.1-3)
-Filename: ./x265_4.1-3_aarch64.deb
+Filename: pool/main/x265_4.1-3_aarch64.deb
 Size: 42132
 MD5sum: 92d2dfca0ad1d456a6ce0081a99401d1
 SHA1: 3f6e33d936b0c546421989563fbd2d338ea5dc71
@@ -4518,7 +4518,7 @@ Maintainer: @termux
 Installed-Size: 812
 Conflicts: xcbproto
 Replaces: xcbproto
-Filename: ./xcb-proto_1.17.0-1_all.deb
+Filename: pool/main/xcb-proto_1.17.0-1_all.deb
 Size: 78620
 MD5sum: 2072918a93de4db3e2df72907d396b64
 SHA1: 7930399e0a66d423250f667f0f5692d3a20aae9b
@@ -4531,7 +4531,7 @@ Version: 1.20.2
 Architecture: all
 Maintainer: @termux
 Installed-Size: 144
-Filename: ./xorg-util-macros_1.20.2_all.deb
+Filename: pool/main/xorg-util-macros_1.20.2_all.deb
 Size: 21960
 MD5sum: 463ea305860d27bc4a8506547d7df0d5
 SHA1: f94bc6981fc355a197488b77fbce2c6d90828e99
@@ -4547,7 +4547,7 @@ Installed-Size: 2292
 Depends: xorg-util-macros
 Conflicts: x11-proto
 Replaces: x11-proto
-Filename: ./xorgproto_2025.1_all.deb
+Filename: pool/main/xorgproto_2025.1_all.deb
 Size: 249700
 MD5sum: 140b7dacd679461006fd30b7620a5590
 SHA1: 57160b90712f8411289a727bfd68d7e18b559b1d
@@ -4561,7 +4561,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 68
 Depends: libxslt (= 1.1.45)
-Filename: ./xsltproc_1.1.45_aarch64.deb
+Filename: pool/main/xsltproc_1.1.45_aarch64.deb
 Size: 11968
 MD5sum: ebc2d6f571c6b85b4ec4322cc63040c8
 SHA1: 325360238a922a172b398672866efc902b9eef8e
@@ -4574,7 +4574,7 @@ Version: 1.6.0
 Architecture: all
 Maintainer: @termux
 Installed-Size: 296
-Filename: ./xtrans_1.6.0_all.deb
+Filename: pool/main/xtrans_1.6.0_all.deb
 Size: 39884
 MD5sum: fdadf1f824119ddaa3f2663e69e02c0a
 SHA1: a8510ca1bbeaee913080d3e8cd2c75918c98bf94
@@ -4589,7 +4589,7 @@ Essential: yes
 Maintainer: @termux
 Installed-Size: 228
 Depends: liblzma (= 5.8.2)
-Filename: ./xz-utils_5.8.2_aarch64.deb
+Filename: pool/main/xz-utils_5.8.2_aarch64.deb
 Size: 71228
 MD5sum: 388de8d1fc006158d37db1649d588a6d
 SHA1: 00cb9a47da7808655d0d8fb1c99231da99a92611
@@ -4604,7 +4604,7 @@ Maintainer: @termux
 Installed-Size: 256
 Breaks: ndk-sysroot (<< 19b-3), zlib-dev
 Replaces: ndk-sysroot (<< 19b-3), zlib-dev
-Filename: ./zlib_1.3.1-1_aarch64.deb
+Filename: pool/main/zlib_1.3.1-1_aarch64.deb
 Size: 60324
 MD5sum: 6689a4a00c088c8e1feaa9b8c0c4f723
 SHA1: 0b9341593f39ff94a037f2114bf5ddb3a2e94868
@@ -4618,7 +4618,7 @@ Architecture: aarch64
 Maintainer: @termux
 Installed-Size: 136
 Depends: zlib (= 1.3.1-1)
-Filename: ./zlib-static_1.3.1-1_aarch64.deb
+Filename: pool/main/zlib-static_1.3.1-1_aarch64.deb
 Size: 34492
 MD5sum: 61d3cec9cdd5a0a9bb0c1e20af9c9ef1
 SHA1: 95b265535fd54f6030871d7108f4138ca170d9c1
@@ -4634,7 +4634,7 @@ Installed-Size: 1312
 Depends: liblzma, zlib
 Breaks: zstd-dev
 Replaces: zstd-dev
-Filename: ./zstd_1.5.7-1_aarch64.deb
+Filename: pool/main/zstd_1.5.7-1_aarch64.deb
 Size: 359440
 MD5sum: d59c1bb59991592b8db5e8ce74aa54b7
 SHA1: f1624e44beb1d2179c6a8b89543db693682a92a4
