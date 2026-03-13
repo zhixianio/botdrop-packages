@@ -4019,13 +4019,13 @@ Package: python-uiautomator2-botdrop
 Version: 3.2.0
 Architecture: all
 Maintainer: @lay2dev
-Installed-Size: 616
-Depends: python, python-lxml, python-pillow, python-pip
+Installed-Size: 732
+Depends: python, python-lxml, python-pillow
 Filename: pool/main/python-uiautomator2-botdrop_3.2.0_all.deb
-Size: 188288
-MD5sum: 682aeb7234a8551b7f50c5a7f0428f50
-SHA1: 00c782a61dac2cceaf2fde86351bf3bd184146ff
-SHA256: 29ccb7ff1a54be589450a77abc69b43d9f396a53f6cf1d2635b41b16f12eeb37
+Size: 197804
+MD5sum: 7fa6bb18e03a3a59f2bc41c6fa71eeb3
+SHA1: 27aab601797e2b0bac6ce34d208e84889d52edf4
+SHA256: 26a30e7a468479dbb5098d7c9df2fb7b95eff3bf5b0503781ed9d3e2d2e7c596
 Homepage: https://github.com/openatx/uiautomator2
 Description: Python wrapper for Android UiAutomator2 with HTTP JSON-RPC support (BotDrop fork)
 
